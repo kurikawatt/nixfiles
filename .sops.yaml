@@ -1,0 +1,9 @@
+keys:
+  - &aigis age1p4xz5uvzaljhr2pn9xnxevxacqtvtpdmgvv6lx8mwh0yusg6ge6qq05hvx
+  - &queen age1ke0sx7ethsyr24t7fhdqymsqhxr9mxer5yy2ylgjp92qp5g2xdzsqz4al5
+creation_rules:
+  - path_regex: 'secrets/.+\.(yaml|json|env)$'
+    key_groups:
+      - age:
+        - *aigis
+        - *queen
