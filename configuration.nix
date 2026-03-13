@@ -7,7 +7,7 @@
 }: 
 {
   # Linux Kernel LTS
-  boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot.kernelPackages = pkgs.linuxPackages;
   
   # Nix (i use Nix btw)
   nix.settings = {
