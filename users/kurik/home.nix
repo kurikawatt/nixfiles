@@ -21,6 +21,7 @@ in
     vesktop
     neovim
     obsidian
+    thunderbird
 
     inputs.awww.packages.${system}.awww
     inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
