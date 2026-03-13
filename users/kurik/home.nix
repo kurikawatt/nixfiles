@@ -22,7 +22,8 @@ in
     neovim
     obsidian
     thunderbird
-  
+    bluetuith
+
     inputs.awww.packages.${system}.awww
     inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
   ];

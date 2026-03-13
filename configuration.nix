@@ -21,6 +21,14 @@
   # Enable NetworkManager
   networking.networkmanager.enable = true;
 
+  hardware.bluetooth.enable = true;
+
+  services.pipewire = {
+    enable = true;
+    pulse.enable = true;
+    wireplumber.enable = true;
+  };
+
   # Cachix
   environment.systemPackages = with pkgs; [
     cachix
