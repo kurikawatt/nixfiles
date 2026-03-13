@@ -19,8 +19,9 @@ in
     slurp
     vesktop
     neovim
-
+    
     inputs.awww.packages.${system}.awww
+    inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
   ];
 
   xdg.userDirs = {
