@@ -1,4 +1,5 @@
 {
+  lib,
   pkgs,
   inputs,
   ...
@@ -19,7 +20,8 @@ in
     slurp
     vesktop
     neovim
-    
+    obsidian
+
     inputs.awww.packages.${system}.awww
     inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
   ];

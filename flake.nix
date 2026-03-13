@@ -44,6 +44,9 @@
             {
               networking.hostName = name;
               home-manager.extraSpecialArgs = specialArgs;
+	      home-manager.useGlobalPkgs = true;
+	      home-manager.useUserPackages = true;
+	      nixpkgs.config.allowUnfree = true;
 	    }
           ];
         };
