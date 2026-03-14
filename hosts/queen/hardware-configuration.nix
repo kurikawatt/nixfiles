@@ -24,7 +24,18 @@
       options = [ "fmask=0022" "dmask=0022" ];
     };
 
-  swapDevices = [ ];
+  fileSystems."/games" = {
+    device = "/dev/disk/by-uuid/07a6ea2f-dd9c-44a3-aa1e-e509b0c35f99";
+    fsType = "ext4";
+    options = [ "auto" "nofail" ];
+  };
+
+  swapDevices = [
+    {
+      device = "/.swapfile";
+      size = 32 * 1024; # 32Go
+    }
+  ];
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
