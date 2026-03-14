@@ -23,6 +23,7 @@ in
     obsidian
     thunderbird
     bluetuith
+    pavucontrol
 
     inputs.awww.packages.${system}.awww
     inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
