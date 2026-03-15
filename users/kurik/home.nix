@@ -24,8 +24,9 @@ in
     thunderbird
     bluetuith
     pavucontrol
-
-    inputs.awww.packages.${system}.awww
+    sops
+    
+    inputs.awww.packages.${pkgs.stdenv.hostPlatform.system}.awww
     inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
   ];
 
