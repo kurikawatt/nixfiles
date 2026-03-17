@@ -17,6 +17,10 @@ let
       ipv4 = "172.16.195.12";
       publickey = "NoMBDUInInr8FOij+5yb81WkVveSulARGKZSZgy/Rl0=";
     };
+    queen = {
+      ipv4 = "172.16.195.13";
+      publickey = "OOkD3dCKw7YOO99cCEQOOWoxwTnYLGZ/eebUG9hpuGk=";
+    };
   };
 in
 {
