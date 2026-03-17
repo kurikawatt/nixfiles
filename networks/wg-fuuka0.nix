@@ -38,7 +38,7 @@ PrivateKey = ${config.sops.placeholder."fuuka0/${hostname}/privatekey"}
 
 [Peer]
 PublicKey = ${peers.${fuukaHub}.publickey}
-AllowedIPs = ${peers.${fuukaHub}.ipv4}/32, 172.16.195.0/24
+AllowedIPs = 172.16.195.0/24
 Endpoint = ${config.sops.placeholder."fuuka0/${fuukaHub}/endpoint"}
   '';
 
