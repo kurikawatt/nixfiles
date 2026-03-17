@@ -15,6 +15,7 @@
       "nix-command"
       "flakes"
     ];
+    trusted-users = [ "kurik" "@wheel" ]
     auto-optimise-store = true;
   };
 
