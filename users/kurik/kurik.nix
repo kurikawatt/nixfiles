@@ -6,6 +6,10 @@
 {
   sops.secrets."kurik/password".neededForUsers = true;
 
+  sops.secrets."luks/kurikusb" = {
+    owner = "kurik";
+  };
+
   users.users.kurik = {
     isNormalUser = true;
     extraGroups = [

@@ -38,6 +38,9 @@
   sops.defaultSopsFile = ./secrets/secrets.json;
   sops.age.sshKeyPaths = [ "/home/kurik/.ssh/id_ed25519" ];
 
+  # udisk2
+  services.udisks2.enable = true;
+
   users.mutableUsers = false;
 
   # Keymaps, Languages & Timezone
