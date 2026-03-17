@@ -26,6 +26,7 @@ in
     pavucontrol
     sops
     udiskie
+    jellyfin-desktop
 
     inputs.awww.packages.${pkgs.stdenv.hostPlatform.system}.awww
     inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
