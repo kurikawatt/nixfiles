@@ -10,33 +10,30 @@ in
 {
   home.stateVersion = "25.11";
 
-  programs.ssh = {
-    enable = true;
-    matchBlocks = {
-      "chord" = {
-        hostname = "172.16.195.1";
-	user = "kurik";
-	port = 22;
-	identityFile = "~/.ssh/id_rsa";
-      };
-      "euphausia" = {
-        hostname = "172.16.195.10";
-	user = "kurik";
-	port = 22;
-	identityFile = "~/.ssh/id_rsa";
-      };
-      "aigis" = {
-        hostname = "172.16.195.12";
-	user = "kurik";
-	port = 22;
-	identityFile = "~/.ssh/id_rsa";
-      };
-      "queen" = {
-        hostname = "172.16.195.13";
-	user = "kurik";
-	port = 22;
-	identityFile = "~/.ssh/id_rsa";
-      };
+  programs.ssh.matchBlocks = {
+    "chord" = {
+      hostname = "172.16.195.1";
+      user = "kurik";
+      port = 22;
+      identityFile = "~/.ssh/id_rsa";
+    };
+    "euphausia" = {
+      hostname = "172.16.195.10";
+      user = "kurik";
+      port = 22;
+      identityFile = "~/.ssh/id_rsa";
+    };
+    "aigis" = {
+      hostname = "172.16.195.12";
+      user = "kurik";
+      port = 22;
+      identityFile = "~/.ssh/id_rsa";
+    };
+    "queen" = {
+      hostname = "172.16.195.13";
+      user = "kurik";
+      port = 22;
+      identityFile = "~/.ssh/id_rsa";
     };
   };
 
