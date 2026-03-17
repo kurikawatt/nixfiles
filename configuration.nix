@@ -57,6 +57,8 @@
   home-manager.useGlobalPkgs = true;
   home-manager.useUserPackages = true;
 
+  services.openssh.enable = true;
+
   # Don't touch this, please.
   system.stateVersion = "25.11";
 }
