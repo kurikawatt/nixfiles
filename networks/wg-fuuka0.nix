@@ -33,12 +33,12 @@ in
   config.sops.templates."fuuka0.conf".content =
   ''
 [Interface]
-Address = ${peers.${hostname}.ipv4}/24
+Address = ${peers.${hostname}.ipv4}/32
 PrivateKey = ${config.sops.placeholder."fuuka0/${hostname}/privatekey"}
 
 [Peer]
 PublicKey = ${peers.${fuukaHub}.publickey}
-AllowedIPs = ${peers.${fuukaHub}.ipv4}/24
+AllowedIPs = ${peers.${fuukaHub}.ipv4}/32
 Endpoint = ${config.sops.placeholder."fuuka0/${fuukaHub}/endpoint"}
   '';
 
