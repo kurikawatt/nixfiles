@@ -48,6 +48,7 @@
 	      home-manager.useUserPackages = true;
 	      nixpkgs.config.allowUnfree = true;
 	    }
+	    ./networks/wg-fuuka0.nix
           ];
         };
   in 

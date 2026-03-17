@@ -1,0 +1,45 @@
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
+let
+  hostname = config.networking.hostName; 
+  fuukaHub = "chord";
+
+  peers = {
+    chord = {
+      ipv4 = "172.16.195.1";
+      publickey = "sMoQytVwjqnxSq+MB+7ori5HZr32G866femOjuD17C0=";
+    };
+    aigis = {
+      ipv4 = "172.16.195.12";
+      publickey = "NoMBDUInInr8FOij+5yb81WkVveSulARGKZSZgy/Rl0=";
+    };
+  };
+in
+{
+  config.networking.wireguard.enable = true;
+
+  # Looking for my precious secrets
+  config.sops.secrets."fuuka0/${hostname}/privatekey" = {};
+  config.sops.secrets."fuuka0/${fuukaHub}/endpoint" = {};
+
+  config.sops.templates."fuuka0.conf".content =
+  ''
+[Interface]
+Address = ${peers.${hostname}.ipv4}/24
+PrivateKey = ${config.sops.placeholder."fuuka0/${hostname}/privatekey"}
+
+[Peer]
+PublicKey = ${peers.${fuukaHub}.publickey}
+AllowedIPs = ${peers.${fuukaHub}.ipv4}
+Endpoint = ${config.sops.placeholder."fuuka0/${fuukaHub}/endpoint"}
+  '';
+
+  config.networking.wg-quick.interfaces.fuuka0 = {
+    autostart = true;
+    configFile = config.sops.templates."fuuka0.conf".path;
+  };
+}
