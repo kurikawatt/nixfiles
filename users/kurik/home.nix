@@ -54,6 +54,7 @@ in
     sops
     udiskie
     jellyfin-desktop
+    deluge
 
     inputs.awww.packages.${pkgs.stdenv.hostPlatform.system}.awww
     inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
