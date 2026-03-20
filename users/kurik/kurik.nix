@@ -15,6 +15,7 @@
     extraGroups = [
       "wheel"
       "networkmanager"
+      "tss"
     ];
     shell = pkgs.bash;
     home = "/home/kurik";
