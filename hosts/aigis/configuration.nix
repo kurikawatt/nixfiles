@@ -31,7 +31,7 @@
   ];
 
   sops.gnupg.sshKeyPaths = [ ];
-  sops.age.sshKeyPaths = [ "/home/kurik/id_ed25519" ];
+  sops.age.sshKeyPaths = [ "/home/kurik/.ssh/id_ed25519" ];
   sops.age = {
     keyFile = "/etc/tpm_age";
     plugins = with pkgs; [ age-plugin-tpm ];
