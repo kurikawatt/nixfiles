@@ -8,7 +8,7 @@
     maxGenerations = 5;
   };
 
-  boot.loader.limine.secureBoot.enable;
+  boot.loader.limine.secureBoot.enable = true;
 
   boot.loader.limine.style = {
     backdrop = "000000";
