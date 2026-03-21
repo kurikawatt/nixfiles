@@ -13,6 +13,7 @@
      ../../users/kurik/kurik.nix
      ../../networks/wifi.nix
      ../../modules/desktop/hyprland.nix
+     ../laptop-common/battery.nix
    ];
 
   # TPM
