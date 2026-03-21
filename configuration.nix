@@ -69,13 +69,6 @@
 
   services.openssh.enable = true;
 
-  # TPM
-  security.tpm2 = {
-    enable = true;
-    pkcs11.enable = true;
-    tctiEnvironment.enable = true;
-  };
-
   # Don't touch this, please.
   system.stateVersion = "25.11";
 }
