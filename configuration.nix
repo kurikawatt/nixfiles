@@ -45,8 +45,7 @@
   ];
 
   # Sops
-  sops.defaultSopsFile = ./secrets/secrets.json;
-  sops.age.sshKeyPaths = [ "/home/kurik/.ssh/id_ed25519" ];
+  sops.defaultSopsFile = ./secrets/secrets.json; 
 
   # udisk2
   services.udisks2.enable = true;

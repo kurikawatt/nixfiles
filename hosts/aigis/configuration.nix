@@ -25,5 +25,14 @@
   environment.systemPackages = with pkgs; [
     # SecureBoot
     sbctl
+    # Plugin TPM for age
+    age-plugin-tpm
   ];
+
+  sops.gnupg.sshKeyPaths = [ ];
+  sops.age.sshKeyPaths = [ "/home/kurik/.ssh/id_ed25519" ];
+  sops.age = {
+    keyFile = "/etc/tpm_age";
+    plugins = with pkgs; [ age-plugin-tpm ];
+  };
 }
