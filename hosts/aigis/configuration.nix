@@ -21,4 +21,9 @@
     pkcs11.enable = true;
     tctiEnvironment.enable = true;
   };
+
+  environment.systemPackages = with pkgs; [
+    # SecureBoot
+    sbctl
+  ];
 }
