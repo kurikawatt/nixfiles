@@ -18,6 +18,15 @@
     trusted-users = [ "kurik" "@wheel" ];
     auto-optimise-store = true;
   };
+  programs.nh = {
+    enable = true;
+    flake = ".";
+    clean = {
+      enable = true;
+      dates = "daily";
+      extraArgs = "--keep 5";
+    };
+  };
 
   # Enable NetworkManager
   networking.networkmanager.enable = true;
