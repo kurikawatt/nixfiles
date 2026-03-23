@@ -17,8 +17,8 @@
       CPU_MAX_PERF_ON_BAT = 50;
 
       # Treshold for charging when AC stay
-      START_CHARGE_THRESH_BAT0 = 50;
-      STOP_CHARGE_THRESH_BAT0 = 80;
+      START_CHARGE_THRESH_BAT0 = 70;
+      STOP_CHARGE_THRESH_BAT0 = 90;
     };
   };
 }
