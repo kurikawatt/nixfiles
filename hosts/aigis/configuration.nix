@@ -28,6 +28,8 @@
   # Fingerprint
   services.fprintd.enable = true;
 
+  security.pam.services.ly.fprintAuth = false;
+
   environment.systemPackages = with pkgs; [
     # SecureBoot
     sbctl
