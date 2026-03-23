@@ -25,6 +25,9 @@
     tctiEnvironment.enable = true;
   };
 
+  # Fingerprint
+  services.fprintd.enable = true;
+
   environment.systemPackages = with pkgs; [
     # SecureBoot
     sbctl
