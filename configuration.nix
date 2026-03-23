@@ -8,7 +8,10 @@
 {
   # Linux Kernel LTS
   boot.kernelPackages = pkgs.linuxPackages;
-  
+
+  # Firmware updates
+  services.fwupd.enable = true;
+
   # Nix (i use Nix btw)
   nix.settings = {
     experimental-features = [

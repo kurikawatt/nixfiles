@@ -2,6 +2,10 @@
   ...
 }:
 {
+  import = [
+    ./plymouth.nix
+  ];
+  
   boot.loader.limine = {
     enable = true;
     enableEditor = false;
