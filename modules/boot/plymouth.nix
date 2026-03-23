@@ -10,13 +10,9 @@
       (adi1090x-plymouth-themes.override {
         selected_themes = [ "rings" ];
       })
-    ];
-    consoleLogLevel = 3;
-    initrd.verbose = false;
-    kernelParams = [
-      "quiet"
-      "udev.log_level=3"
-      "systemd.show_status=auto"
-    ];
+    ]; 
   };
+  boot.consoleLogLevel = 3;
+  boot.initrd.verbose = false;
+  boot.kernelParams = [ "quiet" "udev.log_level=3" "systemd.show_status=auto" ];
 }

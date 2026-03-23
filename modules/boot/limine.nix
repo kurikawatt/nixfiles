@@ -2,7 +2,7 @@
   ...
 }:
 {
-  import = [
+  imports = [
     ./plymouth.nix
   ];
   
