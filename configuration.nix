@@ -6,6 +6,10 @@
   ...
 }: 
 {
+  imports = [
+    ./settings/me.nix
+  ];
+
   # Linux Kernel LTS
   boot.kernelPackages = pkgs.linuxPackages;
 

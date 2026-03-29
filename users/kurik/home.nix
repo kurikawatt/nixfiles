@@ -46,7 +46,6 @@ in
     grim
     slurp
     vesktop
-    neovim
     obsidian
     thunderbird
     bluetuith
@@ -58,9 +57,40 @@ in
     yazi
     gimp
 
+    nixd
+    nixpkgs-fmt
+
     inputs.awww.packages.${pkgs.stdenv.hostPlatform.system}.awww
     inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
   ];
+
+  programs.neovim = {
+    enable = true;
+    plugins = with pkgs.vimPlugins; [
+      nvim-lspconfig
+      nvim-treesitter.withAllGrammars
+    ];
+    extraLuaConfig = ''
+    -- Basic config for LSP --
+    local lspconfig = require('lspconfig')
+    lspconfig.nixd.setup({
+      settings = {
+        nixd = {
+          formatting = {
+            command = { "nixpkgs-fmt" },
+	  },
+	},
+      },
+    })
+    -- Autoformat on save
+    vim.api.nvim_create_autocmd("BufWritePre", {
+      pattern = "*.nix",
+      callback = function()
+        vim.lsp.buf.format({ async = false })
+      end,
+    })
+    '';
+  };
 
   programs.gpg.enable = true;
 
