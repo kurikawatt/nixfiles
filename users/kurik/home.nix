@@ -56,6 +56,7 @@ in
     jellyfin-desktop
     deluge
     yazi
+    gimp
 
     inputs.awww.packages.${pkgs.stdenv.hostPlatform.system}.awww
     inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
