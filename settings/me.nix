@@ -1,7 +1,6 @@
-{
-  config,
-  lib,
-  ...
+{ config
+, lib
+, ...
 }:
 let
   cfg = config.me;
@@ -29,5 +28,16 @@ in
     };
 
   };
+
+  options.me.services = {
+    fuuka = {
+      enable = mkOption {
+        type = types.bool;
+        default = true;
+        description = "Connect to fuuka (my VPN)";
+      };
+    };
+  };
+
 }
 

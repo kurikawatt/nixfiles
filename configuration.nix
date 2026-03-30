@@ -1,13 +1,13 @@
-{
-  inputs,
-  config,
-  lib,
-  pkgs,
-  ...
-}: 
+{ inputs
+, config
+, lib
+, pkgs
+, ...
+}:
 {
   imports = [
     ./settings/me.nix
+    ./networks/wg-fuuka0.nix
   ];
 
   # Linux Kernel LTS
@@ -52,7 +52,7 @@
   ];
 
   # Sops
-  sops.defaultSopsFile = ./secrets/secrets.json; 
+  sops.defaultSopsFile = ./secrets/secrets.json;
 
   # udisk2
   services.udisks2.enable = true;

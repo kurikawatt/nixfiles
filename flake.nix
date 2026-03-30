@@ -30,36 +30,36 @@
   };
 
   outputs = { self, sops-nix, ... }@inputs:
-  let 
-    mkHost =
-      name:
+    let
+      mkHost =
+        name:
         inputs.nixpkgs.lib.nixosSystem rec {
           specialArgs = {
             inherit inputs;
           };
           modules = [
-	    inputs.sops-nix.nixosModules.sops
+            inputs.sops-nix.nixosModules.sops
             inputs.home-manager.nixosModules.home-manager
-	    ./hosts/${name}/configuration.nix
+            ./hosts/${name}/configuration.nix
             {
               networking.hostName = name;
               home-manager.extraSpecialArgs = specialArgs;
-	      home-manager.useGlobalPkgs = true;
-	      home-manager.useUserPackages = true;
-	      nixpkgs.config.allowUnfree = true;
-	    }
-	    ./networks/wg-fuuka0.nix
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              nixpkgs.config.allowUnfree = true;
+            }
           ];
         };
-  in 
-  {
-    nixosConfigurations = inputs.nixpkgs.lib.genAttrs [
-      "aigis"
-      "euphausia"      
-      "queen"
-      "fuuka"
-      "metis"
-      "chord"
-    ] mkHost;
-  };
+    in
+    {
+      nixosConfigurations = inputs.nixpkgs.lib.genAttrs [
+        "aigis"
+        "euphausia"
+        "queen"
+        "fuuka"
+        "metis"
+        "chord"
+      ]
+        mkHost;
+    };
 }
