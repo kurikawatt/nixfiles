@@ -13,4 +13,12 @@ in
       description = "Enable Jellyfin Server";
     };
   };
+
+  options.me.services.prowlarr = {
+    enable = mkOption {
+      type = types.bool;
+      default = false;
+      description = "Enable Prowlarr and usefull programs for gathering content";
+    };
+  };
 }
