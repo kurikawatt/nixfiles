@@ -7,6 +7,10 @@ let
   inherit (lib) mkOption types;
 in
 {
+  imports = [
+    ./fuuka.nix
+  ];
+
   options.me = {
 
     user = mkOption {
@@ -27,16 +31,6 @@ in
       description = "Build home using HomeManager";
     };
 
-  };
-
-  options.me.services = {
-    fuuka = {
-      enable = mkOption {
-        type = types.bool;
-        default = true;
-        description = "Connect to fuuka (my VPN)";
-      };
-    };
   };
 
 }
