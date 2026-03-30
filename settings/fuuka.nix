@@ -47,6 +47,10 @@ in
         ipv4 = "172.16.195.1";
         publicKey = "sMoQytVwjqnxSq+MB+7ori5HZr32G866femOjuD17C0=";
       };
+      metis = {
+        ipv4 = "172.16.195.2";
+        publicKey = "BKVRHb2nR3/0ms8E2vG/vFLbTqY55BJ7mzY704Eyfig=";
+      };
       aigis = {
         ipv4 = "172.16.195.12";
         publicKey = "NoMBDUInInr8FOij+5yb81WkVveSulARGKZSZgy/Rl0=";
