@@ -4,11 +4,21 @@
 , pkgs
 , ...
 }:
+let
+  import-tree =
+    path:
+    let
+      inherit (inputs.nixpkgs.lib) fileset hasInfix;
+      nixFiles = fileset.toList (fileset.fileFilter (f: f.hasExt "nix") path);
+    in
+    builtins.filter (p: !(hasInfix "/_" (toString p))) nixFiles;
+in
 {
   imports = [
     ./settings/me.nix
     ./networks/wg-fuuka0.nix
-  ];
+  ]
+  ++ (import-tree ./modules/services);
 
   # Linux Kernel LTS
   boot.kernelPackages = pkgs.linuxPackages;

@@ -17,4 +17,7 @@
   ];
 
   me.enableHomeManager = false;
+
+  # services
+  me.services.jellyfin.enable = true;
 }
