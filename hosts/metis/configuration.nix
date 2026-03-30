@@ -12,9 +12,9 @@
     ../../users/kurik/kurik.nix
   ];
 
-  config.me.enableHomeManager = false;
-  config.me.services.fuuka.enable = false;
+  sops.age.sshKeyPaths = [
+    "/home/kurik/.ssh/id_ed25519"
+  ];
 
-  config.users.users.kurik.initialPassword = "password";
-
+  me.enableHomeManager = false;
 }

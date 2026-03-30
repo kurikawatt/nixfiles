@@ -75,6 +75,15 @@
 
   services.openssh.enable = true;
 
+  virtualisation.vmVariant = {
+    virtualisation.sharedDirectories = {
+      ssh_keys = {
+        source = "/home/${config.me.user}/.ssh";
+        target = "/home/${config.me.user}/.ssh";
+      };
+    };
+  };
+
   # Don't touch this, please.
   system.stateVersion = "25.11";
 }
