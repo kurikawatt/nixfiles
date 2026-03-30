@@ -86,6 +86,10 @@ in
   services.openssh.enable = true;
 
   virtualisation.vmVariant = {
+
+    virtualisation.memorySize = 8192; # 8 Gb of RAM.
+    virtualisation.diskSize = 16 * 1024; # 16Gb Disk
+
     virtualisation.sharedDirectories = {
       ssh_keys = {
         source = "/home/${config.me.user}/.ssh";
