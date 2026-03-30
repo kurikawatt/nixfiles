@@ -5,22 +5,9 @@
 }:
 let
   hostname = config.networking.hostName;
-  fuukaHub = "chord";
+  fuukaHub = config.me.services.fuuka.hub;
 
-  peers = {
-    chord = {
-      ipv4 = "172.16.195.1";
-      publickey = "sMoQytVwjqnxSq+MB+7ori5HZr32G866femOjuD17C0=";
-    };
-    aigis = {
-      ipv4 = "172.16.195.12";
-      publickey = "NoMBDUInInr8FOij+5yb81WkVveSulARGKZSZgy/Rl0=";
-    };
-    queen = {
-      ipv4 = "172.16.195.13";
-      publickey = "OOkD3dCKw7YOO99cCEQOOWoxwTnYLGZ/eebUG9hpuGk=";
-    };
-  };
+  peers = config.me.services.fuuka.peers;
 in
 lib.mkIf config.me.services.fuuka.enable {
   networking.wireguard.enable = true;
@@ -36,7 +23,7 @@ lib.mkIf config.me.services.fuuka.enable {
       PrivateKey = ${config.sops.placeholder."fuuka0/${hostname}/privatekey"}
 
       [Peer]
-      PublicKey = ${peers.${fuukaHub}.publickey}
+      PublicKey = ${peers.${fuukaHub}.publicKey}
       AllowedIPs = 172.16.195.0/24
       Endpoint = ${config.sops.placeholder."fuuka0/${fuukaHub}/endpoint"}
     '';
