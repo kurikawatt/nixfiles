@@ -9,6 +9,7 @@ in
 {
   imports = [
     ./fuuka.nix
+    ./services.nix
   ];
 
   options.me = {
