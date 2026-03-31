@@ -20,4 +20,5 @@
 
   # services
   me.services.jellyfin.enable = true;
+  me.services.prowlarr.enable = true;
 }
