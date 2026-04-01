@@ -67,7 +67,9 @@
             specialArgs = {
               inherit inputs;
             };
-            modules = [ ];
+            modules = [
+              ./iso.nix
+            ];
           };
         };
     };
