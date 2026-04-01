@@ -52,14 +52,23 @@
         };
     in
     {
-      nixosConfigurations = inputs.nixpkgs.lib.genAttrs [
-        "aigis"
-        "euphausia"
-        "queen"
-        "fuuka"
-        "metis"
-        "chord"
-      ]
-        mkHost;
+      nixosConfigurations =
+        (inputs.nixpkgs.lib.genAttrs [
+          "aigis"
+          "euphausia"
+          "queen"
+          "fuuka"
+          "metis"
+          "chord"
+        ]
+          mkHost)
+        // {
+          iso = inputs.nixpkgs.lib.nixosSystem {
+            specialArgs = {
+              inherit inputs;
+            };
+            modules = [ ];
+          };
+        };
     };
 }
