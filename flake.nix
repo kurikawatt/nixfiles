@@ -4,6 +4,11 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-25.11";
 
+    disko = {
+      url = "github:nix-community/disko/latest";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     hyprland = {
       url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
     };
@@ -29,7 +34,7 @@
 
   };
 
-  outputs = { self, sops-nix, ... }@inputs:
+  outputs = { self, sops-nix, disko, ... }@inputs:
     let
       mkHost =
         name:
@@ -38,7 +43,8 @@
             inherit inputs;
           };
           modules = [
-            inputs.sops-nix.nixosModules.sops
+            sops-nix.nixosModules.sops
+            disko.nixosModules.disko
             inputs.home-manager.nixosModules.home-manager
             ./hosts/${name}/configuration.nix
             {
