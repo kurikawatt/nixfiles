@@ -85,6 +85,12 @@ in
 
   services.openssh.enable = true;
 
+  programs.direnv = {
+    enable = true;
+    silent = true;
+    enableBashIntegration = true;
+  };
+
   virtualisation.vmVariant = {
 
     virtualisation.memorySize = 8192; # 8 Gb of RAM.
