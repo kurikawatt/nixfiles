@@ -17,21 +17,12 @@
               extraArgs = [ "-n" "NIXBOOT" ];
             };
           };
-          luks = {
+          root = {
             size = "100%";
             content = {
-              type = "luks";
-              name = "crypted";
-              passwordFile = "/tpm/luks-passphrase.key";
-              settings = {
-                allowDiscards = true;
-                crypttabExtraOpts = [ "tpm2-device=auto" ];
-              };
-              content = {
-                type = "filesystem";
-                format = "ext4";
-                mountpoint = "/";
-              };
+              type = "filesystem";
+              format = "ext4";
+              mountpoint = "/";
             };
           };
         };
