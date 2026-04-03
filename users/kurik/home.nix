@@ -1,10 +1,9 @@
-{
-  lib,
-  pkgs,
-  inputs,
-  ...
+{ lib
+, pkgs
+, inputs
+, ...
 }:
-let 
+let
   homeDir = "/home/kurik";
 in
 {
@@ -71,24 +70,24 @@ in
       nvim-treesitter.withAllGrammars
     ];
     extraLuaConfig = ''
-    -- Basic config for LSP --
-    local lspconfig = require('lspconfig')
-    lspconfig.nixd.setup({
-      settings = {
-        nixd = {
-          formatting = {
-            command = { "nixpkgs-fmt" },
-	  },
-	},
-      },
-    })
-    -- Autoformat on save
-    vim.api.nvim_create_autocmd("BufWritePre", {
-      pattern = "*.nix",
-      callback = function()
-        vim.lsp.buf.format({ async = false })
-      end,
-    })
+          -- Basic config for LSP --
+          local lspconfig = require('lspconfig')
+          lspconfig.nixd.setup({
+            settings = {
+              nixd = {
+                formatting = {
+                  command = { "nixpkgs-fmt" },
+      	  },
+      	},
+            },
+          })
+          -- Autoformat on save
+          vim.api.nvim_create_autocmd("BufWritePre", {
+            pattern = "*.nix",
+            callback = function()
+              vim.lsp.buf.format({ async = false })
+            end,
+          })
     '';
   };
 
@@ -110,12 +109,16 @@ in
       signByDefault = true;
       format = "openpgp";
     };
+    settings.alias = {
+      cm = "commit";
+      st = "status";
+    };
   };
 
   xdg.userDirs = {
     enable = true;
     createDirectories = true; # ONLY if not already created
-    
+
     documents = "${homeDir}/Documents";
     pictures = "${homeDir}/Pictures";
     download = "${homeDir}/Downloads";
