@@ -15,6 +15,22 @@
 
   disko.devices.disk.main.device = "/dev/sda";
 
+  sops.secrets."credentials" = {
+    sopsFile = ../../secrets/smb-Monolith.yaml;
+    path = "/etc/smb-secrets";
+    mode = "0600";
+  };
+
+  fileSystems."/media/Monolith" = {
+    device = "//192.168.1.13/kurik";
+    fsType = "cifs";
+    options =
+      let
+        automount_opts = "x-systemd.automount,noauto,x-systemd.idle-timeout=60,x-systemd.device-timeout=5s,x-systemd.mount-timeout=5s,user,users";
+      in
+      [ "${automount_opts},credentials=/etc/smb-secrets,uid=1001,gid=100" ];
+  };
+
   sops.age.sshKeyPaths = [
     "/home/kurik/.ssh/id_ed25519"
   ];
