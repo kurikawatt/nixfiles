@@ -74,6 +74,7 @@
               inherit inputs;
             };
             modules = [
+              disko.nixosModules.disko
               ./iso.nix
             ];
           };

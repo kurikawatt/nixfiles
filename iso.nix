@@ -1,4 +1,5 @@
 { config
+, inputs
 , pkgs
 , modulesPath
 , ...
@@ -22,6 +23,8 @@
   environment.systemPackages = with pkgs; [
     neovim
     udiskie
+
+    inputs.disko.packages.${pkgs.stdenv.hostPlatform.system}.default
   ];
 
   time.timeZone = "Europe/Paris";
