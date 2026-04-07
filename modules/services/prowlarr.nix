@@ -15,16 +15,24 @@ lib.mkIf config.me.services.prowlarr.enable {
     };
     group = "prowdl";
   };
+
   services.prowlarr = {
     enable = true;
     openFirewall = true;
   };
+
   services.sonarr = {
     enable = true;
     openFirewall = true;
     group = "prowdl";
-    #dataDir = "/tmp/sonarr";
   };
+
+  services.radarr = {
+    enable = true;
+    openFirewall = true;
+    group = "prowdl";
+  };
+
   services.bazarr = {
     enable = true;
     openFirewall = true;
