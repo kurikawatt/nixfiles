@@ -1,4 +1,5 @@
 { config
+, inputs
 , pkgs
 , modulesPath
 , ...
@@ -11,9 +12,19 @@
     "${modulesPath}/installer/cd-dvd/installation-cd-minimal.nix"
   ];
 
+  nix.settings = {
+    experimental-features = [
+      "nix-command"
+      "flakes"
+    ];
+  };
+
   # programs added to the iso
   environment.systemPackages = with pkgs; [
     neovim
+    udiskie
+
+    inputs.disko.packages.${pkgs.stdenv.hostPlatform.system}.default
   ];
 
   time.timeZone = "Europe/Paris";
@@ -26,6 +37,8 @@
   services.xserver.xkb.options = "eurosign:e,caps:escape";
 
   nixpkgs.hostPlatform = "x86_64-linux";
+
+  services.udisks2.enable = true;
 
   isoImage.contents = [ ];
 }
