@@ -1,4 +1,5 @@
-{ lib
+{ config
+, lib
 , pkgs
 , inputs
 , ...
@@ -8,6 +9,12 @@ let
 in
 {
   home.stateVersion = "25.11";
+
+  home.file = {
+    ".bashrc" = {
+      source = config.lib.file.mkOutOfStoreSymlink ../../dotfiles/.bashrc;
+    };
+  };
 
   programs.ssh.matchBlocks = {
     "chord" = {
