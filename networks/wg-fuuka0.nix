@@ -19,7 +19,7 @@ lib.mkIf config.me.services.fuuka.enable {
   sops.templates."fuuka0.conf".content =
     ''
       [Interface]
-      Address = ${peers.${hostname}.ipv4}/32
+      Address = ${peers.${hostname}.ipv4}/24
       PrivateKey = ${config.sops.placeholder."fuuka0/${hostname}/privatekey"}
 
       [Peer]
