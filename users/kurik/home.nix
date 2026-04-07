@@ -23,6 +23,7 @@ in
     "swayosd".source = mkOutOfStoreSymlink ../../dotfiles/swayosd;
     "waybar".source = mkOutOfStoreSymlink ../../dotfiles/waybar;
     "yazi".source = mkOutOfStoreSymlink ../../dotfiles/yazi;
+    "hypr".source = mkOutOfStoreSymlink ../../dotfiles/hypr;
   };
 
   programs.ssh.matchBlocks = {
