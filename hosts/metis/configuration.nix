@@ -33,8 +33,8 @@
 
   fileSystems."/media/Eva02" = {
     device = "/dev/disk/by-label/Eva02";
-    fstype = "ext4";
-    options = [ "fmask=0777" "dmask=0777" ];
+    fsType = "ext4";
+    options = [ "auto" "nofail" "fmask=0777" "dmask=0777" ];
   };
 
   sops.age.sshKeyPaths = [
