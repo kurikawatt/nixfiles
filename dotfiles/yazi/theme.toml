@@ -1,0 +1,17 @@
+title = "Kurikawa's Yazi Theme"
+
+[mgr]
+cwd = { fg="#061826", bg="#EC4067" }
+hovered = { fg="#061826", bg="#EC4067" }
+
+[filetype]
+rules = [
+	# Directories
+	{ mime="inode/directory", fg="#EC4067", bold=true },
+	# Videos, Images and Music
+	{ mime="image/*", fg="white" },
+	{ mime="video/*", fg="white" },
+	{ mime="audio/*", fg="white" },
+	# Fallback
+	{ mime="*/", fg="blue" }
+]

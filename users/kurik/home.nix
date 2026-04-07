@@ -6,20 +6,23 @@
 }:
 let
   homeDir = "/home/kurik";
+  inherit (config.lib.file) mkOutOfStoreSymlink;
 in
 {
   home.stateVersion = "25.11";
 
   home.file = {
-    ".bashrc" = {
-      source = config.lib.file.mkOutOfStoreSymlink ../../dotfiles/.bashrc;
-    };
+    ".bashrc".source = mkOutOfStoreSymlink ../../dotfiles/.bashrc;
   };
 
   xdg.configFile = {
-    "kitty" = {
-      source = config.lib.file.mkOutOfStoreSymlink ../../dotfiles/kitty;
-    };
+    "kitty".source = mkOutOfStoreSymlink ../../dotfiles/kitty;
+    "palettes".source = mkOutOfStoreSymlink ../../dotfiles/palettes;
+    "mako".source = mkOutOfStoreSymlink ../../dotfiles/mako;
+    "fuzzel".source = mkOutOfStoreSymlink ../../dotfiles/fuzzel;
+    "swayosd".source = mkOutOfStoreSymlink ../../dotfiles/swayosd;
+    "waybar".source = mkOutOfStoreSymlink ../../dotfiles/waybar;
+    "yazi".source = mkOutOfStoreSymlink ../../dotfiles/yazi;
   };
 
   programs.ssh.matchBlocks = {

@@ -1,0 +1,54 @@
+# Latest notification come first
+sort=-time
+
+layer=overlay
+
+width=450
+height=128
+
+padding=24
+
+# Fonts
+font=Cascadia Code 13
+
+# Borders
+border-size=2
+border-radius=10
+
+# Colors
+[mode=dark]
+text-color=#e0def4
+background-color=#1D1F2F
+
+[mode=light]
+text-color=#575279
+background-color=#faf4ed
+
+# Timeout
+[mode=default]
+default-timeout=3000
+ignore-timeout=0
+
+# Discord message
+[app-name="discord"]
+format=<b>%s (Discord)</b>\nReceived a new message
+
+[app-name="vesktop"]
+format=<b>%s (Discord)</b>\nReceived a new message
+
+# For critical notification (usefull)
+[urgency=critical]
+border-color=#EC4067
+default-timeout=0
+
+# For low priority notification
+[urgency=low]
+border-color=#061826
+
+# For the others
+[urgency=normal]
+border-color=#01CB5F
+
+# Do not disturb
+[mode=do-not-disturb]
+invisible=1

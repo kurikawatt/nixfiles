@@ -1,0 +1,11 @@
+/* Kurikawa's Dark Theme Palette for GTK apps */
+
+@define-color waybar-hostname #ECE14B;
+
+@define-color bg #1D1F2F;
+@define-color fg #e0def4;
+
+@define-color bat-charging-bg #01CB5F;
+@define-color bat-good-bg #3e8fb0;
+@define-color bat-warn-bg #f6c177;
+@define-color bat-crit-bg #eb6f92;

@@ -1,0 +1,25 @@
+title = "Kurikawa's Yazi configuration"
+
+[mgr]
+ratio = [1, 2, 2]
+sort_by = "natural"
+sort_reverse = false
+sort_dir_first = true
+sort_translit = true # as french, it can be usefull
+
+show_hidden = false # by default, don't show hidden files/folders
+show_symlink = true
+
+[opener]
+play = [
+	{ run='mpv "$@"', orphan=true, for="unix" }
+]
+
+edit = [
+	{ run='kitty -e "nvim "$@""', block=true, for="unix" }
+]
+
+[open]
+rules = [
+	{ mime = "video/*", use = "play" }
+]
