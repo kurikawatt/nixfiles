@@ -16,6 +16,12 @@ in
     };
   };
 
+  xdg.configFile = {
+    "kitty" = {
+      source = config.lib.file.mkOutOfStoreSymlink ../../dotfiles/kitty;
+    };
+  };
+
   programs.ssh.matchBlocks = {
     "chord" = {
       hostname = "172.16.195.1";
