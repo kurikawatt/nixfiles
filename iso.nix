@@ -14,6 +14,7 @@
   # programs added to the iso
   environment.systemPackages = with pkgs; [
     neovim
+    udiskie
   ];
 
   time.timeZone = "Europe/Paris";
@@ -26,6 +27,8 @@
   services.xserver.xkb.options = "eurosign:e,caps:escape";
 
   nixpkgs.hostPlatform = "x86_64-linux";
+
+  services.udisks2.enable = true;
 
   isoImage.contents = [ ];
 }
