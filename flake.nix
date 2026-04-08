@@ -66,6 +66,7 @@
           "fuuka"
           "metis"
           "chord"
+          "violet"
         ]
           mkHost)
         // {

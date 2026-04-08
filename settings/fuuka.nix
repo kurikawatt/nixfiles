@@ -51,6 +51,10 @@ in
         ipv4 = "172.16.195.2";
         publicKey = "BKVRHb2nR3/0ms8E2vG/vFLbTqY55BJ7mzY704Eyfig=";
       };
+      violet = {
+        ipv4 = "172.16.195.3";
+        publicKey = "usqFwmI5mKTlUvvuRIdTXOmP5QoX/ozhua53DaslMxs=";
+      };
       aigis = {
         ipv4 = "172.16.195.12";
         publicKey = "NoMBDUInInr8FOij+5yb81WkVveSulARGKZSZgy/Rl0=";

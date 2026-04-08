@@ -11,4 +11,4 @@
 | `fuuka` | Raspberry Pi 4B 8GB | None |
 | `chord` | MSI B250M, i5 7500 (3.80Ghz), 16GB (2400Mhz), GTX 1060 3GB | None |
 | `marian` | None | None |
-
+| `violet` | None | None |
