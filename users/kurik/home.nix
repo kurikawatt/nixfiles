@@ -33,6 +33,12 @@ in
       port = 22;
       identityFile = "~/.ssh/id_rsa";
     };
+    "metis" = {
+      hostname = "172.16.195.1";
+      user = "kurik";
+      port = 22;
+      identityFile = "~/.ssh/id_rsa";
+    };
     "euphausia" = {
       hostname = "172.16.195.10";
       user = "kurik";
