@@ -26,7 +26,7 @@ lib.mkIf config.me.services.fuuka.enable {
       PublicKey = ${peers.${fuukaHub}.publicKey}
       AllowedIPs = 172.16.195.0/24
       Endpoint = ${config.sops.placeholder."fuuka0/${fuukaHub}/endpoint"}
-      PersitentKeepAlive = 300
+      PersistentKeepAlive = 300
     '';
 
   networking.wg-quick.interfaces.fuuka0 = {
