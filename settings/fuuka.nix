@@ -30,10 +30,22 @@ in
         description = "Connect to fuuka (my VPN)";
       };
 
+      hubListenPort = mkOption {
+        type = types.int;
+        default = 51280;
+        description = "Port to listen on hub";
+      };
+
       hub = mkOption {
         type = types.str;
         default = "chord";
         description = "Define which peer is the hub";
+      };
+
+      enableHub = mkOption {
+        type = types.bool;
+        default = false;
+        description = "Make this host a hub";
       };
 
     };
