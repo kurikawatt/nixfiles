@@ -34,6 +34,7 @@ lib.mkIf config.me.services.fuuka.enableHub {
       (name: peerInfo: {
         publicKey = peerInfo.publicKey;
         allowedIPs = [ "${peerInfo.ipv4}/32" ];
+        persistentKeepalive = 30;
       })
       fuukaPeers;
   };
