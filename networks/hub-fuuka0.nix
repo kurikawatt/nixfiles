@@ -15,6 +15,12 @@ lib.mkIf config.me.services.fuuka.enableHub {
 
   networking.firewall.allowedUDPPorts = [ port ];
 
+  boot.kernel.sysctl."net.ipv4.ip_forward" = 1;
+  networking.firewall.extraCommands = ''
+    iptables -A FORWARD -i fuuka0 -o fuuka0 -j ACCEPT
+    iptables -A FORWARD -m conntrack --ctstate ESTABLISHED,RELATED -j ACCEPT
+  '';
+
   # Looking for my precious secrets
   sops.secrets."fuuka0/${hostname}/privatekey" = { };
   sops.secrets."fuuka0/${fuukaHub}/endpoint" = { };

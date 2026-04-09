@@ -67,6 +67,10 @@ in
         ipv4 = "172.16.195.3";
         publicKey = "usqFwmI5mKTlUvvuRIdTXOmP5QoX/ozhua53DaslMxs=";
       };
+      Kuri = {
+        ipv4 = "172.16.195.11";
+        publicKey = "QWC/dCLQTfpgZAPuY+gd8Ru1QLTSvPT0YOCWPZd4vxM=";
+      };
       aigis = {
         ipv4 = "172.16.195.12";
         publicKey = "NoMBDUInInr8FOij+5yb81WkVveSulARGKZSZgy/Rl0=";

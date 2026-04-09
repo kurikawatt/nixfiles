@@ -45,4 +45,6 @@
     keyFile = "/etc/tpm_age";
     plugins = with pkgs; [ age-plugin-tpm ];
   };
+
+  me.services.fuuka.hub = "violet";
 }
