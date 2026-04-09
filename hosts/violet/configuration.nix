@@ -25,6 +25,23 @@
     efiInstallAsRemovable = true;
   };
 
+  systemd.services.daily-reboot = {
+    description = "Daily Reboot Service";
+    serviceConfig = {
+      Type = "oneshot";
+      ExecStart = "/run/current-system/sw/bin/systemctl reboot";
+    };
+  };
+
+  systemd.timers.daily-reboot = {
+    wantedBy = [ "timers.target" ];
+    timerConfig = {
+      OnCalendar = "*-*-* 18:05:00";
+      Unit = "daily-reboot.service";
+      Persistent = true;
+    };
+  };
+
   services.openssh = {
     enable = true;
     settings = {
