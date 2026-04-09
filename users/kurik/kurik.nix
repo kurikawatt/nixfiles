@@ -18,7 +18,7 @@
         shell = pkgs.bash;
         home = config.me.home;
         hashedPasswordFile = config.sops.secrets."${config.me.user}/password".path;
-        openssh.authorizedKeys.keys = [ ];
+        openssh.authorizedKeys.keys = config.me.authorizedSSHKeys;
       };
     }
 
