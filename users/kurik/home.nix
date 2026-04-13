@@ -5,13 +5,14 @@
 , ...
 }:
 let
-  homeDir = "/home/kurik";
+  homeDir = config.me.home;
 in
 {
   home.stateVersion = "25.11";
 
   home.file = {
     ".bashrc".source = ../../dotfiles/.bashrc;
+    ".git-prompt.sh" = ../../dotfiles/.git-prompt.sh;
   };
 
   xdg.configFile = {
