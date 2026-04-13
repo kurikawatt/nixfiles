@@ -59,29 +59,20 @@ in
   };
 
   home.packages = with pkgs; [
-    mako
-    kitty
-    firefox
-    waybar
-    fuzzel
-    grim
-    slurp
+    tree
+    fastfetch
     vesktop
     obsidian
     thunderbird
-    bluetuith
-    pavucontrol
     sops
     udiskie
     jellyfin-desktop
     deluge
-    yazi
     gimp
 
     nixd
     nixpkgs-fmt
 
-    inputs.awww.packages.${pkgs.stdenv.hostPlatform.system}.awww
     inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
   ];
 
