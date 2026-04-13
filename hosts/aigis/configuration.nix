@@ -9,7 +9,6 @@
     ../../configuration.nix # Global configuration
     ./hardware-configuration.nix # Hardware specific configuration
     ../../modules/fonts.nix
-    ../../users/kurik/kurik.nix
     ../../networks/wifi.nix
     ../../modules/desktop/hyprland.nix
     ../laptop-common/battery.nix

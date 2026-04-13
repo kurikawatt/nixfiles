@@ -10,7 +10,6 @@
     ../../modules/boot/systemd-boot.nix
     ../../configuration.nix # Global configuration
     ../../modules/fonts.nix
-    ../../users/kurik/kurik.nix
   ];
 
   disko.devices.disk.main.device = "/dev/sda";

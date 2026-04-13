@@ -11,18 +11,18 @@ in
   home.stateVersion = "25.11";
 
   home.file = {
-    ".bashrc".source = ../../dotfiles/.bashrc;
+    ".bashrc".source = ../dotfiles/.bashrc;
   };
 
   xdg.configFile = {
-    "kitty".source = ../../dotfiles/kitty;
-    "palettes".source = ../../dotfiles/palettes;
-    "mako".source = ../../dotfiles/mako;
-    "fuzzel".source = ../../dotfiles/fuzzel;
-    "swayosd".source = ../../dotfiles/swayosd;
-    "waybar".source = ../../dotfiles/waybar;
-    "yazi".source = ../../dotfiles/yazi;
-    "hypr".source = ../../dotfiles/hypr;
+    "kitty".source = ../dotfiles/kitty;
+    "palettes".source = ../dotfiles/palettes;
+    "mako".source = ../dotfiles/mako;
+    "fuzzel".source = ../dotfiles/fuzzel;
+    "swayosd".source = ../dotfiles/swayosd;
+    "waybar".source = ../dotfiles/waybar;
+    "yazi".source = ../dotfiles/yazi;
+    "hypr".source = ../dotfiles/hypr;
   };
 
   programs.ssh.matchBlocks = {

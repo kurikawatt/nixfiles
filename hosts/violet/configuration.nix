@@ -9,7 +9,6 @@
     (modulesPath + "/profiles/qemu-guest.nix")
     ./disko.nix
     ../../configuration.nix # Global configuration
-    ../../users/kurik/kurik.nix
     ../../networks/hub-fuuka0.nix
   ];
 
