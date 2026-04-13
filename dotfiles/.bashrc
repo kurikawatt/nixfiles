@@ -19,4 +19,4 @@ alias ssh="kitten ssh"
 
 alias py="python3"
 
-PS1='(\W$(__git_ps1 "~%s")) \[\e[32m\]\u\[\e[33m\]@\h\[\e[0m\]$ '
+PS1='(\W) \[\e[32m\]\u\[\e[33m\]@\h\[\e[0m\]$ '
