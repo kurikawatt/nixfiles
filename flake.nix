@@ -32,6 +32,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    magla = {
+      url = "git+https://codeberg.org/kurikawa/magla";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
   };
 
   outputs = { self, sops-nix, disko, ... }@inputs:
