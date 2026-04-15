@@ -496,11 +496,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1776271783,
-        "narHash": "sha256-KyvMsOs5JytWg55BKqTR+eXR/tUFqsZjPVdn/UNN4pw=",
+        "lastModified": 1776288941,
+        "narHash": "sha256-AaXCdilz0yIP5BzOH79YMujxSEFYezvWpEkzHbH+/BQ=",
         "ref": "refs/heads/main",
-        "rev": "7889058e949e417834de7a3d3d2e25707814fd75",
-        "revCount": 16,
+        "rev": "2a5e2e222bb7b47aa2dd7d6720499e5dc50f06cd",
+        "revCount": 24,
         "type": "git",
         "url": "https://codeberg.org/kurikawa/magla"
       },
