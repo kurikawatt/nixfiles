@@ -69,6 +69,7 @@ in
     jellyfin-desktop
     deluge
     gimp
+    gh
 
     nixd
     nixpkgs-fmt
