@@ -2,7 +2,9 @@
   description = "NixOS Kurikawa's Configuration";
 
   inputs = {
+
     nixpkgs.url = "github:nixos/nixpkgs/nixos-25.11";
+    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
     disko = {
       url = "github:nix-community/disko/latest";
@@ -39,7 +41,7 @@
 
   };
 
-  outputs = { self, sops-nix, disko, ... }@inputs:
+  outputs = { self, sops-nix, disko, nixos-hardware, ... }@inputs:
     let
       mkHost =
         name:
