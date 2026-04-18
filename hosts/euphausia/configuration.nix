@@ -11,11 +11,14 @@
     ../../configuration.nix # Global configuration
     ../../modules/fonts.nix
     ../../networks/wifi.nix
-    #../../modules/desktop/hyprland.nix
+    ../../modules/desktop/hyprland.nix
   ];
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   boot.initrd.availableKernelModules = [ "tpm_tis" "tpm_crb" ];
+
+  # Linux Kernel Latest
+  boot.kernelPackages = pkgs.linuxPackages_latest;
 
   # TPM
   security.tpm2 = {

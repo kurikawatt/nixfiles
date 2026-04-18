@@ -22,7 +22,7 @@ in
   ++ (import-tree ./modules/services);
 
   # Linux Kernel LTS
-  boot.kernelPackages = pkgs.linuxPackages;
+  boot.kernelPackages = lib.mkDefault pkgs.linuxPackages;
 
   # Firmware updates
   services.fwupd.enable = true;
