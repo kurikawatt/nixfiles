@@ -9,7 +9,6 @@
     (modulesPath + "/profiles/qemu-guest.nix")
     ./disko.nix
     ../../configuration.nix # Global configuration
-    ../../networks/hub-fuuka0.nix
   ];
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";

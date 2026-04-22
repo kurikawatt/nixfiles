@@ -16,7 +16,6 @@ in
 {
   imports = [
     ./settings/me.nix
-    ./networks/wg-fuuka0.nix
     ./users/default.nix
   ]
   ++ (import-tree ./modules/services);
