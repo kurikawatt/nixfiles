@@ -71,6 +71,8 @@ in
     gimp
     gh
 
+    protontricks
+
     nixd
     nixpkgs-fmt
 
