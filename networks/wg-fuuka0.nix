@@ -33,4 +33,14 @@ lib.mkIf config.me.services.fuuka.enable {
     autostart = true;
     configFile = config.sops.templates."fuuka0.conf".path;
   };
+
+  networking.hosts = lib.listToAttrs
+    (
+      lib.mapAttrsToList
+        (name: peer: {
+          name = peer.ipv4;
+          value = [ "${name}.fuuka" ];
+        })
+        peers
+    );
 }
