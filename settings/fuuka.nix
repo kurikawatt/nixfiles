@@ -69,7 +69,7 @@ in
       };
       euphausia = {
         ipv4 = "172.16.195.10";
-        publicKey = "";
+        publicKey = "SQEiF7l4LGjNfbqnYa4KRnKalNrdjmV62TRBBlq+2hY=";
       };
       Kuri = {
         ipv4 = "172.16.195.11";
