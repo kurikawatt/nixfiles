@@ -5,7 +5,8 @@
 
 {
   imports =
-    [ (modulesPath + "/installer/scan/not-detected.nix")
+    [
+      (modulesPath + "/installer/scan/not-detected.nix")
     ];
 
   boot.initrd.availableKernelModules = [ "vmd" "xhci_pci" "ahci" "nvme" "usbhid" "usb_storage" "sd_mod" ];
@@ -14,12 +15,14 @@
   boot.extraModulePackages = [ ];
 
   fileSystems."/" =
-    { device = "/dev/disk/by-uuid/7b0e0b33-14d6-4c52-b64e-cd99bc14de7b";
+    {
+      device = "/dev/disk/by-uuid/7b0e0b33-14d6-4c52-b64e-cd99bc14de7b";
       fsType = "ext4";
     };
 
   fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/6E67-C0F1";
+    {
+      device = "/dev/disk/by-uuid/6E67-C0F1";
       fsType = "vfat";
       options = [ "fmask=0022" "dmask=0022" ];
     };
@@ -39,9 +42,24 @@
   fileSystems."/media/Monolith" = {
     device = "//192.168.1.13/kurik";
     fsType = "cifs";
-    options = let
-      automount_opts = "x-systemd.automount,noauto,x-systemd.idle-timeout=60,x-systemd.device-timeout=5s,x-systemd.mount-timeout=5s,user,users";
-      in ["${automount_opts},credentials=/etc/smb-secrets,uid=1001,gid=100"];
+    options =
+      let
+        automount_opts = "x-systemd.automount,noauto,x-systemd.idle-timeout=60,x-systemd.device-timeout=5s,x-systemd.mount-timeout=5s,user,users";
+      in
+      [ "${automount_opts},credentials=/etc/smb-secrets,uid=1001,gid=100" ];
+  };
+
+  fileSystems."/media/Drakodios" =
+    {
+      device = "/dev/disk/by-label/DRAKODIOS";
+      fsType = "ext4";
+      options = [ "auto" "nofail" ];
+    };
+
+  fileSystems."/media/Eht" = {
+    device = "/dev/disk/by-label/EHTRIA";
+    fsType = "ext4";
+    options = [ "auto" "nofail" ];
   };
 
   swapDevices = [
