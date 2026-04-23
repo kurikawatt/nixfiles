@@ -21,4 +21,12 @@ in
       description = "Enable Prowlarr and usefull programs for gathering content";
     };
   };
+
+  options.me.services.sync = {
+    enable = mkOption {
+      type = types.bool;
+      default = false;
+      description = "Enable Syncthing";
+    };
+  };
 }

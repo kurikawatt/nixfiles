@@ -26,4 +26,6 @@
     enable = true;
     motherboard = "intel";
   };
+
+  me.services.sync.enable = true;
 }
