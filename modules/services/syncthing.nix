@@ -74,6 +74,10 @@ lib.mkIf config.me.services.sync.enable {
           path = "${config.me.home}/Documents";
           devices = [ "metis" "queen" ];
         };
+        "Pictures" = {
+          path = "${config.me.home}/Pictures";
+          devices = [ "metis" "queen" ];
+        };
       };
     };
 
