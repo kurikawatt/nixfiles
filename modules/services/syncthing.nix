@@ -44,6 +44,9 @@ lib.mkIf config.me.services.sync.enable {
       queen = {
         id = "2B7VK4Y-AITNDD2-6RAGAOL-7XVKHU7-5U6XZ5E-UV74AGW-M5KN7I2-YCTQBQQ";
       };
+      metis = {
+        id = "CSGQLB4-A433CFS-HZ76DY4-RNOI3LE-MOHOS42-XNH7C4H-HLOIQSZ-P3QNUQX";
+      };
     };
     folders = {
       "Documents" = {
