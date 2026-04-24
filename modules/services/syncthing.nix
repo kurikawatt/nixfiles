@@ -79,11 +79,11 @@ lib.mkIf config.me.services.sync.enable {
       folders = {
         "Documents" = {
           path = "${config.me.home}/Documents";
-          devices = [ "metis" "queen" ];
+          devices = [ "metis" "queen" "aigis" ];
         };
         "Pictures" = {
           path = "${config.me.home}/Pictures";
-          devices = [ "metis" "queen" ];
+          devices = [ "metis" "queen" "aigis" ];
         };
       };
     };
