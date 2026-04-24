@@ -52,15 +52,30 @@ lib.mkIf config.me.services.sync.enable {
     dataDir = config.me.home;
     configDir = syncCfg;
     guiPasswordFile = config.sops.secrets."syncthing/guipassword".path;
+    relay.enable = false;
+
     settings = {
       gui.user = config.me.user;
-    };
-    relay.enable = false;
-    devices = { };
-    folders = {
-      "Documents" = {
-        path = "${config.me.home}/Documents";
+
+      devices = {
+        metis = {
+          name = "metis";
+          id = "N7W6UEJ-3TG5IHS-GGJBYCT-QD4LE5H-TDUYEAK-INBT32R-OVF6QR6-O3ED6AV";
+          autoAcceptFolders = true;
+        };
+        queen = {
+          name = "queen";
+          id = "RKCALQB-2PRNDQC-LSMIPLG-AZVEZCM-FYJSESK-XC67ENH-ZS55A47-CQCI5AX";
+        };
+      };
+
+      folders = {
+        "Documents" = {
+          path = "${config.me.home}/Documents";
+          devices = [ "metis" "queen" ];
+        };
       };
     };
+
   };
 }
