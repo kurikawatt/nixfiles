@@ -3,6 +3,9 @@
 , pkgs
 , ...
 }:
+let
+  syncCfg = "${config.me.home}/.config/syncthing";
+in
 lib.mkIf config.me.services.sync.enable {
 
   sops.secrets."syncthing/guipassword" = {
@@ -10,44 +13,50 @@ lib.mkIf config.me.services.sync.enable {
     path = "/tmp/syncthing_pw";
   };
 
-  sops.secrets.sync-pem = {
+  sops.secrets.sync-key = {
     sopsFile = ../../secrets/syncthing.yaml;
     owner = config.me.user;
-    key = "${config.networking.hostName}/pem";
+    key = "${config.networking.hostName}/key";
   };
 
   sops.secrets.sync-cert = {
     sopsFile = ../../secrets/syncthing.yaml;
     owner = config.me.user;
-    key = "${config.networking.hostName}/pem";
+    key = "${config.networking.hostName}/cert";
   };
 
-  sops.templates."sync-cert.key".content = ''
-    -----BEGIN CERTIFICATE-----
-    ${config.sops.placeholder.sync-cert}
-    -----END CERTIFICATE-----
-  '';
+  sops.templates."key.pem" = {
+    path = "${syncCfg}/key.pem";
+    owner = config.me.user;
+    content = ''
+      -----BEGIN PRIVATE KEY-----
+      ${config.sops.placeholder.sync-key}
+      -----END PRIVATE KEY-----
+    '';
+  };
+
+  sops.templates."cert.pem" = {
+    path = "${syncCfg}/cert.pem";
+    owner = config.me.user;
+    content = ''
+      -----BEGIN CERTIFICATE-----
+      ${config.sops.placeholder.sync-cert}
+      -----END CERTIFICATE-----
+    '';
+  };
 
   services.syncthing = {
     enable = true;
     openDefaultPorts = true;
-    key = config.sops.secrets.sync-pem.path;
-    cert = config.sops.templates."sync-cert.key".path;
     user = config.me.user;
     dataDir = config.me.home;
+    configDir = syncCfg;
     guiPasswordFile = config.sops.secrets."syncthing/guipassword".path;
     settings = {
       gui.user = config.me.user;
     };
     relay.enable = false;
-    devices = {
-      queen = {
-        id = "2B7VK4Y-AITNDD2-6RAGAOL-7XVKHU7-5U6XZ5E-UV74AGW-M5KN7I2-YCTQBQQ";
-      };
-      metis = {
-        id = "CSGQLB4-A433CFS-HZ76DY4-RNOI3LE-MOHOS42-XNH7C4H-HLOIQSZ-P3QNUQX";
-      };
-    };
+    devices = { };
     folders = {
       "Documents" = {
         path = "${config.me.home}/Documents";
