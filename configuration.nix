@@ -59,6 +59,7 @@ in
   # Cachix
   environment.systemPackages = with pkgs; [
     cachix
+    age-plugin-tpm
 
     inputs.magla.packages.${pkgs.stdenv.hostPlatform.system}.default
   ];
