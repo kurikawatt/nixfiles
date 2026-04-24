@@ -26,7 +26,6 @@ lib.mkIf config.me.services.sync.enable {
   };
 
   sops.templates."key.pem" = {
-    path = "${syncCfg}/key.pem";
     owner = config.me.user;
     content = ''
       -----BEGIN PRIVATE KEY-----
@@ -36,7 +35,6 @@ lib.mkIf config.me.services.sync.enable {
   };
 
   sops.templates."cert.pem" = {
-    path = "${syncCfg}/cert.pem";
     owner = config.me.user;
     content = ''
       -----BEGIN CERTIFICATE-----
@@ -48,9 +46,14 @@ lib.mkIf config.me.services.sync.enable {
   services.syncthing = {
     enable = true;
     openDefaultPorts = true;
+
     user = config.me.user;
     dataDir = config.me.home;
     configDir = syncCfg;
+
+    key = config.sops.templates."key.pem".path;
+    cert = config.sops.templates."cert.pem".path;
+
     guiPasswordFile = config.sops.secrets."syncthing/guipassword".path;
     relay.enable = false;
 
@@ -66,6 +69,10 @@ lib.mkIf config.me.services.sync.enable {
         queen = {
           name = "queen";
           id = "RKCALQB-2PRNDQC-LSMIPLG-AZVEZCM-FYJSESK-XC67ENH-ZS55A47-CQCI5AX";
+        };
+        aigis = {
+          name = "aigis";
+          id = "CZVQROX-5U4FHMK-CU6AFJ3-MXVGLPA-NIVWTPM-3O6TNFQ-P7LIZ2N-JVNSJQH";
         };
       };
 

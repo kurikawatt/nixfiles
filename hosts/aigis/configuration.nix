@@ -46,4 +46,5 @@
   };
 
   me.services.fuuka.hub = "violet";
+  me.services.sync.enable = true;
 }
