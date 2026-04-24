@@ -10,7 +10,7 @@
     ./hardware-configuration.nix # Hardware specific configuration
     ../../modules/fonts.nix
     ../../networks/wifi.nix
-    ../../modules/desktop/hyprland.nix
+    #../../modules/desktop/hyprland.nix
     ../laptop-common/battery.nix
   ];
 
