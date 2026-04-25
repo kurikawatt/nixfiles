@@ -5,6 +5,8 @@
 }:
 let
   syncCfg = "${config.me.home}/.config/syncthing";
+  syncServ = "metis";
+  syncDevices = if config.networking.hostName == syncServ then [ "queen" "aigis" ] else [ syncServ ];
 in
 lib.mkIf config.me.services.sync.enable {
 
@@ -79,11 +81,11 @@ lib.mkIf config.me.services.sync.enable {
       folders = {
         "Documents" = {
           path = "${config.me.home}/Documents";
-          devices = [ "metis" "queen" "aigis" ];
+          devices = syncDevices;
         };
         "Pictures" = {
           path = "${config.me.home}/Pictures";
-          devices = [ "metis" "queen" "aigis" ];
+          devices = syncDevices;
         };
       };
     };
