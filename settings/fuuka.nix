@@ -83,6 +83,10 @@ in
         ipv4 = "172.16.195.13";
         publicKey = "OOkD3dCKw7YOO99cCEQOOWoxwTnYLGZ/eebUG9hpuGk=";
       };
+      mont = {
+        ipv4 = "172.16.195.14";
+        publicKey = "4gp/s2GvxM2DR7GH/BnCaPh2Aexvvqz6Yf8O490QXBQ=";
+      };
     };
   };
 }
