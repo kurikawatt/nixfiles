@@ -47,4 +47,11 @@
 
   me.services.fuuka.hub = "violet";
   me.services.sync.enable = true;
+
+  programs.steam = {
+    enable = true;
+    remotePlay.openFirewall = false;
+    dedicatedServer.openFirewall = false;
+    protontricks.enable = true;
+  };
 }
