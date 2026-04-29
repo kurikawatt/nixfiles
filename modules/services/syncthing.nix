@@ -87,6 +87,10 @@ lib.mkIf config.me.services.sync.enable {
           path = "${config.me.home}/Pictures";
           devices = syncDevices;
         };
+        "Emu" = {
+          path = "${config.me.home}/Emu";
+          devices = syncDevices;
+        };
       };
     };
 
