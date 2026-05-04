@@ -10,6 +10,8 @@ in
   imports = [
     ./fuuka.nix
     ./services.nix
+    ./desktop.nix
+    ./hosts.nix
   ];
 
   options.me = {

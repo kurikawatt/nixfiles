@@ -11,8 +11,9 @@
     ../../modules/fonts.nix
     ../../networks/wifi.nix
     ../../modules/desktop/noctalia.nix
-    ../laptop-common/battery.nix
   ];
+
+  me.host.isLaptop = true;
 
   boot.initrd.availableKernelModules = [ "tpm_tis" "tpm_crb" ];
 
