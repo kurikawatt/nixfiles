@@ -23,6 +23,7 @@ in
     "waybar".source = ../dotfiles/waybar;
     "yazi".source = ../dotfiles/yazi;
     "hypr".source = ../dotfiles/hypr;
+    "noctalia".source = ../dotfiles/noctalia;
   };
 
   programs.ssh.matchBlocks = {
