@@ -12,6 +12,7 @@ in
 
   home.file = {
     ".bashrc".source = ../dotfiles/.bashrc;
+    "scripts".source = ../scripts;
   };
 
   xdg.configFile = {
