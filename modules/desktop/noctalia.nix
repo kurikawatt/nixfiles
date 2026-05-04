@@ -17,6 +17,9 @@
   };
   programs.hyprlock.enable = true;
 
+  services.power-profiles-daemon.enable = true;
+  services.upower.enable = true;
+
   environment.systemPackages = with pkgs; [
     # term
     kitty
