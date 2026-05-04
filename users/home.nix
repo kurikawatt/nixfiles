@@ -105,6 +105,15 @@ in
     '';
   };
 
+  programs.vscode = {
+    enable = true;
+    package = pkgs.vscodium;
+    profiles.default.extensions = with pkgs.vscode-extensions; [
+      enkia.tokyo-night
+      ms-python.python
+    ];
+  };
+
   programs.gpg.enable = true;
 
   services.gpg-agent = {
@@ -115,6 +124,7 @@ in
   programs.git = {
     enable = true;
     settings.user = {
+
       name = "François \"Kurikawa\" Odin";
       email = "francois@kurikawa.fr";
     };
