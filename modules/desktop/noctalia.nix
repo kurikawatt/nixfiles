@@ -15,7 +15,6 @@
     enable = true;
     package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
   };
-  programs.hyprlock.enable = true;
 
   services.power-profiles-daemon.enable = true;
   services.upower.enable = true;
@@ -28,13 +27,7 @@
     # screenshots
     grim
     slurp
-    # bluetooth cli control
-    bluetuith
-    # sound control
-    pavucontrol
-    # notifications
-    brightnessctl
-    # volume / brightness feedback on laptop
+
     inputs.awww.packages.${pkgs.stdenv.hostPlatform.system}.awww
     inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default
   ];
