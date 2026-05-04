@@ -1,8 +1,10 @@
 { pkgs
 , inputs
+, config
+, lib
 , ...
 }:
-{
+lib.mkIf (config.me.desktop == "hyprland") {
   services.displayManager.ly.enable = true;
 
   nix.settings = {

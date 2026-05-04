@@ -1,8 +1,10 @@
 { pkgs
 , inputs
+, config
+, lib
 , ...
 }:
-{
+lib.mkIf (config.me.desktop == "noctalia") {
   services.displayManager.ly.enable = true;
 
   nix.settings = {
@@ -15,9 +17,6 @@
     enable = true;
     package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
   };
-
-  services.power-profiles-daemon.enable = true;
-  services.upower.enable = true;
 
   environment.systemPackages = with pkgs; [
     # term
