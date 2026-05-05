@@ -113,6 +113,7 @@ in
     profiles.default.extensions = with pkgs.vscode-extensions; [
       enkia.tokyo-night
       ms-python.python
+      jnoortheen.nix-ide
     ];
   };
 
