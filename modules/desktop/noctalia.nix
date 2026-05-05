@@ -18,8 +18,11 @@ lib.mkIf (config.me.desktop == "noctalia") {
     package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
   };
 
+<<<<<<< HEAD
   programs.dconf.enable = true;
 
+=======
+>>>>>>> 2569b91af8be3ffa138d672a38f750607a7db1b8
   environment.systemPackages = with pkgs; [
     # term
     kitty
@@ -28,9 +31,12 @@ lib.mkIf (config.me.desktop == "noctalia") {
     # screenshots
     grim
     slurp
+<<<<<<< HEAD
     # for gsettings
     glib
     gsettings-desktop-schemas
+=======
+>>>>>>> 2569b91af8be3ffa138d672a38f750607a7db1b8
 
     inputs.awww.packages.${pkgs.stdenv.hostPlatform.system}.awww
     inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default
