@@ -419,8 +419,8 @@
     },
     "hooks": {
         "colorGeneration": "",
-        "darkModeChange": "",
-        "enabled": false,
+        "darkModeChange": "~/scripts/noctalia-theme-sync.sh",
+        "enabled": true,
         "performanceModeDisabled": "",
         "performanceModeEnabled": "",
         "screenLock": "",
