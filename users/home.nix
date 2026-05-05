@@ -76,6 +76,8 @@ in
     nixd
     nixpkgs-fmt
 
+    deezer-enhanced
+
     inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
   ];
 
