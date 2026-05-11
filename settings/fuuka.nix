@@ -38,7 +38,7 @@ in
 
       hub = mkOption {
         type = types.str;
-        default = "violet";
+        default = "metis";
         description = "Define which peer is the hub";
       };
 

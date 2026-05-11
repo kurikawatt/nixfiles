@@ -46,4 +46,7 @@
   me.services.jellyfin.enable = true;
   me.services.prowlarr.enable = true;
   me.services.sync.enable = true;
+
+  me.services.fuuka.enable = false;
+  me.services.fuuka.enableHub = true;
 }
