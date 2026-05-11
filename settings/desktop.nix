@@ -10,7 +10,7 @@ in
     desktop = mkOption
       {
         type = types.enum [ "none" "hyprland" "noctalia" ];
-        default = "none";
+        default = "noctalia";
         description = "";
       };
   };

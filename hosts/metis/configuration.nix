@@ -40,6 +40,7 @@
     "/home/kurik/.ssh/id_ed25519"
   ];
 
+  me.desktop = "none";
   me.enableHomeManager = false;
 
   # services
