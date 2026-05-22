@@ -35,4 +35,7 @@ lib.mkIf (config.me.desktop == "noctalia") {
     inputs.awww.packages.${pkgs.stdenv.hostPlatform.system}.awww
     inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default
   ];
+
+  # audio routing for Discord Screenshare / Steam Remote Play
+  security.rtkit.enable = true;
 }

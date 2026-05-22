@@ -9,7 +9,7 @@ in
   options.me = {
     desktop = mkOption
       {
-        type = types.enum [ "hyprland" "noctalia" ];
+        type = types.enum [ "none" "hyprland" "noctalia" ];
         default = "noctalia";
         description = "";
       };
