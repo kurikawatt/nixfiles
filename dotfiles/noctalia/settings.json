@@ -358,7 +358,7 @@
         "animationDisabled": true,
         "animationSpeed": 1,
         "autoStartAuth": true,
-        "avatarImage": "/home/kurik/.face",
+        "avatarImage": "/home/kurik/Pictures/.face",
         "boxRadiusRatio": 1,
         "clockFormat": "hh\\nmm",
         "clockStyle": "custom",
