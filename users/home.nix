@@ -25,6 +25,7 @@ in
     "yazi".source = ../dotfiles/yazi;
     "hypr".source = ../dotfiles/hypr;
     "noctalia".source = ../dotfiles/noctalia;
+    "mango".source = ../dotfiles/mango;
   };
 
   programs.ssh.matchBlocks = {

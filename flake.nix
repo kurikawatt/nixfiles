@@ -45,9 +45,14 @@
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
 
+    mangowm = {
+      url = "github:mangowm/mango";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
   };
 
-  outputs = { self, sops-nix, disko, nixos-hardware, ... }@inputs:
+  outputs = { self, sops-nix, disko, mangowm, nixos-hardware, ... }@inputs:
     let
       mkHost =
         name:
@@ -58,6 +63,7 @@
           modules = [
             sops-nix.nixosModules.sops
             disko.nixosModules.disko
+            mangowm.nixosModules.mango
             inputs.home-manager.nixosModules.home-manager
             ./hosts/${name}/configuration.nix
             {

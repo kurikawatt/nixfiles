@@ -46,8 +46,9 @@
     plugins = with pkgs; [ age-plugin-tpm ];
   };
 
-  me.services.fuuka.hub = "violet";
+  me.services.fuuka.hub = "metis";
   me.services.sync.enable = true;
+  me.desktop = "mango";
 
   programs.steam = {
     enable = true;
