@@ -16,13 +16,10 @@ in
   };
 
   xdg.configFile = {
-    "kitty".source = ../dotfiles/kitty;
     "palettes".source = ../dotfiles/palettes;
     "mako".source = ../dotfiles/mako;
     "swayosd".source = ../dotfiles/swayosd;
     "yazi".source = ../dotfiles/yazi;
-    "hypr".source = ../dotfiles/hypr;
-    "noctalia".source = ../dotfiles/noctalia;
     "mango".source = ../dotfiles/mango;
   };
 
