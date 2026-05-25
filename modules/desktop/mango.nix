@@ -55,8 +55,6 @@ lib.mkIf (config.me.desktop == "mango") {
   };
 
   environment.systemPackages = with pkgs; [
-    # runner
-    fuzzel
     # file explorer
     yazi
     # screenshots

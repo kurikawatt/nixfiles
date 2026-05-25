@@ -19,7 +19,6 @@ in
     "kitty".source = ../dotfiles/kitty;
     "palettes".source = ../dotfiles/palettes;
     "mako".source = ../dotfiles/mako;
-    "fuzzel".source = ../dotfiles/fuzzel;
     "swayosd".source = ../dotfiles/swayosd;
     "yazi".source = ../dotfiles/yazi;
     "hypr".source = ../dotfiles/hypr;
@@ -270,6 +269,31 @@ in
         background-color: #191724;
       }
     ''; 
+  };
+
+  programs.fuzzel = {
+    enable = true;
+    settings = {
+      main = {
+        layout = "overlay";
+        font="Cascadia Code:size=12";
+        enable-mouse = false;
+        icons-enabled = false;
+      };
+      colors = {
+        background="#191724ff";
+        text="#e0def4ff";
+        prompt="#e0def4ff";
+        placeholder="#6e6a86ff";
+        input="#e0def4ff;";
+        match="#ebbcbaff";
+        selection="#403d52ff";
+        selection-text="#e0def4ff";
+        selection-match="#ebbcbaff";
+        counter="#f6c177ff";
+        border="#ec4067ff";
+      };
+    };
   };
 
   xdg.userDirs = {
