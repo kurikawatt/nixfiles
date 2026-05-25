@@ -9,8 +9,8 @@ in
   options.me = {
     desktop = mkOption
       {
-        type = types.enum [ "hyprland" "noctalia" "mango" ];
-        default = "noctalia";
+        type = types.enum [ "mango" ];
+        default = "mango";
         description = "";
       };
   };
