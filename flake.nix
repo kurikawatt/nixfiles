@@ -12,10 +12,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    hyprland = {
-      url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
-    };
-
     awww = {
       url = "git+https://codeberg.org/LGFae/awww";
     };
@@ -38,11 +34,6 @@
     magla = {
       url = "git+https://codeberg.org/kurikawa/magla";
       inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    noctalia = {
-      url = "github:noctalia-dev/noctalia-shell";
-      inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
 
     mangowm = {
