@@ -21,7 +21,6 @@ in
     "mako".source = ../dotfiles/mako;
     "fuzzel".source = ../dotfiles/fuzzel;
     "swayosd".source = ../dotfiles/swayosd;
-    "waybar".source = ../dotfiles/waybar;
     "yazi".source = ../dotfiles/yazi;
     "hypr".source = ../dotfiles/hypr;
     "noctalia".source = ../dotfiles/noctalia;
@@ -162,6 +161,115 @@ in
       cm = "commit";
       st = "status";
     };
+  };
+
+  programs.waybar = {
+    enable = true;
+    settings = {
+      main = {
+        layer = "bottom";
+        position = "top";
+        spacing = 0;
+        height = 0;
+        reload_style_on_change = true;
+        modules-left = [
+          "custom/hostname"
+          "dwl/window"
+        ];
+        modules-center = [
+          "clock"
+        ];
+        modules-right = [
+          "tray"
+          "network"
+          "network#fuuka"
+          "wireplumber"
+          "battery"
+        ];
+        "custom/hostname" = {
+          format = "{}";
+          exec = "cat /etc/hostname";
+        };
+        network = {
+          format-wifi = "{essid}";
+          format-ethernet = "Wired";
+          format-disconnected = "No Network";
+          format-disabled = "Airplane Mode";
+          tooltip-format = "Strength : {signalStrength}%\n{ipaddr}/{cidr}\n↑ {bandwidthUpOctets} | ↓ {bandwidthDownOctets}";
+        };
+        "network#fuuka" = {
+          interface = "fuuka0";
+          format-connected = "Fuuka";
+          format-disabled = "";
+          tooltip-format = "{ipaddr}/{cidr}\n↑ {bandwidthUpOctets} | ↓ {bandwidthDownOctets}";
+        };
+      };
+    };
+    style = 
+    ''
+      * {
+        border: none;
+        border-radius: 0;
+        min-height: 0;
+        font-family: Cascadia Code;
+        font-size: 16px;
+      }
+
+      window#waybar {
+        background-color: #191724;
+      }
+
+      #battery,
+      #clock,
+      #wireplumber,
+      #network,
+      #tray,
+      #custom-hostname {
+        margin: 5px;
+        padding: 6px 12px;
+      }
+
+      #custom-hostname {
+        color: #ECE14B;
+      }
+
+      #battery,
+      #clock,
+      #wireplumber,
+      #network,
+      #workspaces,
+      #tray {
+        color: #e0def4;
+      }
+
+      #battery {
+        border-radius: 25px;
+        color: #061826;
+        background-color: #3e8fb0;
+      }
+
+      #battery.warning {
+        background-color: #f6c177;
+      }
+
+      #battery.critical,
+      #battery.urgent {
+        background-color: #eb6f92;
+      }
+
+      #battery.charging {
+        background-color: #01CB5F;
+      }
+
+      tooltip {
+        background-color: #191724;
+      }
+
+      tooltip label {
+        padding: 10px;
+        background-color: #191724;
+      }
+    ''; 
   };
 
   xdg.userDirs = {

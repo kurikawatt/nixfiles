@@ -54,8 +54,6 @@ lib.mkIf (config.me.desktop == "mango") {
     };
   };
 
-  programs.waybar.enable = true;
-
   environment.systemPackages = with pkgs; [
     # runner
     fuzzel
