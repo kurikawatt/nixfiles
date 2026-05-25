@@ -276,6 +276,10 @@ in
         enable-mouse = false;
         icons-enabled = false;
       };
+      border = {
+        width = 3;
+        radius = 0;
+      };
       colors = {
         background="#191724ff";
         text="#e0def4ff";
