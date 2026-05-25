@@ -54,7 +54,11 @@ lib.mkIf (config.me.desktop == "mango") {
     };
   };
 
+  programs.waybar.enable = true;
+
   environment.systemPackages = with pkgs; [
+    # runner
+    fuzzel
     # file explorer
     yazi
     # screenshots
@@ -63,6 +67,11 @@ lib.mkIf (config.me.desktop == "mango") {
     # for gsettings
     glib
     gsettings-desktop-schemas
+
+    swaylock
+
+    wl-clipboard
+    wl-clip-persist
 
     inputs.awww.packages.${pkgs.stdenv.hostPlatform.system}.awww
   ];
