@@ -17,7 +17,6 @@ in
 
   xdg.configFile = {
     "palettes".source = ../dotfiles/palettes;
-    "mako".source = ../dotfiles/mako;
     "swayosd".source = ../dotfiles/swayosd;
     "yazi".source = ../dotfiles/yazi;
     "mango".source = ../dotfiles/mango;
@@ -303,6 +302,24 @@ in
 
     extraConfig = {
       SCREENSHOTS_DIR = "${homeDir}/Screenshots";
+    };
+  };
+
+  services.mako = {
+    enable = true;
+    settings = {
+      layer = "overlay";
+      width = "450";
+      height = "128";
+      padding = "24";
+      font = "Cascadia Code 12";
+      text-color = "#e0def4";
+      background-color = "#191724";
+      border-color = "#ec4067";
+      default-timeout = 3000;
+      "urgency=critical" = {
+        default-timeout = 0;
+      };
     };
   };
 }
