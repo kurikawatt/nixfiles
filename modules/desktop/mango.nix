@@ -67,8 +67,6 @@ lib.mkIf (config.me.desktop == "mango") {
     brightnessctl
     playerctl
 
-    swaylock
-
     wl-clipboard
     wl-clip-persist
 

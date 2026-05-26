@@ -27,6 +27,7 @@
   services.fprintd.enable = true;
 
   security.pam.services.ly.fprintAuth = false;
+  security.pam.services.swaylock.fprintAuth = false;
 
   environment.systemPackages = with pkgs; [
     # SecureBoot
