@@ -65,6 +65,7 @@ lib.mkIf (config.me.desktop == "mango") {
     gsettings-desktop-schemas
 
     brightnessctl
+    playerctl
 
     swaylock
 
