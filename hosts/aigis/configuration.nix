@@ -10,7 +10,6 @@
     ./hardware-configuration.nix # Hardware specific configuration
     ../../modules/fonts.nix
     ../../networks/wifi.nix
-    ../../modules/desktop/noctalia.nix
   ];
 
   me.host.isLaptop = true;

@@ -16,7 +16,6 @@ in
   };
 
   xdg.configFile = {
-    "palettes".source = ../dotfiles/palettes;
     "swayosd".source = ../dotfiles/swayosd;
     "yazi".source = ../dotfiles/yazi;
     "mango".source = ../dotfiles/mango;
@@ -200,71 +199,71 @@ in
         };
       };
     };
-    style = 
-    ''
-      * {
-        border: none;
-        border-radius: 0;
-        min-height: 0;
-        font-family: Cascadia Code;
-        font-size: 16px;
-      }
+    style =
+      ''
+        * {
+          border: none;
+          border-radius: 0;
+          min-height: 0;
+          font-family: Cascadia Code;
+          font-size: 16px;
+        }
 
-      window#waybar {
-        background-color: #191724;
-      }
+        window#waybar {
+          background-color: #191724;
+        }
 
-      #battery,
-      #clock,
-      #wireplumber,
-      #network,
-      #tray,
-      #custom-hostname {
-        margin: 5px;
-        padding: 6px 12px;
-      }
+        #battery,
+        #clock,
+        #wireplumber,
+        #network,
+        #tray,
+        #custom-hostname {
+          margin: 5px;
+          padding: 6px 12px;
+        }
 
-      #custom-hostname {
-        color: #ECE14B;
-      }
+        #custom-hostname {
+          color: #ECE14B;
+        }
 
-      #battery,
-      #clock,
-      #wireplumber,
-      #network,
-      #workspaces,
-      #tray {
-        color: #e0def4;
-      }
+        #battery,
+        #clock,
+        #wireplumber,
+        #network,
+        #workspaces,
+        #tray {
+          color: #e0def4;
+        }
 
-      #battery {
-        border-radius: 25px;
-        color: #061826;
-        background-color: #3e8fb0;
-      }
+        #battery {
+          border-radius: 25px;
+          color: #061826;
+          background-color: #3e8fb0;
+        }
 
-      #battery.warning {
-        background-color: #f6c177;
-      }
+        #battery.warning {
+          background-color: #f6c177;
+        }
 
-      #battery.critical,
-      #battery.urgent {
-        background-color: #eb6f92;
-      }
+        #battery.critical,
+        #battery.urgent {
+          background-color: #eb6f92;
+        }
 
-      #battery.charging {
-        background-color: #01CB5F;
-      }
+        #battery.charging {
+          background-color: #01CB5F;
+        }
 
-      tooltip {
-        background-color: #191724;
-      }
+        tooltip {
+          background-color: #191724;
+        }
 
-      tooltip label {
-        padding: 10px;
-        background-color: #191724;
-      }
-    ''; 
+        tooltip label {
+          padding: 10px;
+          background-color: #191724;
+        }
+      '';
   };
 
   programs.fuzzel = {
@@ -272,7 +271,7 @@ in
     settings = {
       main = {
         layout = "overlay";
-        font="Cascadia Code:size=12";
+        font = "Cascadia Code:size=12";
         enable-mouse = false;
         icons-enabled = false;
       };
@@ -281,17 +280,17 @@ in
         radius = 0;
       };
       colors = {
-        background="#191724ff";
-        text="#e0def4ff";
-        prompt="#e0def4ff";
-        placeholder="#6e6a86ff";
-        input="#e0def4ff;";
-        match="#ebbcbaff";
-        selection="#403d52ff";
-        selection-text="#e0def4ff";
-        selection-match="#ebbcbaff";
-        counter="#f6c177ff";
-        border="#ec4067ff";
+        background = "#191724ff";
+        text = "#e0def4ff";
+        prompt = "#e0def4ff";
+        placeholder = "#6e6a86ff";
+        input = "#e0def4ff;";
+        match = "#ebbcbaff";
+        selection = "#403d52ff";
+        selection-text = "#e0def4ff";
+        selection-match = "#ebbcbaff";
+        counter = "#f6c177ff";
+        border = "#ec4067ff";
       };
     };
   };

@@ -64,6 +64,8 @@ lib.mkIf (config.me.desktop == "mango") {
     glib
     gsettings-desktop-schemas
 
+    brightnessctl
+
     swaylock
 
     wl-clipboard
