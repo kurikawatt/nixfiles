@@ -311,12 +311,20 @@ in
 
   programs.swaylock = {
     enable = true;
+    package = pkgs.swaylock-effects;
     settings = {
       font-size = 24;
       indicator-idle-visible = false;
       show-failed-attempts = false;
+
+      indicator-x-position = 960;
+      indicator-y-position = 900;
+
       # Background color
       color = "#191724";
+      image = "~/Pictures/wallpapers/Abso/abso_eupha_night.jpg";
+      scaling = "fill";
+      effect-blur = "7x5";
 
       # Layout text colors
       layout-bg-color = "#00000000";
