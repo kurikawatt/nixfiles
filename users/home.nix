@@ -197,6 +197,21 @@ in
           format-disabled = "";
           tooltip-format = "{ipaddr}/{cidr}\n↑ {bandwidthUpOctets} | ↓ {bandwidthDownOctets}";
         };
+        "wireplumber" = {
+          format = " vol : {volume}%";
+          format-muted = "vol : muted";
+          nospacing = 1;
+          scroll-step = 1;
+        };
+        battery = {
+          format = "{capacity}%";
+          interval = 10;
+          states = {
+            warning = 30;
+            critical = 10;
+          };
+          tooltip = false;
+        };
       };
     };
     style =
@@ -237,7 +252,6 @@ in
         }
 
         #battery {
-          border-radius: 25px;
           color: #061826;
           background-color: #3e8fb0;
         }
