@@ -7,6 +7,8 @@
 lib.mkIf (config.me.desktop == "mango") {
   services.displayManager.ly.enable = true;
 
+  security.pam.services.swaylock = { };
+
   programs.mango.enable = true;
 
   programs.foot = {
