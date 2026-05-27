@@ -10,7 +10,6 @@
     ./hardware-configuration.nix # Hardware specific configuration
     ./drivers.nix
     ../../modules/fonts.nix
-    ../../modules/desktop/hyprland.nix
   ];
 
   sops.age.sshKeyPaths = [ "/home/kurik/.ssh/id_ed25519" ];
