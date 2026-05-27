@@ -10,7 +10,6 @@
     ./hardware-configuration.nix # Hardware specific configuration
     ../../modules/fonts.nix
     ../../networks/wifi.nix
-    ../../modules/desktop/noctalia.nix
   ];
 
   me.host.isLaptop = true;
@@ -28,6 +27,7 @@
   services.fprintd.enable = true;
 
   security.pam.services.ly.fprintAuth = false;
+  security.pam.services.swaylock.fprintAuth = false;
 
   environment.systemPackages = with pkgs; [
     # SecureBoot
@@ -46,8 +46,9 @@
     plugins = with pkgs; [ age-plugin-tpm ];
   };
 
-  me.services.fuuka.hub = "violet";
+  me.services.fuuka.hub = "metis";
   me.services.sync.enable = true;
+  me.desktop = "mango";
 
   programs.steam = {
     enable = true;

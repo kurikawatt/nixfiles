@@ -26,15 +26,9 @@ in
   };
 
   xdg.configFile = {
-    "kitty".source = ../dotfiles/kitty;
-    "palettes".source = ../dotfiles/palettes;
-    "mako".source = ../dotfiles/mako;
-    "fuzzel".source = ../dotfiles/fuzzel;
     "swayosd".source = ../dotfiles/swayosd;
-    "waybar".source = ../dotfiles/waybar;
     "yazi".source = ../dotfiles/yazi;
-    "hypr".source = ../dotfiles/hypr;
-    "noctalia".source = ../dotfiles/noctalia;
+    "mango".source = ../dotfiles/mango;
   };
 
   programs.ssh.matchBlocks = {
@@ -173,6 +167,220 @@ in
     };
   };
 
+  programs.waybar = {
+    enable = true;
+    settings = {
+      main = {
+        layer = "bottom";
+        position = "top";
+        spacing = 0;
+        height = 0;
+        reload_style_on_change = true;
+        modules-left = [
+          "custom/hostname"
+          "dwl/window"
+        ];
+        modules-center = [
+          "clock"
+        ];
+        modules-right = [
+          "tray"
+          "network"
+          "network#fuuka"
+          "wireplumber"
+          "battery"
+        ];
+        "custom/hostname" = {
+          format = "{}";
+          exec = "cat /etc/hostname";
+        };
+        network = {
+          format-wifi = "{essid}";
+          format-ethernet = "Wired";
+          format-disconnected = "No Network";
+          format-disabled = "Airplane Mode";
+          tooltip-format = "Strength : {signalStrength}%\n{ipaddr}/{cidr}\n↑ {bandwidthUpOctets} | ↓ {bandwidthDownOctets}";
+        };
+        "network#fuuka" = {
+          interface = "fuuka0";
+          format-connected = "Fuuka";
+          format-disabled = "";
+          tooltip-format = "{ipaddr}/{cidr}\n↑ {bandwidthUpOctets} | ↓ {bandwidthDownOctets}";
+        };
+        "wireplumber" = {
+          format = " vol : {volume}%";
+          format-muted = "vol : muted";
+          nospacing = 1;
+          scroll-step = 1;
+        };
+        battery = {
+          format = "{capacity}%";
+          interval = 10;
+          states = {
+            warning = 30;
+            critical = 10;
+          };
+          tooltip = false;
+        };
+      };
+    };
+    style =
+      ''
+        * {
+          border: none;
+          border-radius: 0;
+          min-height: 0;
+          font-family: Cascadia Code;
+          font-size: 16px;
+        }
+
+        window#waybar {
+          background-color: #191724;
+        }
+
+        #battery,
+        #clock,
+        #wireplumber,
+        #network,
+        #tray,
+        #custom-hostname {
+          margin: 5px;
+          padding: 6px 12px;
+        }
+
+        #custom-hostname {
+          color: #ECE14B;
+        }
+
+        #battery,
+        #clock,
+        #wireplumber,
+        #network,
+        #workspaces,
+        #tray {
+          color: #e0def4;
+        }
+
+        #battery {
+          color: #061826;
+          background-color: #3e8fb0;
+        }
+
+        #battery.warning {
+          background-color: #f6c177;
+        }
+
+        #battery.critical,
+        #battery.urgent {
+          background-color: #eb6f92;
+        }
+
+        #battery.charging {
+          background-color: #01CB5F;
+        }
+
+        tooltip {
+          background-color: #191724;
+        }
+
+        tooltip label {
+          padding: 10px;
+          background-color: #191724;
+        }
+      '';
+  };
+
+  programs.fuzzel = {
+    enable = true;
+    settings = {
+      main = {
+        layout = "overlay";
+        font = "Cascadia Code:size=12";
+        enable-mouse = false;
+        icons-enabled = false;
+      };
+      border = {
+        width = 3;
+        radius = 0;
+      };
+      colors = {
+        background = "#191724ff";
+        text = "#e0def4ff";
+        prompt = "#e0def4ff";
+        placeholder = "#6e6a86ff";
+        input = "#e0def4ff;";
+        match = "#ebbcbaff";
+        selection = "#403d52ff";
+        selection-text = "#e0def4ff";
+        selection-match = "#ebbcbaff";
+        counter = "#f6c177ff";
+        border = "#ec4067ff";
+      };
+    };
+  };
+
+  programs.swaylock = {
+    enable = true;
+    package = pkgs.swaylock-effects;
+    settings = {
+      font-size = 24;
+      indicator-idle-visible = false;
+      show-failed-attempts = false;
+
+      indicator-x-position = 960;
+      indicator-y-position = 900;
+
+      # Background color
+      color = "#191724";
+      image = "~/Pictures/wallpapers/Abso/abso_eupha_night.jpg";
+      scaling = "fill";
+      effect-blur = "7x5";
+
+      # Layout text colors
+      layout-bg-color = "#00000000";
+      layout-border-color = "#00000000";
+      layout-text-color = "#e0def4";
+
+      # Text color
+      text-color = "#31748f00";
+      text-clear-color = "#9ccfd800";
+      text-caps-lock-color = "#f6c17700";
+      text-ver-color = "#c4a7e700";
+      text-wrong-color = "#eb6f9200";
+
+      # Highlight segments
+      bs-hl-color = "#19172466";
+      key-hl-color = "#31748f";
+      caps-lock-bs-hl-color = "#19172466";
+      caps-lock-key-hl-color = "#f6c177";
+
+      # Highlight segments separator
+      separator-color = "#00000000";
+
+      # Inside of the indicator
+      inside-color = "#31748f55";
+      inside-clear-color = "#9ccfd855";
+      inside-caps-lock-color = "#f6c17755";
+      inside-ver-color = "#c4a7e755";
+      inside-wrong-color = "#eb6f9255";
+
+      # Line between the inside and ring
+      line-color = "#31748f11";
+      line-clear-color = "#9ccfd811";
+      line-caps-lock-color = "#f6c17711";
+      line-ver-color = "#c4a7e711";
+      line-wrong-color = "#eb6f9211";
+
+      # Indicator ring
+      ring-color = "#31748faa";
+      ring-clear-color = "#9ccfd8aa";
+      ring-caps-lock-color = "#f6c177aa";
+      ring-ver-color = "#c4a7e7aa";
+      ring-wrong-color = "#eb6f92aa";
+
+    };
+  };
+
   xdg.userDirs = {
     enable = true;
     createDirectories = true; # ONLY if not already created
@@ -183,6 +391,24 @@ in
 
     extraConfig = {
       SCREENSHOTS_DIR = "${homeDir}/Screenshots";
+    };
+  };
+
+  services.mako = {
+    enable = true;
+    settings = {
+      layer = "overlay";
+      width = "450";
+      height = "128";
+      padding = "24";
+      font = "Cascadia Code 12";
+      text-color = "#e0def4";
+      background-color = "#191724";
+      border-color = "#ec4067";
+      default-timeout = 3000;
+      "urgency=critical" = {
+        default-timeout = 0;
+      };
     };
   };
 }
