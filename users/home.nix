@@ -22,7 +22,7 @@ in
       xdg-desktop-portal-gtk
       xdg-desktop-portal-hyprland
     ];
-    config.common.default = "*"; 
+    config.common.default = "*";
   };
 
   xdg.configFile = {
@@ -178,6 +178,8 @@ in
         reload_style_on_change = true;
         modules-left = [
           "custom/hostname"
+          "group/cpu-temp"
+          "memory"
           "dwl/window"
         ];
         modules-center = [
@@ -222,71 +224,90 @@ in
           };
           tooltip = false;
         };
+        "group/cpu-temp" = {
+          orientation = "horizontal";
+          modules = [ "cpu" "temperature" ];
+        };
+        cpu = {
+          interval = 30;
+          format = "cpu : {usage}%";
+        };
+        temperature = {
+          critial-threshold = 80;
+          format = " ({temperatureC}°C)";
+          format-critical = " ({temperatureC}°C))";
+        };
+        memory = {
+          interval = 30;
+          format = "mem : {used:0.1f}/{total:0.1f}Go";
+        };
       };
     };
     style =
       ''
-        * {
-          border: none;
-          border-radius: 0;
-          min-height: 0;
-          font-family: Cascadia Code;
-          font-size: 16px;
-        }
+                * {
+                  border: none;
+                  border-radius: 0;
+                  min-height: 0;
+                  font-family: Cascadia Code;
+                  font-size: 16px;
+                }
 
-        window#waybar {
-          background-color: #191724;
-        }
+                window#waybar {
+                  background-color: #191724;
+                }
 
-        #battery,
-        #clock,
-        #wireplumber,
-        #network,
-        #tray,
-        #custom-hostname {
-          margin: 5px;
-          padding: 6px 12px;
-        }
+                #battery,
+                #clock,
+                #wireplumber,
+                #network,
+                #tray,
+                #custom-hostname,
+        	#group-cpu,
+        	#memory {
+                  margin: 5px;
+                  padding: 6px 12px;
+                }
 
-        #custom-hostname {
-          color: #ECE14B;
-        }
+                #custom-hostname {
+                  color: #ECE14B;
+                }
 
-        #battery,
-        #clock,
-        #wireplumber,
-        #network,
-        #workspaces,
-        #tray {
-          color: #e0def4;
-        }
+                #battery,
+                #clock,
+                #wireplumber,
+                #network,
+                #workspaces,
+                #tray {
+                  color: #e0def4;
+                }
 
-        #battery {
-          color: #061826;
-          background-color: #3e8fb0;
-        }
+                #battery {
+                  color: #061826;
+                  background-color: #3e8fb0;
+                }
 
-        #battery.warning {
-          background-color: #f6c177;
-        }
+                #battery.warning {
+                  background-color: #f6c177;
+                }
 
-        #battery.critical,
-        #battery.urgent {
-          background-color: #eb6f92;
-        }
+                #battery.critical,
+                #battery.urgent {
+                  background-color: #eb6f92;
+                }
 
-        #battery.charging {
-          background-color: #01CB5F;
-        }
+                #battery.charging {
+                  background-color: #01CB5F;
+                }
 
-        tooltip {
-          background-color: #191724;
-        }
+                tooltip {
+                  background-color: #191724;
+                }
 
-        tooltip label {
-          padding: 10px;
-          background-color: #191724;
-        }
+                tooltip label {
+                  padding: 10px;
+                  background-color: #191724;
+                }
       '';
   };
 
