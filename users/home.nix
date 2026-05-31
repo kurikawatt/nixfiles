@@ -229,16 +229,17 @@ in
           modules = [ "cpu" "temperature" ];
         };
         cpu = {
-          interval = 30;
+          interval = 10;
           format = "cpu : {usage}%";
         };
         temperature = {
+          interval = 10;
           critial-threshold = 80;
           format = " ({temperatureC}°C)";
           format-critical = " ({temperatureC}°C))";
         };
         memory = {
-          interval = 30;
+          interval = 10;
           format = "mem : {used:0.1f}/{total:0.1f}Go";
         };
       };
