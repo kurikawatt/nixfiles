@@ -16,8 +16,6 @@ alias ll="ls -lh"
 
 alias grep="grep --color=auto"
 
-alias ssh="kitten ssh"
-
 alias py="python3"
 
 PS1='(\W) \[\e[32m\]\u\[\e[33m\]@\h\[\e[0m\]$ '
