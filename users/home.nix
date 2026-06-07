@@ -82,6 +82,9 @@ in
 
     deezer-enhanced
 
+    archipelago
+    poptracker
+
     inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
   ];
 

@@ -72,8 +72,14 @@ in
     cachix
     age-plugin-tpm
 
+    clamav
+
     inputs.magla.packages.${pkgs.stdenv.hostPlatform.system}.default
   ];
+
+  # Clamav
+  services.clamav.daemon.enable = true;
+  services.clamav.updater.enable = true;
 
   # Sops
   sops.defaultSopsFile = ./secrets/secrets.json;
@@ -104,6 +110,8 @@ in
     silent = true;
     enableBashIntegration = true;
   };
+
+  virtualisation.docker.enable = true;
 
   virtualisation.vmVariant = {
 
