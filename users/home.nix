@@ -64,6 +64,8 @@ in
     };
   };
 
+  services.udiskie.enable = true;
+
   home.packages = with pkgs; [
     tree
     fastfetch
@@ -71,7 +73,6 @@ in
     obsidian
     thunderbird
     sops
-    udiskie
     jellyfin-desktop
     deluge
     gimp
