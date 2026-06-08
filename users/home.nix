@@ -8,7 +8,7 @@ let
   homeDir = "/home/kurik";
 in
 {
-  home.stateVersion = "25.11";
+  home.stateVersion = "26.05";
 
   home.file = {
     ".bashrc".source = ../dotfiles/.bashrc;
@@ -91,35 +91,10 @@ in
 
   programs.neovim = {
     enable = true;
-    plugins = with pkgs.vimPlugins; [
-      nvim-lspconfig
-      nvim-treesitter.withAllGrammars
-    ];
-    extraLuaConfig = ''
-          -- Basic config for LSP --
-          local lspconfig = require('lspconfig')
-          lspconfig.nixd.setup({
-            settings = {
-              nixd = {
-                formatting = {
-                  command = { "nixpkgs-fmt" },
-      	  },
-      	},
-            },
-          })
-          -- Autoformat on save
-          vim.api.nvim_create_autocmd("BufWritePre", {
-            pattern = "*.nix",
-            callback = function()
-              vim.lsp.buf.format({ async = false })
-            end,
-          })
-    '';
   };
 
-  programs.vscode = {
+  programs.vscodium = {
     enable = true;
-    package = pkgs.vscodium;
     profiles.default.extensions = with pkgs.vscode-extensions; [
       enkia.tokyo-night
       ms-python.python
@@ -410,6 +385,7 @@ in
   xdg.userDirs = {
     enable = true;
     createDirectories = true; # ONLY if not already created
+    setSessionVariables = true;
 
     documents = "${homeDir}/Documents";
     pictures = "${homeDir}/Pictures";
