@@ -103,7 +103,15 @@ in
   home-manager.useGlobalPkgs = true;
   home-manager.useUserPackages = true;
 
-  services.openssh.enable = true;
+  services.openssh = {
+    enable = true;
+    openFirewall = true;
+    settings = {
+      PasswordAuthentication = false;
+      PermitRootLogin = "no";
+      AllowUsers = [ config.me.user ];
+    };
+  };
 
   programs.direnv = {
     enable = true;
