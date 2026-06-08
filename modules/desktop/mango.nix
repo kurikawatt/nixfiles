@@ -26,7 +26,7 @@ lib.mkIf (config.me.desktop == "mango") {
       mouse = {
         hide-when-typing = "yes";
       };
-      colors = {
+      colors-dark = {
         # Rose Piné
         background = "191724";
         foreground = "e0def4";
