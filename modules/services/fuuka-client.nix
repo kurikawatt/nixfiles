@@ -21,7 +21,6 @@ lib.mkIf config.me.services.fuuka.enable {
       [Interface]
       Address = ${peers.${hostname}.ipv4}/24
       PrivateKey = ${config.sops.placeholder."fuuka0/${hostname}/privatekey"}
-      DNS = ${peers."${fuukaHub}".ipv4}
 
       [Peer]
       PublicKey = ${peers.${fuukaHub}.publicKey}
@@ -35,10 +34,15 @@ lib.mkIf config.me.services.fuuka.enable {
     configFile = config.sops.templates."fuuka0.conf".path;
   };
 
-  services.resolved = {
-    enable = true;
-    dnssec = "no";
-  };
+  #services.resolved = {
+  #  enable = true;
+  #  settings = {
+  #    Resolve = {
+  #      DNS = "${peers."${fuukaHub}".ipv4} 8.8.8.8 1.1.1.1";
+  #      DNSSEC = "yes";
+  #    };
+  #  };
+  #};
 
   #networking.hosts = lib.listToAttrs
   #  (
