@@ -19,4 +19,6 @@ lib.mkIf config.me.services.jellyfin.enable {
       proxyWebsockets = true;
     };
   };
+ 
+  networking.firewall.interfaces."fuuka0".allowedTCPPorts = [ 8096 ];
 }
