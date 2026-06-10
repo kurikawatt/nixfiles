@@ -78,6 +78,8 @@ in
     gimp
     gh
 
+    bluetuith
+
     nixd
     nixpkgs-fmt
 
