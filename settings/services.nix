@@ -6,6 +6,14 @@ let
   inherit (lib) mkOption types;
 in
 {
+  options.me.services.fuuka-dns = {
+    enable = mkOption {
+      type = types.bool;
+      default = false;
+      description = "Enable DNS for fuuka";
+    };
+  };
+
   options.me.services.jellyfin = {
     enable = mkOption {
       type = types.bool;

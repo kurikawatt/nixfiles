@@ -50,4 +50,5 @@
 
   me.services.fuuka.enable = false;
   me.services.fuuka.enableHub = true;
+  me.services.fuuka-dns.enable = true;
 }

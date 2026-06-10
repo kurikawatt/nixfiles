@@ -30,6 +30,7 @@ lib.mkIf config.me.services.fuuka.enableHub {
     address = [ fuukaPeers.${hostname}.ipv4 ];
     listenPort = port;
     privateKeyFile = config.sops.secrets."fuuka0/${hostname}/privatekey".path;
+    dns = [ "1.1.1.1" "8.8.8.8" ];
     peers = lib.mapAttrsToList
       (name: peerInfo: {
         publicKey = peerInfo.publicKey;
