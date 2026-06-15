@@ -6,7 +6,7 @@
 lib.mkIf config.me.services.jellyfin.enable {
   services.jellyfin = {
     enable = true;
-    #openFirewall = true;
+    openFirewall = true;
   };
   environment.systemPackages = with pkgs; [
     jellyfin

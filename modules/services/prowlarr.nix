@@ -11,7 +11,7 @@ lib.mkIf config.me.services.prowlarr.enable {
     enable = true;
     web = {
       enable = true;
-      #openFirewall = true;
+      openFirewall = true;
     };
     group = "prowdl";
   };
@@ -25,7 +25,7 @@ lib.mkIf config.me.services.prowlarr.enable {
 
   services.prowlarr = {
     enable = true;
-    #openFirewall = true;
+    openFirewall = true;
   };
 
   services.nginx.virtualHosts."prowlarr.${config.networking.hostName}.fuuka" = {
@@ -37,7 +37,7 @@ lib.mkIf config.me.services.prowlarr.enable {
 
   services.sonarr = {
     enable = true;
-    #openFirewall = true;
+    openFirewall = true;
     group = "prowdl";
   };
 
@@ -50,7 +50,7 @@ lib.mkIf config.me.services.prowlarr.enable {
 
   services.radarr = {
     enable = true;
-    #openFirewall = true;
+    openFirewall = true;
     group = "prowdl";
   };
 
@@ -63,7 +63,7 @@ lib.mkIf config.me.services.prowlarr.enable {
 
   services.bazarr = {
     enable = true;
-    #openFirewall = true;
+    openFirewall = true;
     group = "prowdl";
   };
 
