@@ -39,4 +39,11 @@ lib.mkIf config.me.services.fuuka.enableHub {
       })
       fuukaPeers;
   };
+
+  services.nginx = {
+    enable = true;
+  };
+
+  networking.firewall.interfaces."fuuka0".allowedTCPPorts = [ 53 80 ];
+  networking.firewall.interfaces."fuuka0".allowedUDPPorts = [ 53 ];
 }

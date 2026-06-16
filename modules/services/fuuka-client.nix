@@ -34,23 +34,25 @@ lib.mkIf config.me.services.fuuka.enable {
     configFile = config.sops.templates."fuuka0.conf".path;
   };
 
-  #services.resolved = {
-  #  enable = true;
-  #  settings = {
-  #    Resolve = {
-  #      DNS = "${peers."${fuukaHub}".ipv4} 8.8.8.8 1.1.1.1";
-  #      DNSSEC = "yes";
-  #    };
-  #  };
-  #};
+  networking.hosts = lib.listToAttrs
+    (
+      lib.mapAttrsToList
+        (name: peer: {
+          name = peer.ipv4;
+          value = [ "${name}.fuuka" ];
+        })
+        peers
+    );
 
-  #networking.hosts = lib.listToAttrs
-  #  (
-  #    lib.mapAttrsToList
-  #      (name: peer: {
-  #        name = peer.ipv4;
-  #        value = [ "${name}.fuuka" ];
-  #      })
-  #      peers
-  #  );
+  services.dnsmasq = {
+    enable = true;
+    alwaysKeepRunning = true;
+    settings = {
+      address = lib.mapAttrsToList (name: peer: 
+        "/${name}.fuuka/${peer.ipv4}"
+      ) peers;
+      interface = "fuuka0";
+      bind-interfaces = true;
+    };
+  };
 }
