@@ -48,6 +48,7 @@ in
 
   # Enable NetworkManager
   networking.networkmanager.enable = true;
+  networking.firewall.enable = true;
 
   hardware.bluetooth = {
     enable = true;
@@ -105,7 +106,6 @@ in
 
   services.openssh = {
     enable = true;
-    openFirewall = true;
     settings = {
       PasswordAuthentication = false;
       PermitRootLogin = "no";

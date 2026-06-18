@@ -14,6 +14,15 @@
 
   disko.devices.disk.main.device = "/dev/sda";
 
+  hardware.graphics = {
+    enable = true;
+    extraPackages = with pkgs; [
+      intel-media-driver # For Broadwell (2014) or newer processors. LIBVA_DRIVER_NAME=iHD
+      intel-vaapi-driver # For older processors. LIBVA_DRIVER_NAME=i965
+      libvdpau-va-gl
+    ];
+  };
+
   sops.secrets."credentials" = {
     sopsFile = ../../secrets/smb-Monolith.yaml;
     path = "/etc/smb-secrets";
@@ -50,5 +59,4 @@
 
   me.services.fuuka.enable = false;
   me.services.fuuka.enableHub = true;
-  me.services.fuuka-dns.enable = true;
 }

@@ -20,5 +20,11 @@ lib.mkIf config.me.services.jellyfin.enable {
     };
   };
  
+  # To be able to use Hardware
+  users.users.jellyfin.extraGroups = [
+    "render"
+    "video"
+  ];
+
   networking.firewall.interfaces."fuuka0".allowedTCPPorts = [ 8096 ];
 }

@@ -39,20 +39,20 @@ lib.mkIf config.me.services.fuuka.enable {
       lib.mapAttrsToList
         (name: peer: {
           name = peer.ipv4;
-          value = [ "${name}.fuuka" ];
+          value = [ "${name}" "${name}.fuuka" ];
         })
         peers
     );
 
-  services.dnsmasq = {
-    enable = true;
-    alwaysKeepRunning = true;
-    settings = {
-      address = lib.mapAttrsToList (name: peer: 
-        "/${name}.fuuka/${peer.ipv4}"
-      ) peers;
-      interface = "fuuka0";
-      bind-interfaces = true;
-    };
-  };
+  #services.dnsmasq = {
+  #  enable = true;
+  #  alwaysKeepRunning = true;
+  #  settings = {
+  #    address = lib.mapAttrsToList (name: peer: 
+  #      "/${name}.fuuka/${peer.ipv4}"
+  #    ) peers;
+  #    interface = "fuuka0";
+  #    bind-interfaces = true;
+  #  };
+  #};
 }
