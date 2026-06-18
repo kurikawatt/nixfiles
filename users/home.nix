@@ -6,8 +6,19 @@
 }:
 let
   homeDir = "/home/kurik";
+
+  import-tree =
+    path:
+    let
+      inherit (inputs.nixpkgs.lib) fileset hasInfix;
+      nixFiles = fileset.toList (fileset.fileFilter (f: f.hasExt "nix") path);
+    in
+    builtins.filter (p: !(hasInfix "/_" (toString p))) nixFiles;
 in
 {
+  imports = []
+  ++ (import-tree ./waybar);
+
   home.stateVersion = "26.05";
 
   home.file = {
@@ -161,7 +172,7 @@ in
           "custom/hostname"
           "group/cpu-temp"
           "memory"
-          "dwl/window"
+          #"dwl/window"
         ];
         modules-center = [
           "clock"
@@ -169,7 +180,6 @@ in
         modules-right = [
           "tray"
           "network"
-          "network#fuuka"
           "wireplumber"
           "battery"
         ];
@@ -183,12 +193,6 @@ in
           format-disconnected = "No Network";
           format-disabled = "Airplane Mode";
           tooltip-format = "Strength : {signalStrength}%\n{ipaddr}/{cidr}\n↑ {bandwidthUpOctets} | ↓ {bandwidthDownOctets}";
-        };
-        "network#fuuka" = {
-          interface = "fuuka0";
-          format-connected = "Fuuka";
-          format-disabled = "";
-          tooltip-format = "{ipaddr}/{cidr}\n↑ {bandwidthUpOctets} | ↓ {bandwidthDownOctets}";
         };
         "wireplumber" = {
           format = " vol : {volume}%";
