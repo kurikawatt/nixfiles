@@ -10,8 +10,7 @@ lib.mkIf osConfig.me.services.fuuka.enable {
     modules-right = [ "network#fuuka" ];
     "network#fuuka" = {
       interface = "fuuka0";
-      format-connected = "Fuuka";
-      format-disabled = "";
+      format = "Fuuka";
       tooltip-format = "{ipaddr}/{cidr}\n↑ {bandwidthUpOctets} | ↓ {bandwidthDownOctets}";
     };
   };
