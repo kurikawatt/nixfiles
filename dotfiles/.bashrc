@@ -8,6 +8,7 @@ export GPG_TTY=$(tty)
 export EDITOR=nvim
 
 export FLAKE="~/git/nixfiles"
+export MAGLA_BUILDSYS="nh"
 export MAGLA_TEMPLATES_DIR="~/.templates"
 
 
