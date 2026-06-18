@@ -192,7 +192,11 @@ in
           format-ethernet = "Wired";
           format-disconnected = "No Network";
           format-disabled = "Airplane Mode";
-          tooltip-format = "Strength : {signalStrength}%\n{ipaddr}/{cidr}\n↑ {bandwidthUpOctets} | ↓ {bandwidthDownOctets}";
+          tooltip-format = ''
+            Strength : {signalStrength}%
+            IP : {ipaddr}/{cidr}
+            ↑ {bandwidthUpOctets} | ↓ {bandwidthDownOctets}
+          '';
         };
         "wireplumber" = {
           format = " vol : {volume}%";

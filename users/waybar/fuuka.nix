@@ -11,7 +11,11 @@ lib.mkIf osConfig.me.services.fuuka.enable {
     "network#fuuka" = {
       interface = "fuuka0";
       format = "Fuuka";
-      tooltip-format = "{ipaddr}/{cidr}\n↑ {bandwidthUpOctets} | ↓ {bandwidthDownOctets}";
+      tooltip-format = ''
+        Strength : {signalStrength}%
+        IP : {ipaddr}/{cidr}
+        ↑ {bandwidthUpOctets} | ↓ {bandwidthDownOctets}
+      '';
     };
   };
 }
