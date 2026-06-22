@@ -122,11 +122,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1781791430,
-        "narHash": "sha256-NF+x8iHxN4YBlOug2Xt3MSECT1MAsrFkltbR8ef67vE=",
+        "lastModified": 1782133746,
+        "narHash": "sha256-aMoFBqEWhz0kJkzuaI9JnP+1m75xFMleumEoX87k8dA=",
         "ref": "refs/heads/main",
-        "rev": "5295ca2b0ccb7173b146301d7e7153637d666820",
-        "revCount": 45,
+        "rev": "1ec8d76129b043dfc1ebe01b1de9f2e034ad73b7",
+        "revCount": 48,
         "type": "git",
         "url": "https://codeberg.org/kurikawa/magla"
       },
@@ -144,11 +144,11 @@
         "scenefx": "scenefx"
       },
       "locked": {
-        "lastModified": 1781797430,
-        "narHash": "sha256-cXxyBz7Pw4JNGBBQdB9mmceQ4brhjqoHcVn4tBGQde0=",
+        "lastModified": 1782094226,
+        "narHash": "sha256-tl2VUirG80viYkPJrsyuUQdhJGzoUJDXu5xH7EeCq54=",
         "owner": "mangowm",
         "repo": "mango",
-        "rev": "5583f8901a173b5caab372df4c031913e353bfbc",
+        "rev": "eb9b5ca8cc9864cea4e05a410d18c942230c4179",
         "type": "github"
       },
       "original": {
@@ -350,11 +350,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1781761091,
-        "narHash": "sha256-WfgNo6W1U7dwWZsdaAnoG62CXvvJDL+dXfUxnAS7WhU=",
+        "lastModified": 1781847955,
+        "narHash": "sha256-1OSYOGuJp/NoODmSHjsz+6TB/kSilJ+BsFihjY7TTnc=",
         "owner": "youwen5",
         "repo": "zen-browser-flake",
-        "rev": "e843542efbb7405141659d47bef211c9a8efbc54",
+        "rev": "4bca251cd556677f7b765ff324d1638ae215be13",
         "type": "github"
       },
       "original": {
