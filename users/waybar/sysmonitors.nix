@@ -1,4 +1,5 @@
 { config
+, osConfig
 , lib
 , pkgs
 , inputs
@@ -9,7 +10,8 @@
     
     settings.main = {
 
-      modules-left = [ "group/cpu-temp" "memory" ];
+      modules-left = (if osConfig.me.host.isLaptop then [ "battery" ] else [])
+      ++ [ "group/cpu-temp" "memory" "tray" ];
 
       "group/cpu-temp" = {
         orientation = "horizontal";
@@ -33,9 +35,33 @@
         format = "mem : {used:0.1f}/{total:0.1f}Go";
       };
 
+      tray = {
+        spacing = 10;
+        icon-size = 16;
+      };
+
+      battery = {
+        format = "{capacity}%";
+        interval = 10;
+        states = {
+          warning = 30;
+          critical = 10;
+        };
+        tooltip = false;
+      };
+
     };
 
     style = ''
+
+      #battery,
+      #cpu,
+      #memory,
+      #tray {
+        margin: 5px;
+        padding: 6px 12px;
+      }
+
       #custom-cpu-temp {
         color: #e0def4;
       }
@@ -43,6 +69,24 @@
       #custom-cpu-temp.critical {
         color: #eb6f92;
         font-weight: bold;
+      }
+      
+      #battery {
+        color: #061826;
+        background-color: #3e8fb0;
+      }
+
+      #battery.warning {
+        background-color: #f6c177;
+      }
+
+      #battery.critical,
+      #battery.urgent {
+        background-color: #eb6f92;
+      }
+
+      #battery.charging {
+        background-color: #01CB5F;
       }
     '';
 

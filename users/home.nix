@@ -176,7 +176,6 @@ in
           "clock"
         ];
         modules-right = [
-          "tray"
           "wireplumber"
           "battery"
         ];
@@ -190,82 +189,46 @@ in
           nospacing = 1;
           scroll-step = 1;
         };
-        battery = {
-          format = "{capacity}%";
-          interval = 10;
-          states = {
-            warning = 30;
-            critical = 10;
-          };
-          tooltip = false;
-        };
       };
     };
     style =
       ''
-                * {
-                  border: none;
-                  border-radius: 0;
-                  min-height: 0;
-                  font-family: Cascadia Code;
-                  font-size: 16px;
-                }
+        * {
+          border: none;
+          border-radius: 0;
+          min-height: 0;
+          font-family: Cascadia Code;
+          font-size: 16px;
+        }
 
-                window#waybar {
-                  background-color: #191724;
-                }
+        window#waybar {
+          background-color: #191724;
+        }
 
-                #battery,
-                #clock,
-                #wireplumber,
-                #network,
-                #tray,
-                #custom-hostname,
-        	#group-cpu,
-        	#memory {
-                  margin: 5px;
-                  padding: 6px 12px;
-                }
+        #clock,
+        #custom-hostname,
+        #wireplumber {
+          margin: 5px;
+          padding: 6px 12px;
+        }
 
-                #custom-hostname {
-                  color: #ECE14B;
-                }
+        #custom-hostname {
+          color: #ECE14B;
+        }
 
-                #battery,
-                #clock,
-                #wireplumber,
-                #network,
-                #workspaces,
-                #tray {
-                  color: #e0def4;
-                }
+        #clock,
+        #wireplumber {
+          color: #e0def4;
+        }
 
-                #battery {
-                  color: #061826;
-                  background-color: #3e8fb0;
-                }
+        tooltip {
+          background-color: #191724;
+        }
 
-                #battery.warning {
-                  background-color: #f6c177;
-                }
-
-                #battery.critical,
-                #battery.urgent {
-                  background-color: #eb6f92;
-                }
-
-                #battery.charging {
-                  background-color: #01CB5F;
-                }
-
-                tooltip {
-                  background-color: #191724;
-                }
-
-                tooltip label {
-                  padding: 10px;
-                  background-color: #191724;
-                }
+        tooltip label {
+          padding: 10px;
+          background-color: #191724;
+        }
       '';
   };
 
