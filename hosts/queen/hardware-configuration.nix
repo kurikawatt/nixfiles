@@ -62,6 +62,11 @@
     options = [ "auto" "nofail" ];
   };
 
+  systemd.tmpfiles.rules = [
+    "d /media/Eht 0775 ${config.me.user} users - -"
+    "d /media/Drakodios 0775 ${config.me.user} users - -"
+  ];
+
   swapDevices = [
     {
       device = "/.swapfile";
