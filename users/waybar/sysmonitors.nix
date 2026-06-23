@@ -20,7 +20,7 @@
 
       cpu = {
         interval = 10;
-        format = "cpu : {usage}% ";
+        format = "cpu : {usage}%";
       };
 
       "custom/cpu-temp" = {
@@ -55,14 +55,16 @@
     style = ''
 
       #battery,
-      #cpu,
-      #memory,
-      #tray {
+      #custom-cpu-temp {
         margin: 5px;
-        padding: 6px 12px;
+      }
+
+      #tray {
+        margin: 10px;
       }
 
       #custom-cpu-temp {
+        padding: 6px 6px;
         color: #e0def4;
       }
 
