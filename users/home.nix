@@ -177,24 +177,12 @@ in
         ];
         modules-right = [
           "tray"
-          "network"
           "wireplumber"
           "battery"
         ];
         "custom/hostname" = {
           format = "{}";
           exec = "cat /etc/hostname";
-        };
-        network = {
-          format-wifi = "{essid}";
-          format-ethernet = "Wired";
-          format-disconnected = "No Network";
-          format-disabled = "Airplane Mode";
-          tooltip-format = ''
-            Strength : {signalStrength}%
-            IP : {ipaddr}/{cidr}
-            ↑ {bandwidthUpOctets} | ↓ {bandwidthDownOctets}
-          '';
         };
         "wireplumber" = {
           format = " vol : {volume}%";
