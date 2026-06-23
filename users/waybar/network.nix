@@ -15,8 +15,9 @@
         format-ethernet = "Wired";
         format-disconnected = "No Network";
         format-disabled = "Airplane Mode";
-        tooltip-format = ''
-          Strength : {signalStrength}%
+        tooltip-format = 
+        (if osConfig.me.host.isLaptop then "Strength : {signalStrength}%\n" else "") +  
+        ''
           IP : {ipaddr}/{cidr}
           ↑ {bandwidthUpOctets} | ↓ {bandwidthDownOctets}
         '';

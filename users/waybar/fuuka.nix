@@ -11,7 +11,6 @@ lib.mkIf osConfig.me.services.fuuka.enable {
       interface = "fuuka0";
       format = "Fuuka";
       tooltip-format = ''
-        Strength : {signalStrength}%
         IP : {ipaddr}/{cidr}
         ↑ {bandwidthUpOctets} | ↓ {bandwidthDownOctets}
       '';
