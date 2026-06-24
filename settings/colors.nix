@@ -13,19 +13,19 @@ in
   options.me.colors = {
 
     foreground = mkOption {
-      type = str;
+      type = types.str;
       default = "c0caf5";
       description = "Foreground color";
     };
 
     background = mkOption {
-      type = str;
+      type = types.str;
       default = "1a1b26";
       description = "Background color";
     };
 
     regulars = mkOption {
-      type = listOf str;
+      type = types.listOf types.str;
       default = [
         "15161E" # black
         "f7768e" # red
@@ -36,11 +36,11 @@ in
         "7dcfff" # cyan
         "a9b1d6" # white
       ];
-      description = "Regular colors"
+      description = "Regular colors";
     };
 
     brights = mkOption {
-      type = listOf str;
+      type = types.listOf types.str;
       default = [
         "414868" # black
         "f7768e" # red
@@ -51,17 +51,17 @@ in
         "7dcfff" # cyan
         "c0caf5" # white
       ];
-      description = "Bright colors"
+      description = "Bright colors";
     };
 
     dimmed = mkOption {
-      type = listOf str;
+      type = types.listOf types.str;
       default = [
         "ff9e64"
         "db4b4b"
       ];
-      description = "Dimmed colors"
-    }
+      description = "Dimmed colors";
+    };
 
   };
 
