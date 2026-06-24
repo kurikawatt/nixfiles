@@ -12,6 +12,7 @@ in
     ./services.nix
     ./desktop.nix
     ./hosts.nix
+    ./colors.nix
   ];
 
   options.me = {
