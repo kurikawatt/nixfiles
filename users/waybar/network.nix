@@ -25,6 +25,7 @@
     };
     style = ''
       #network {
+        color: #${osConfig.me.colors.foreground};
         margin: 5px;
         padding: 6px 12px;
       }

@@ -1,4 +1,5 @@
 { config
+, osConfig
 , lib
 , pkgs
 , inputs
@@ -168,17 +169,9 @@ in
         spacing = 0;
         height = 0;
         reload_style_on_change = true;
-        modules-left = [
-          "custom/hostname"
-          #"dwl/window"
-        ];
-        modules-center = [
-          "clock"
-        ];
-        modules-right = [
-          "wireplumber"
-          "battery"
-        ];
+        modules-left = [ "custom/hostname" ];
+        modules-center = [ "clock" ];
+        modules-right = [ "wireplumber" ];
         "custom/hostname" = {
           format = "{}";
           exec = "cat /etc/hostname";
@@ -202,7 +195,7 @@ in
         }
 
         window#waybar {
-          background-color: #191724;
+          background-color: #${osConfig.me.colors.background};
         }
 
         #clock,
@@ -218,16 +211,16 @@ in
 
         #clock,
         #wireplumber {
-          color: #e0def4;
+          color: #${osConfig.me.colors.foreground};
         }
 
         tooltip {
-          background-color: #191724;
+          background-color: #${osConfig.me.colors.background};
         }
 
         tooltip label {
           padding: 10px;
-          background-color: #191724;
+          background-color: #${osConfig.me.colors.background};
         }
       '';
   };

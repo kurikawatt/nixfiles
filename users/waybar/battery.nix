@@ -20,7 +20,7 @@ lib.mkIf osConfig.me.host.isLaptop {
     };
     style = ''
       #battery {
-        color: #061826;
+        color: #${osConfig.me.colors.background};
         background-color: #3e8fb0;
       }
 

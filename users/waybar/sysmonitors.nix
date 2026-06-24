@@ -11,7 +11,9 @@
     settings.main = {
 
       modules-left = (if osConfig.me.host.isLaptop then [ "battery" ] else [])
-      ++ [ "group/cpu-temp" "memory" "tray" ];
+      ++ [ "group/cpu-temp" "memory" ];
+
+      modules-right = [ "tray" ];
 
       "group/cpu-temp" = {
         orientation = "horizontal";
@@ -43,10 +45,10 @@
     };
 
     style = ''
-
       #battery,
       #custom-cpu-temp {
         margin: 5px;
+        color: #${osConfig.me.colors.foreground};
       }
 
       #tray {
@@ -55,7 +57,10 @@
 
       #custom-cpu-temp {
         padding: 6px 6px;
-        color: #e0def4;
+      }
+
+      #cpu, #memory {
+        color: #${osConfig.me.colors.foreground};
       }
 
       #custom-cpu-temp.critical {
