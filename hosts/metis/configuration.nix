@@ -39,12 +39,6 @@
       [ "${automount_opts},credentials=/etc/smb-secrets,uid=1000,gid=100,dir_mode=0777,file_mode=0777,noperm" ];
   };
 
-  fileSystems."/media/Eva02" = {
-    device = "/dev/disk/by-label/Eva02";
-    fsType = "ext4";
-    options = [ "auto" "nofail" ];
-  };
-
   sops.age.sshKeyPaths = [
     "/home/kurik/.ssh/id_ed25519"
   ];
