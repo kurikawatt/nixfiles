@@ -334,14 +334,16 @@ in
     enable = true;
     settings = {
       layer = "overlay";
-      width = "450";
-      height = "128";
-      padding = "24";
+      anchor = "top-center";
+      width = 512;
+      height = 256;
+      margin = 10;
+      padding = 24;
       font = "Cascadia Code 12";
-      text-color = "#e0def4";
-      background-color = "#191724";
+      text-color = "#${osConfig.me.colors.foreground}";
+      background-color = "#${osConfig.me.colors.background}";
       border-color = "#ec4067";
-      default-timeout = 3000;
+      default-timeout = 2500;
       "urgency=critical" = {
         default-timeout = 0;
       };
