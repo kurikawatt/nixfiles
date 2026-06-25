@@ -86,8 +86,7 @@ in
     thunderbird
     sops
     jellyfin-desktop
-    deluge
-    gimp
+    
     gh
 
     bluetuith
@@ -97,11 +96,17 @@ in
 
     deezer-enhanced
 
-    archipelago
-    poptracker
-
     inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
-  ];
+  ]
+  ++ (
+    if osConfig.networking.hostName == "queen" 
+    then [
+      deluge
+      gimp
+      archipelago
+      poptracker
+    ] else []
+  );
 
   programs.neovim = {
     enable = true;
