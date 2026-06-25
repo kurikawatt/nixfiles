@@ -230,23 +230,24 @@ in
     settings = {
       main = {
         layout = "overlay";
-        font = "Cascadia Code:size=12";
+        font = "Cascadia Code:size=14";
+        terminal = "${pkgs.foot}/bin/foot";
         enable-mouse = false;
         icons-enabled = false;
       };
       border = {
-        width = 3;
+        width = 2;
         radius = 0;
       };
       colors = {
-        background = "#191724ff";
-        text = "#e0def4ff";
-        prompt = "#e0def4ff";
+        background = "#${osConfig.me.colors.background}ff";
+        text = "#${osConfig.me.colors.foreground}ff";
+        prompt = "#${osConfig.me.colors.foreground}ff";
         placeholder = "#6e6a86ff";
-        input = "#e0def4ff;";
-        match = "#ebbcbaff";
+        input = "#${osConfig.me.colors.foreground}ff;";
+        match = "#${builtins.elemAt osConfig.me.colors.regulars 4}ff";
         selection = "#403d52ff";
-        selection-text = "#e0def4ff";
+        selection-text = "#${osConfig.me.colors.foreground}ff";
         selection-match = "#ebbcbaff";
         counter = "#f6c177ff";
         border = "#ec4067ff";
