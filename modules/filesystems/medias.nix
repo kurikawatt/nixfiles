@@ -6,7 +6,6 @@
 let
 
   mediaMountpoint = "/media";
-  secretsPath = "../../secrets";
 
   opts = [ 
     "x-systemd.automount"
@@ -24,12 +23,12 @@ lib.mkIf config.me.host.mountMedias {
 
   sops.secrets = {
     "monolith-credentials" = {
-      sopsFile = "${secretsPath}/smb-Monolith.yaml";
+      sopsFile = ../../secrets/smb-Monolith.yaml;
       path = "/etc/smb-secrets-monolith";
       mode = "0600";
     };
     "laika-credentials" = {
-    sopsFile = "${secretsPath}/smb-Laika.yaml";
+    sopsFile = ../../secrets/smb-Laika.yaml;
     path = "/etc/smb-secrets-laika";
     mode = "0600";
     };
