@@ -24,5 +24,11 @@ in
       default = false;
       description = "Enable Plymouth splash";
     };
+
+    mountMedias = mkOption {
+      type = types.bool;
+      default = false;
+      description = "Mount Samba share at home";
+    }
   };
 }

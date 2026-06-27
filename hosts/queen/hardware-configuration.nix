@@ -51,41 +51,6 @@
     "d /media/Drakodios 0775 ${config.me.user} users - -"
   ];
 
-
-  # Samba
-
-  sops.secrets."monolith-credentials" = {
-    sopsFile = ../../secrets/smb-Monolith.yaml;
-    path = "/etc/smb-secrets-monolith";
-    mode = "0600";
-  };
-
-  fileSystems."/media/Monolith" = {
-    device = "//192.168.1.13/kurik";
-    fsType = "cifs";
-    options =
-      let
-        automount_opts = "x-systemd.automount,noauto,x-systemd.idle-timeout=60,x-systemd.device-timeout=5s,x-systemd.mount-timeout=5s,user,users";
-      in
-      [ "${automount_opts},credentials=/etc/smb-secrets-monolith,uid=1001,gid=100" ];
-  };
-
-  sops.secrets."laika-credentials" = {
-    sopsFile = ../../secrets/smb-Laika.yaml;
-    path = "/etc/smb-secrets-laika";
-    mode = "0600";
-  };
-
-  fileSystems."/media/Laika" = {
-    device = "//192.168.1.16/Medias";
-    fsType = "cifs";
-    options =
-      let
-        automount_opts = "x-systemd.automount,noauto,x-systemd.idle-timeout=60,x-systemd.device-timeout=5s,x-systemd.mount-timeout=5s,user,users";
-      in
-      [ "${automount_opts},credentials=/etc/smb-secrets-laika,uid=1001,gid=100,vers=3.0" ];
-  };
-
   swapDevices = [
     {
       device = "/.swapfile";
