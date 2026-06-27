@@ -7,7 +7,6 @@
   imports = [
     ./disko.nix
     ./hardware-configuration.nix
-    ../../configuration.nix # Global configuration
   ];
 
   me.host.bootloader = "systemd-boot";

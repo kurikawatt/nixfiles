@@ -57,6 +57,7 @@
             mangowm.nixosModules.mango
             inputs.home-manager.nixosModules.home-manager
             ./hosts/${name}/configuration.nix
+            ./configuration.nix
             {
               networking.hostName = name;
               home-manager.extraSpecialArgs = specialArgs;

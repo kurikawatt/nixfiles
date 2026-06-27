@@ -5,7 +5,6 @@
 }:
 {
   imports = [
-    ../../configuration.nix # Global configuration
     ./hardware-configuration.nix # Hardware specific configuration
     ./drivers.nix
   ];
