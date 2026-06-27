@@ -18,7 +18,7 @@ in
     ./settings/me.nix
     ./users/default.nix
   ]
-  ++ (import-tree ./modules)
+  ++ (import-tree ./modules);
 
   # Linux Kernel LTS
   boot.kernelPackages = lib.mkDefault pkgs.linuxPackages;
