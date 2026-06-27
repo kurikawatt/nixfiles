@@ -20,16 +20,16 @@ let
     "gid=100" # my group
   ];
 in
-lib.mkIf me.host.mountMedias {
+lib.mkIf config.me.host.mountMedias {
 
   sops.secrets = {
     "monolith-credentials" = {
-      sopsFile = ${secretsPath}/smb-Monolith.yaml;
+      sopsFile = "${secretsPath}/smb-Monolith.yaml";
       path = "/etc/smb-secrets-monolith";
       mode = "0600";
     };
     "laika-credentials" = {
-    sopsFile = ${secretsPath}/smb-Laika.yaml;
+    sopsFile = "${secretsPath}/smb-Laika.yaml";
     path = "/etc/smb-secrets-laika";
     mode = "0600";
     };

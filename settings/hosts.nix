@@ -29,6 +29,6 @@ in
       type = types.bool;
       default = false;
       description = "Mount Samba share at home";
-    }
+    };
   };
 }
