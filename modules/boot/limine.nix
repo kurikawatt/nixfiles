@@ -1,10 +1,9 @@
 {
+  config,
+  lib,
   ...
 }:
-{
-  imports = [
-    ./plymouth.nix
-  ];
+lib.mkIf (config.me.host.bootloader == "limine") {
   
   boot.loader.limine = {
     enable = true;

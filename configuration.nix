@@ -18,8 +18,7 @@ in
     ./settings/me.nix
     ./users/default.nix
   ]
-  ++ (import-tree ./modules/services)
-  ++ (import-tree ./modules/desktop);
+  ++ (import-tree ./modules)
 
   # Linux Kernel LTS
   boot.kernelPackages = lib.mkDefault pkgs.linuxPackages;

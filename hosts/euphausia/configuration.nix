@@ -7,11 +7,8 @@
 {
   imports = [
     inputs.nixos-hardware.nixosModules.framework-16-7040-amd
-    ../../modules/boot/limine.nix
     ../../configuration.nix # Global configuration
-    ../../modules/fonts.nix
     ../../networks/wifi.nix
-    ../../modules/desktop/hyprland.nix
   ];
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
@@ -28,7 +25,7 @@
   };
 
   # Fingerprint
-  services.fprintd.enable = true;
+  services.fprintd.enable = false;
 
   security.pam.services.ly.fprintAuth = false;
 
@@ -49,5 +46,5 @@
   #  plugins = with pkgs; [ age-plugin-tpm ];
   #};
 
-  me.services.fuuka.hub = "violet";
+  me.services.fuuka.hub = "metis";
 }

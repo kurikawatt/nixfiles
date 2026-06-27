@@ -1,8 +1,10 @@
 {
   pkgs,
+  lib,
+  config,
   ...
 }:
-{
+lib.mkIf config.me.host.enablePlymouth {
   boot.plymouth = {
     enable = true;
     theme = "rings";

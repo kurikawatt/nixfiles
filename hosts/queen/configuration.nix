@@ -5,12 +5,12 @@
 }:
 {
   imports = [
-    ../../modules/boot/systemd-boot.nix
     ../../configuration.nix # Global configuration
     ./hardware-configuration.nix # Hardware specific configuration
     ./drivers.nix
-    ../../modules/fonts.nix
   ];
+
+  me.host.bootloader = "systemd-boot";
 
   sops.age.sshKeyPaths = [ "/home/kurik/.ssh/id_ed25519" ];
 
