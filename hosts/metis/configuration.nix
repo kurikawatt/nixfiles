@@ -11,6 +11,7 @@
   ];
 
   me.host.bootloader = "systemd-boot";
+  me.host.mountMedias = true;
 
   disko.devices.disk.main.device = "/dev/sda";
 
