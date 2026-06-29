@@ -1,11 +1,15 @@
 keys:
   - &aigis age1p4xz5uvzaljhr2pn9xnxevxacqtvtpdmgvv6lx8mwh0yusg6ge6qq05hvx
+  - &aigis_tpm age1tpm1qvhe56nkfxwwf9384u5a4x6k3xy82uglvhsmkj7z7m7ggjsmrnjt5qc08zh
   - &metis age17wwy37c3euc5ngmpndj79lrp3fjtyjclkrcw3cza9cxyn2x6kqpszemldd
   - &queen age1ke0sx7ethsyr24t7fhdqymsqhxr9mxer5yy2ylgjp92qp5g2xdzsqz4al5
+  #- &euphausia age1tag1q2ca3ec7m4dcdhhrv77jcum8g5v6hwduqrp7p39m8mh2n7c5w40y2895zhd
 creation_rules:
   - path_regex: 'secrets/.+\.(yaml|json|env)$'
     key_groups:
       - age:
         - *aigis
+        - *aigis_tpm
         - *metis
         - *queen
+        #- *euphausia
