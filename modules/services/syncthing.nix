@@ -6,7 +6,7 @@
 let
   syncCfg = "${config.me.home}/.config/syncthing";
   syncServ = "metis";
-  syncDevices = if config.networking.hostName == syncServ then [ "queen" "aigis" ] else [ syncServ ];
+  syncDevices = if config.networking.hostName == syncServ then [ "queen" "aigis" "euphausia" ] else [ syncServ ];
 in
 lib.mkIf config.me.services.sync.enable {
 
@@ -75,6 +75,10 @@ lib.mkIf config.me.services.sync.enable {
         aigis = {
           name = "aigis";
           id = "CZVQROX-5U4FHMK-CU6AFJ3-MXVGLPA-NIVWTPM-3O6TNFQ-P7LIZ2N-JVNSJQH";
+        };
+        euphausia = {
+          name = "euphausia";
+          id = "E5HZE6F-QB5NWAK-4F7OMY5-NICYBXO-EXB3OOT-JRYLQSG-GWCVOV2-PGRHEQH";
         };
       };
 
