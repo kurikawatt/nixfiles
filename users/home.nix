@@ -127,7 +127,7 @@ in
     # Nvidia hardware acceleration
     package = (
       pkgs.obs-studio.override {
-        cudaSupport = true;
+        cudaSupport = (if osConfig.networking.hostName == "queen" then true else false);
       }
     );
 
