@@ -12,12 +12,15 @@
   ];
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
-  boot.initrd.availableKernelModules = [ "tpm_tis" "tpm_crb" ];
+  boot.initrd.availableKernelModules = [ "tpm_tis" "tpm_crb" "tpm_tis_core" ];
 
   hardware.enableRedistributableFirmware = true;
 
   # Linux Kernel Latest
   boot.kernelPackages = pkgs.linuxPackages_latest;
+
+  # Auto open luks device
+  boot.initrd.systemd.enable = true;
 
   # TPM
   security.tpm2 = {
