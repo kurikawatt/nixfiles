@@ -40,6 +40,7 @@
     tpm2-tools
     # Plugin TPM for age
     age-plugin-tpm
+    age
   ];
 
   sops.gnupg.sshKeyPaths = [ ];
