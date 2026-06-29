@@ -14,6 +14,8 @@
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   boot.initrd.availableKernelModules = [ "tpm_tis" "tpm_crb" ];
 
+  hardware.enableRedistributableFirmware = true;
+
   # Linux Kernel Latest
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
