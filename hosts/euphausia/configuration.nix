@@ -8,6 +8,7 @@
   imports = [
     inputs.nixos-hardware.nixosModules.framework-16-7040-amd
     ../../networks/wifi.nix
+    ./disko.nix
   ];
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
