@@ -49,4 +49,5 @@
   #};
 
   me.services.fuuka.hub = "metis";
+  me.services.sync.enable = true;
 }

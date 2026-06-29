@@ -76,6 +76,10 @@ lib.mkIf config.me.services.sync.enable {
           name = "aigis";
           id = "CZVQROX-5U4FHMK-CU6AFJ3-MXVGLPA-NIVWTPM-3O6TNFQ-P7LIZ2N-JVNSJQH";
         };
+        euphausia = {
+          name = "euphausia";
+          id = "E5HZE6F-QB5NWAK-4F7OMY5-NICYBXO-EXB3OOT-JRYLQSG-GWCVOV2-PGRHEQH";
+        };
       };
 
       folders = {
