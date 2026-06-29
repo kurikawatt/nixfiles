@@ -6,7 +6,7 @@
 let
   syncCfg = "${config.me.home}/.config/syncthing";
   syncServ = "metis";
-  syncDevices = if config.networking.hostName == syncServ then [ "queen" "aigis" ] else [ syncServ ];
+  syncDevices = if config.networking.hostName == syncServ then [ "queen" "aigis" "euphausia" ] else [ syncServ ];
 in
 lib.mkIf config.me.services.sync.enable {
 
