@@ -16,7 +16,7 @@ let
     in
     builtins.filter (p: !(hasInfix "/_" (toString p))) nixFiles;
 
-    inherit (osConfig.me.colors) colors;
+    inherit (osConfig.me) colors;
     inherit (osConfig.me.host) screen;
 in
 {
