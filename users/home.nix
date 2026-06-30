@@ -16,6 +16,7 @@ let
     in
     builtins.filter (p: !(hasInfix "/_" (toString p))) nixFiles;
 
+    inherit (osConfig.me.colors) colors;
     inherit (osConfig.me.host) screen;
 in
 {
@@ -202,7 +203,7 @@ in
         }
 
         window#waybar {
-          background-color: #${osConfig.me.colors.background};
+          background-color: #${colors.background};
         }
 
         #clock,
@@ -218,16 +219,16 @@ in
 
         #clock,
         #wireplumber {
-          color: #${osConfig.me.colors.foreground};
+          color: #${colors.foreground};
         }
 
         tooltip {
-          background-color: #${osConfig.me.colors.background};
+          background-color: #${colors.background};
         }
 
         tooltip label {
           padding: 10px;
-          background-color: #${osConfig.me.colors.background};
+          background-color: #${colors.background};
         }
       '';
   };
@@ -247,14 +248,14 @@ in
         radius = 0;
       };
       colors = {
-        background = "#${osConfig.me.colors.background}ff";
-        text = "#${osConfig.me.colors.foreground}ff";
-        prompt = "#${osConfig.me.colors.foreground}ff";
+        background = "#${colors.background}ff";
+        text = "#${colors.foreground}ff";
+        prompt = "#${colors.foreground}ff";
         placeholder = "#6e6a86ff";
-        input = "#${osConfig.me.colors.foreground}ff;";
-        match = "#${builtins.elemAt osConfig.me.colors.regulars 4}ff";
+        input = "#${colors.foreground}ff;";
+        match = "#${builtins.elemAt colors.regulars 4}ff";
         selection = "#403d52ff";
-        selection-text = "#${osConfig.me.colors.foreground}ff";
+        selection-text = "#${colors.foreground}ff";
         selection-match = "#ebbcbaff";
         counter = "#f6c177ff";
         border = "#ec4067ff";
@@ -348,8 +349,8 @@ in
       margin = 10;
       padding = 24;
       font = "Cascadia Code 12";
-      text-color = "#${osConfig.me.colors.foreground}";
-      background-color = "#${osConfig.me.colors.background}";
+      text-color = "#${colors.foreground}";
+      background-color = "#${colors.background}";
       border-color = "#ec4067";
       default-timeout = 2500;
       "urgency=critical" = {
