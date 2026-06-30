@@ -10,8 +10,8 @@
     
     settings.main = {
 
-      modules-left = (if osConfig.me.host.isLaptop then [ "battery" ] else [])
-      ++ [ "group/cpu-temp" "memory" ];
+      modules-left = [ "group/cpu-temp" "memory" ]
+      ++ (if osConfig.me.host.isLaptop then [ "battery" ] else []);
 
       modules-right = [ "tray" ];
 

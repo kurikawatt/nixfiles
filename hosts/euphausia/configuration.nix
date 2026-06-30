@@ -52,6 +52,8 @@
     plugins = with pkgs; [ age-plugin-tpm ];
   };
 
+  me.host.isLaptop = true;
+
   me.services.fuuka.hub = "metis";
   me.services.sync.enable = true;
 }
