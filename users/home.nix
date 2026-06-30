@@ -54,7 +54,7 @@ in
       identityFile = "~/.ssh/id_rsa";
     };
     "metis" = {
-      hostname = "172.16.195.1";
+      hostname = "172.16.195.2";
       user = "kurik";
       port = 22;
       identityFile = "~/.ssh/id_rsa";
