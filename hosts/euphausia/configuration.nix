@@ -54,6 +54,12 @@
 
   me.host.isLaptop = true;
 
+  me.host.screen = {
+    width = 2560;
+    height = 1600;
+    scale = 1.5;
+  };
+
   me.services.fuuka.hub = "metis";
   me.services.sync.enable = true;
 }

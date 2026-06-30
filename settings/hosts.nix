@@ -30,5 +30,24 @@ in
       default = false;
       description = "Mount Samba share at home";
     };
+
+    screen = {
+      width = mkOption {
+        type = types.int;
+        default = 1920;
+        description = "";
+      };
+      height = mkOption {
+        type = types.int;
+        default = 1080;
+        description = "";
+      };
+      scale = mkOption {
+        type = types.float;
+        default = 1;
+        description = "";
+      };
+    };
+
   };
 }

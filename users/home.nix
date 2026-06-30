@@ -15,6 +15,8 @@ let
       nixFiles = fileset.toList (fileset.fileFilter (f: f.hasExt "nix") path);
     in
     builtins.filter (p: !(hasInfix "/_" (toString p))) nixFiles;
+
+    inherit (osConfig.me.host) screen;
 in
 {
   imports = []
@@ -268,8 +270,8 @@ in
       indicator-idle-visible = false;
       show-failed-attempts = false;
 
-      indicator-x-position = 960;
-      indicator-y-position = 900;
+      indicator-x-position = 0.5 * (screen.width / screen.scale);
+      indicator-y-position = 0.75 * (screen.height / screen.scale);
 
       # Background color
       color = "#191724";
