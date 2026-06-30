@@ -19,4 +19,4 @@ alias grep="grep --color=auto"
 
 alias py="python3"
 
-PS1='(\W) \[\e[32m\]\u\[\e[33m\]@\h\[\e[0m\]$ '
+PS1='\[\e[0;36m\](\W) \[\e[1;34m\]\u\[\e[1;33m\]@\h\[\e[0m\]\$ '
