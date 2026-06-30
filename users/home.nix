@@ -16,13 +16,12 @@ let
     in
     builtins.filter (p: !(hasInfix "/_" (toString p))) nixFiles;
 
-    inherit (osConfig.me.colors) colors;
+    inherit (osConfig.me) colors;
     inherit (osConfig.me.host) screen;
     inherit (osConfig.me.services.fuuka) peers;
 in
 {
-  imports = []
-  ++ (import-tree ./waybar);
+  imports = [ ./waybar/waybar.nix ];
 
   home.stateVersion = "26.05";
 
@@ -47,15 +46,16 @@ in
     "mango".source = ../dotfiles/mango;
   };
 
-  programs.ssh.settings = lib.mapAttrs
-      (name: peerInfo: {
-        name = {
-          HostName = peerInfo.ipv4;
-          User = osConfig.me.user;
-          Port = 22;
-        };
-      })
-      peers;
+  programs.ssh = {
+    enable = true;
+    settings = lib.mapAttrs
+    (name: peerInfo: {
+      HostName = peerInfo.ipv4;
+      User = osConfig.me.user;
+      Port = 22;
+    })
+    peers;
+  };
 
   services.udiskie.enable = true;
 
@@ -144,71 +144,6 @@ in
       cm = "commit";
       st = "status";
     };
-  };
-
-  programs.waybar = {
-    enable = true;
-    settings = {
-      main = {
-        layer = "bottom";
-        position = "top";
-        spacing = 0;
-        height = 0;
-        reload_style_on_change = true;
-        modules-left = [ "custom/hostname" ];
-        modules-center = [ "clock" ];
-        modules-right = [ "wireplumber" ];
-        "custom/hostname" = {
-          format = "{}";
-          exec = "cat /etc/hostname";
-        };
-        "wireplumber" = {
-          format = " vol : {volume}%";
-          format-muted = "vol : muted";
-          nospacing = 1;
-          scroll-step = 1;
-        };
-      };
-    };
-    style =
-      ''
-        * {
-          border: none;
-          border-radius: 0;
-          min-height: 0;
-          font-family: Cascadia Code;
-          font-size: 16px;
-        }
-
-        window#waybar {
-          background-color: #${colors.background};
-        }
-
-        #clock,
-        #custom-hostname,
-        #wireplumber {
-          margin: 5px;
-          padding: 6px 12px;
-        }
-
-        #custom-hostname {
-          color: #ECE14B;
-        }
-
-        #clock,
-        #wireplumber {
-          color: #${colors.foreground};
-        }
-
-        tooltip {
-          background-color: #${colors.background};
-        }
-
-        tooltip label {
-          padding: 10px;
-          background-color: #${colors.background};
-        }
-      '';
   };
 
   programs.fuzzel = {
