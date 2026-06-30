@@ -7,6 +7,8 @@ let
   syncCfg = "${config.me.home}/.config/syncthing";
   syncServ = "metis";
   syncDevices = if config.networking.hostName == syncServ then [ "queen" "aigis" "euphausia" ] else [ syncServ ];
+
+  inherit (config.me.services) fuuka;
 in
 lib.mkIf config.me.services.sync.enable {
 
@@ -47,7 +49,10 @@ lib.mkIf config.me.services.sync.enable {
 
   services.syncthing = {
     enable = true;
-    openDefaultPorts = true;
+    openDefaultPorts = false;
+
+    guiAddress = if config.networking.hostName == "metis" then "${fuuka.peers.metis.ipv4}:8384"
+                 else "127.0.0.1:8384";
 
     user = config.me.user;
     dataDir = config.me.home;
@@ -61,6 +66,11 @@ lib.mkIf config.me.services.sync.enable {
 
     settings = {
       gui.user = config.me.user;
+
+      options = {
+        relaysEnabled = false;
+        urAccepted = -1;
+      };
 
       devices = {
         metis = {
@@ -99,4 +109,7 @@ lib.mkIf config.me.services.sync.enable {
     };
 
   };
+
+  networking.firewall.interfaces."fuuka0".allowedTCPPorts = [ 8384 22000 ];
+  networking.firewall.interfaces."fuuka0".allowedUDPPorts = [ 22000 21027 ];
 }
