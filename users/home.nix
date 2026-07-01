@@ -6,8 +6,6 @@
 , ...
 }:
 let
-  homeDir = "/home/kurik";
-
   import-tree =
     path:
     let
@@ -16,6 +14,7 @@ let
     in
     builtins.filter (p: !(hasInfix "/_" (toString p))) nixFiles;
 
+    inherit (osConfig) me;
     inherit (osConfig.me) colors;
     inherit (osConfig.me.services.fuuka) peers;
 in
@@ -30,34 +29,108 @@ in
     "scripts".source = ../scripts;
   };
 
-  xdg.portal = {
+  xdg = {
+    configFile = {
+      "swayosd".source = ../dotfiles/swayosd;
+      "yazi".source = ../dotfiles/yazi;
+      "mango".source = ../dotfiles/mango;
+    };
+
+    userDirs = {
+      enable = true;
+      createDirectories = true;
+      setSessionVariables = true;
+      documents = "${me.home}/Documents";
+      pictures = "${me.home}/Pictures";
+      download = "${me.home}/Downloads";
+      extraConfig = {
+        SCREENSHOTS_DIR = "${me.home}/Screenshots";
+      };
+    };
+
+    portal = {
+      enable = true;
+      xdgOpenUsePortal = true;
+      extraPortals = with pkgs; [
+        xdg-desktop-portal-gtk
+        xdg-desktop-portal-wlr
+      ];
+      config.common.default = "*";
+    };
+  };
+
+  # --- Usefull tools ---
+  programs = {
+    ssh = {
+      enable = true;
+      settings = lib.mapAttrs
+      (name: peerInfo: {
+        HostName = peerInfo.ipv4;
+        User = osConfig.me.user;
+        Port = 22;
+      })
+      peers;
+    };
+
+    gpg.enable = true;
+
+    git = {
+      enable = true;
+      settings.user = {
+
+        name = "François \"Kurikawa\" Odin";
+        email = "francois@kurikawa.fr";
+      };
+      signing = {
+        key = "B82830341F5577C0";
+        signByDefault = true;
+        format = "openpgp";
+      };
+      settings.alias = {
+        cm = "commit";
+        st = "status";
+      };
+    };
+  };
+
+  services.gpg-agent = {
     enable = true;
-    xdgOpenUsePortal = true;
-    extraPortals = with pkgs; [
-      xdg-desktop-portal-gtk
-      xdg-desktop-portal-wlr
-    ];
-    config.common.default = "*";
+    pinentry.package = pkgs.pinentry-curses;
   };
 
-  xdg.configFile = {
-    "swayosd".source = ../dotfiles/swayosd;
-    "yazi".source = ../dotfiles/yazi;
-    "mango".source = ../dotfiles/mango;
-  };
-
-  programs.ssh = {
-    enable = true;
-    settings = lib.mapAttrs
-    (name: peerInfo: {
-      HostName = peerInfo.ipv4;
-      User = osConfig.me.user;
-      Port = 22;
-    })
-    peers;
-  };
-
+  # --- Services --
   services.udiskie.enable = true;
+
+  # --- Apps ---
+  programs = {
+    neovim.enable = true;
+    
+    vscodium = {
+      enable = true;
+      profiles.default.extensions = with pkgs.vscode-extensions; [
+        enkia.tokyo-night
+        ms-python.python
+        jnoortheen.nix-ide
+      ];
+    };
+
+    obs-studio = {
+      enable = true;
+      # Nvidia hardware acceleration
+      package = (
+        pkgs.obs-studio.override {
+          cudaSupport = (if osConfig.networking.hostName == "queen" then true else false);
+        }
+      );
+      plugins = with pkgs.obs-studio-plugins; [
+        wlrobs
+        obs-backgroundremoval
+        obs-pipewire-audio-capture
+        obs-gstreamer
+        obs-vkcapture
+      ];
+    };
+  };
 
   home.packages = with pkgs; [
     tree
@@ -67,16 +140,11 @@ in
     thunderbird
     sops
     jellyfin-desktop
-    
     gh
-
     bluetuith
-
     nixd
     nixpkgs-fmt
-
     deezer-enhanced
-
     inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
   ]
   ++ (
@@ -88,75 +156,4 @@ in
       poptracker
     ] else []
   );
-
-  programs.neovim = {
-    enable = true;
-  };
-
-  programs.vscodium = {
-    enable = true;
-    profiles.default.extensions = with pkgs.vscode-extensions; [
-      enkia.tokyo-night
-      ms-python.python
-      jnoortheen.nix-ide
-    ];
-  };
-
-  programs.obs-studio = {
-    enable = true;
-
-    # Nvidia hardware acceleration
-    package = (
-      pkgs.obs-studio.override {
-        cudaSupport = (if osConfig.networking.hostName == "queen" then true else false);
-      }
-    );
-
-    plugins = with pkgs.obs-studio-plugins; [
-      wlrobs
-      obs-backgroundremoval
-      obs-pipewire-audio-capture
-      obs-gstreamer
-      obs-vkcapture
-    ];
-  };
-
-  programs.gpg.enable = true;
-
-  services.gpg-agent = {
-    enable = true;
-    pinentry.package = pkgs.pinentry-curses;
-  };
-
-  programs.git = {
-    enable = true;
-    settings.user = {
-
-      name = "François \"Kurikawa\" Odin";
-      email = "francois@kurikawa.fr";
-    };
-    signing = {
-      key = "B82830341F5577C0";
-      signByDefault = true;
-      format = "openpgp";
-    };
-    settings.alias = {
-      cm = "commit";
-      st = "status";
-    };
-  };
-
-  xdg.userDirs = {
-    enable = true;
-    createDirectories = true; # ONLY if not already created
-    setSessionVariables = true;
-
-    documents = "${homeDir}/Documents";
-    pictures = "${homeDir}/Pictures";
-    download = "${homeDir}/Downloads";
-
-    extraConfig = {
-      SCREENSHOTS_DIR = "${homeDir}/Screenshots";
-    };
-  };
 }
