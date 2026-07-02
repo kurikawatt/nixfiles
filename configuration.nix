@@ -36,8 +36,7 @@ in
     auto-optimise-store = true;
 
     substituters = [
-      "http://172.16.195.2:8080"
-      "https://cache.nixos.org"
+      "http://172.16.195.2:8080/compendium"
     ];
 
     trusted-public-keys = [
