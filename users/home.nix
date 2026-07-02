@@ -154,6 +154,7 @@ in
       gimp
       archipelago
       poptracker
+      prismlauncher
     ] else []
   );
 }
