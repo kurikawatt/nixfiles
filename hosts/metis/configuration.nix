@@ -1,10 +1,12 @@
 { config
 , lib
 , pkgs
+, inputs
 , ...
 }:
 {
   imports = [
+    inputs.attic.nixosModules.atticd
     ./disko.nix
     ./hardware-configuration.nix
   ];
@@ -58,6 +60,30 @@
         hevc10bit = false;
         hevcRExt10bit = false;
         hevcRExt12bit = false;
+      };
+    };
+  };
+
+  services.atticd = {
+    enable = true;
+
+    environmentFile = "/etc/atticd.env";
+
+    settings = {
+      listen = "[::]:8080";
+
+      jwt = { };
+
+      storage = {
+        type = "local";
+        path = "/srv/attic/";
+      };
+
+      chunking = {
+        nar-size-threshold = 64 * 1024; # 64 KiB
+        min-size = 16 * 1024; # 16 KiB
+        avg-size = 64 * 1024; # 64 KiB
+        max-size = 256 * 1024; # 256 KiB
       };
     };
   };

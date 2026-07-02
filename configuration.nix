@@ -34,6 +34,16 @@ in
     ];
     trusted-users = [ "kurik" "@wheel" ];
     auto-optimise-store = true;
+
+    substituters = [
+      "http://172.16.195.2:8080"
+      "https://cache.nixos.org"
+    ];
+
+    trusted-public-keys = [
+      "compendium:sUVIH8kmLdxpo5pTLnlSaOcR/dNP4dTjDwanQFOKYV4="
+    ];
+
   };
   programs.nh = {
     enable = true;
@@ -75,6 +85,8 @@ in
     age-plugin-tpm
 
     clamav
+
+    attic-client
 
     inputs.magla.packages.${pkgs.stdenv.hostPlatform.system}.default
   ];
