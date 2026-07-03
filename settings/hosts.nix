@@ -7,6 +7,7 @@ let
 in
 {
   options.me.host = {
+
     isLaptop = mkOption {
       type = types.bool;
       default = false;
@@ -35,17 +36,17 @@ in
       width = mkOption {
         type = types.int;
         default = 1920;
-        description = "";
+        description = "Screen width";
       };
       height = mkOption {
         type = types.int;
         default = 1080;
-        description = "";
+        description = "Screen height";
       };
       scale = mkOption {
         type = types.float;
         default = 1.0;
-        description = "";
+        description = "Screen scale";
       };
     };
 
