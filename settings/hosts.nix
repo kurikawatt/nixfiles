@@ -51,5 +51,27 @@ in
       };
     };
 
+    security = {
+
+      secureboot = mkOption {
+        type = types.bool;
+        default = false;
+        description = "Host support of SecureBoot";
+      };
+
+      tpm2 = mkOption {
+        type = types.bool;
+        default = false;
+        description = "Host support of TPM2";
+      };
+
+      fingerprint = mkOption {
+        type = types.bool;
+        default = false;
+        description = "Host support of fingerprint auth";
+      };
+
+    };
+
   };
 }

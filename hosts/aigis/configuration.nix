@@ -12,30 +12,14 @@
     ../../modules/fonts.nix
   ];
 
-  me.host.isLaptop = true;
-
-  boot.initrd.availableKernelModules = [ "tpm_tis" "tpm_crb" ];
-
-  # TPM
-  security.tpm2 = {
-    enable = true;
-    pkcs11.enable = true;
-    tctiEnvironment.enable = true;
+  me.host = {
+    isLaptop = true;
+    security = {
+      secureboot = true;
+      tpm2 = true;
+      fingerprint = true;
+    };
   };
-
-  # Fingerprint
-  services.fprintd.enable = true;
-
-  security.pam.services.ly.fprintAuth = false;
-  security.pam.services.swaylock.fprintAuth = false;
-
-  environment.systemPackages = with pkgs; [
-    # SecureBoot
-    sbctl
-    tpm2-tools
-    # Plugin TPM for age
-    age-plugin-tpm
-  ];
 
   sops.gnupg.sshKeyPaths = [ ];
   sops.age.sshKeyPaths = [
