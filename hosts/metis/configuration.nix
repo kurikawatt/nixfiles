@@ -60,29 +60,7 @@
     };
   };
 
-  services.atticd = {
-    enable = true;
-
-    environmentFile = "/etc/atticd.env";
-
-    settings = {
-      listen = "[::]:8080";
-
-      jwt = { };
-
-      storage = {
-        type = "local";
-        path = "/srv/attic/";
-      };
-
-      chunking = {
-        nar-size-threshold = 64 * 1024; # 64 KiB
-        min-size = 16 * 1024; # 16 KiB
-        avg-size = 64 * 1024; # 64 KiB
-        max-size = 256 * 1024; # 256 KiB
-      };
-    };
-  };
+  me.services.attic-server.enable = true;
 
   me.services.prowlarr.enable = true;
   me.services.sync.enable = true;

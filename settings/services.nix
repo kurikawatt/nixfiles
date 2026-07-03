@@ -38,4 +38,22 @@ in
       description = "Enable Syncthing";
     };
   };
+
+  options.me.services.attic-server = {
+    enable = mkOption {
+      type = types.bool;
+      default = false;
+      description = "Enable Atticd to serve cache";
+    };
+    port = mkOption {
+      type = types.int;
+      default = 8080;
+      description = "Atticd port";
+    };
+    cacheLocation = mkOption {
+      type = types.str;
+      default = "/srv/attic";
+      description = "Attic cache location";
+    };
+  };
 }
