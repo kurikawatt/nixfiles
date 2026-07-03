@@ -5,12 +5,7 @@
   ...
 }:
 {
-  imports = [
-    ../../modules/boot/limine.nix
-    ../../configuration.nix # Global configuration
-    ./hardware-configuration.nix # Hardware specific configuration
-    ../../modules/fonts.nix
-  ];
+  imports = [ ./hardware-configuration.nix ];
 
   me.host = {
     isLaptop = true;
