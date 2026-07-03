@@ -1,6 +1,7 @@
-{ lib
-, config
-, ...
+{
+  lib,
+  config,
+  ...
 }:
 lib.mkIf config.me.host.isLaptop {
   services.power-profiles-daemon.enable = true;

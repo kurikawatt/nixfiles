@@ -1,8 +1,9 @@
-{ pkgs
-, inputs
-, config
-, lib
-, ...
+{
+  pkgs,
+  inputs,
+  config,
+  lib,
+  ...
 }:
 lib.mkIf (config.me.desktop == "mango") {
   services.displayManager.ly.enable = true;
