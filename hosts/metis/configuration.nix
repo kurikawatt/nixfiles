@@ -14,23 +14,26 @@
   me.host.bootloader = "systemd-boot";
   me.host.mountMedias = true;
 
-  disko.devices.disk.main.device = "/dev/sda";
+  me.desktop = "none";
+  me.enableHomeManager = false;
+
+  me.services = {
+    jellyfin.enable = true;
+    attic-server.enable = true;
+    prowlarr.enable = true;
+    sync.enable = true;
+    fuuka.enable = false;
+    fuuka.enableHub = true;
+  };
 
   hardware.graphics = {
     enable = true;
     extraPackages = with pkgs; [
-      intel-media-driver # For Broadwell (2014) or newer processors. LIBVA_DRIVER_NAME=iHD
-      intel-vaapi-driver # For older processors. LIBVA_DRIVER_NAME=i965
+      intel-media-driver
       libvdpau-va-gl
     ];
   };
   
-  me.desktop = "none";
-  me.enableHomeManager = false;
-
-  # services
-  me.services.jellyfin.enable = true;
-
   services.jellyfin = {
     hardwareAcceleration = {
       enable = true;
@@ -59,12 +62,4 @@
       };
     };
   };
-
-  me.services.attic-server.enable = true;
-
-  me.services.prowlarr.enable = true;
-  me.services.sync.enable = true;
-
-  me.services.fuuka.enable = false;
-  me.services.fuuka.enableHub = true;
 }
