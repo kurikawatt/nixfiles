@@ -9,7 +9,6 @@
     ../../configuration.nix # Global configuration
     ./hardware-configuration.nix # Hardware specific configuration
     ../../modules/fonts.nix
-    ../../networks/wifi.nix
   ];
 
   me.host.isLaptop = true;

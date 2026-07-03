@@ -7,7 +7,6 @@
 {
   imports = [
     inputs.nixos-hardware.nixosModules.framework-16-7040-amd
-    ../../networks/wifi.nix
     ./disko.nix
   ];
 
