@@ -9,7 +9,6 @@
   imports = [
     inputs.attic.nixosModules.atticd
     ./disko.nix
-    ./hardware-configuration.nix
   ];
 
   me.host.bootloader = "systemd-boot";

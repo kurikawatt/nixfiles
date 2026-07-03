@@ -11,8 +11,6 @@
     ./disko.nix
   ];
 
-  nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
-
   # Linux Kernel Latest
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
