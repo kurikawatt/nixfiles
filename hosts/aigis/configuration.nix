@@ -21,15 +21,6 @@
     };
   };
 
-  sops.gnupg.sshKeyPaths = [ ];
-  sops.age.sshKeyPaths = [
-    # "/home/kurik/.ssh/id_ed25519" # disabled because I use TPM keys 
-  ];
-  sops.age = {
-    keyFile = "/etc/tpm_age";
-    plugins = with pkgs; [ age-plugin-tpm ];
-  };
-
   me.services.fuuka.hub = "metis";
   me.services.sync.enable = true;
   me.desktop = "mango";

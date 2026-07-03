@@ -31,8 +31,6 @@
     };
   };
 
-  sops.age.sshKeyPaths = [ "/home/kurik/.ssh/id_ed25519" ];
-
   me.enableHomeManager = false;
   me.services.fuuka.enable = false;
   me.services.fuuka.enableHub = true;

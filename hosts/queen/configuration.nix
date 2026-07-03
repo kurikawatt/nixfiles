@@ -13,8 +13,6 @@
   me.host.bootloader = "systemd-boot";
   me.host.mountMedias = true;
 
-  sops.age.sshKeyPaths = [ "/home/kurik/.ssh/id_ed25519" ];
-
   programs.steam = {
     enable = true;
     remotePlay.openFirewall = false;

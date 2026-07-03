@@ -32,10 +32,5 @@
 
   hardware.enableRedistributableFirmware = true;
 
-  sops.age = {
-    keyFile = "/etc/tpm_age";
-    plugins = with pkgs; [ age-plugin-tpm ];
-  };
-
   me.services.sync.enable = true;
 }
