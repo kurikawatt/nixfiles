@@ -11,6 +11,13 @@
     ./disko.nix
   ];
 
+  boot = {
+    kernelPackages = pkgs.linuxPackages_latest;
+    initrd.systemd.enable = true;
+  };
+
+  hardware.enableRedistributableFirmware = true;
+
   me.host = {
     isLaptop = true;
     screen = {
@@ -24,13 +31,6 @@
       fingerprint = false;
     };
   };
-
-  # Linux Kernel Latest
-  boot.kernelPackages = pkgs.linuxPackages_latest;
-
-  boot.initrd.systemd.enable = true;
-
-  hardware.enableRedistributableFirmware = true;
-
+  
   me.services.sync.enable = true;
 }
