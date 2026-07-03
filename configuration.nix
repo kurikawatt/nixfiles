@@ -15,10 +15,10 @@ let
 in
 {
   imports = [
-    ./settings/me.nix
     ./users/default.nix
   ]
-  ++ (import-tree ./modules);
+  ++ (import-tree ./modules)
+  ++ (import-tree ./settings);
 
   # Linux Kernel LTS
   boot.kernelPackages = lib.mkDefault pkgs.linuxPackages;

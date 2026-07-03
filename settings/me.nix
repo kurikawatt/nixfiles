@@ -7,14 +7,6 @@ let
   inherit (lib) mkOption types;
 in
 {
-  imports = [
-    ./fuuka.nix
-    ./services.nix
-    ./desktop.nix
-    ./hosts.nix
-    ./colors.nix
-  ];
-
   options.me = {
 
     user = mkOption {
