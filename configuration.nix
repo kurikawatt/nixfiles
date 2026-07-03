@@ -34,15 +34,6 @@ in
     ];
     trusted-users = [ "kurik" "@wheel" ];
     auto-optimise-store = true;
-
-    substituters = [
-      "http://172.16.195.2:8080/compendium"
-    ];
-
-    trusted-public-keys = [
-      "compendium:sUVIH8kmLdxpo5pTLnlSaOcR/dNP4dTjDwanQFOKYV4="
-    ];
-
   };
   programs.nh = {
     enable = true;
@@ -54,45 +45,11 @@ in
     };
   };
 
-  # Enable NetworkManager
-  networking.networkmanager.enable = true;
-  networking.firewall.enable = true;
-
-  hardware.bluetooth = {
-    enable = true;
-    powerOnBoot = true;
-    settings = {
-      General = {
-        Experimental = true;
-      };
-    };
-  };
-
-  security.rtkit.enable = true;
-
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
-    wireplumber.enable = true;
-  };
-
-  # Cachix
   environment.systemPackages = with pkgs; [
     cachix
     age-plugin-tpm
-
-    clamav
-
-    attic-client
-
     inputs.magla.packages.${pkgs.stdenv.hostPlatform.system}.default
-  ];
-
-  # Clamav
-  services.clamav.daemon.enable = true;
-  services.clamav.updater.enable = true;
+  ];  
 
   # Sops
   sops.defaultSopsFile = ./secrets/secrets.json;
