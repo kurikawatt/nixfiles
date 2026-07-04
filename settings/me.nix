@@ -16,6 +16,12 @@ in
       description = "User's name";
     };
 
+    uid = mkOption {
+      type = types.int;
+      default = 1000;
+      description = "User uid";
+    };
+
     home = mkOption {
       type = types.str;
       default = "/home/${cfg.user}";

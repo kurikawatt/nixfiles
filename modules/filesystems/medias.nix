@@ -15,7 +15,7 @@ let
     "x-systemd.mount-timeout=5s"
     "user"
     "users"
-    "uid=1001" # me
+    "uid=${toString config.me.uid}"
     "gid=100" # my group
   ];
 in

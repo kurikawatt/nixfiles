@@ -9,6 +9,7 @@
       sops.secrets."${config.me.user}/password".neededForUsers = true;
 
       users.users."${config.me.user}" = {
+        uid = config.me.uid;
         isNormalUser = true;
         extraGroups = [
           "wheel"
