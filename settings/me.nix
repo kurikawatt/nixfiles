@@ -22,6 +22,12 @@ in
       description = "User's home dir.";
     };
 
+    mail = mkOption {
+      type = types.str;
+      default = "francois@kurikawa.fr";
+      description = "User's public mail";
+    };
+
     enableHomeManager = mkOption {
       type = types.bool;
       default = true;

@@ -56,4 +56,22 @@ in
       description = "Attic cache location";
     };
   };
+
+  options.me.services.ntfy = {
+    enable = mkOption {
+      type = types.bool;
+      default = false;
+      description = "Enable ntfy";
+    };
+    base-url = mkOption {
+      type = types.str;
+      default = "ntfy.kurikawa.fr";
+      description = "ntfy base url";
+    };
+    http-port = mkOption {
+      type = types.int;
+      default = 8181;
+      description = "ntfy http port";
+    };
+  };
 }

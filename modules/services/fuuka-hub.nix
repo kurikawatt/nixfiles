@@ -43,8 +43,10 @@ lib.mkIf config.me.services.fuuka.enableHub {
 
   services.nginx = {
     enable = true;
+    recommendedProxySettings = true;
+    recommendedTlsSettings = true;
   };
 
-  networking.firewall.interfaces."fuuka0".allowedTCPPorts = [ 22 53 80 8080 ];
+  networking.firewall.interfaces."fuuka0".allowedTCPPorts = [ 22 53 80 443 8080 ];
   networking.firewall.interfaces."fuuka0".allowedUDPPorts = [ 22 53 ];
 }

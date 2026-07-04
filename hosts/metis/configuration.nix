@@ -24,6 +24,7 @@
     sync.enable = true;
     fuuka.enable = false;
     fuuka.enableHub = true;
+    ntfy.enable = true;
   };
 
   hardware.graphics = {
