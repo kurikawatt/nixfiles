@@ -5,13 +5,14 @@
 }:
 let
   inherit (config.me.services) attic-server;
+  inherit (config.me.services.fuuka) peers;
 in
 {
   # Use my attic cache for faster rebuild
   nix.settings = {
-    substituters = 
-      if attic-server.enable then [ "http://localhost:${toString attic-server.port}/compendium" ]
-      else [ "http://172.16.195.2:8080/compendium" ];
+    substituters = [
+      "http://${peers.metis.ipv4}:${toString attic-server.port}/compendium"
+    ];
     trusted-public-keys = [
       "compendium:sUVIH8kmLdxpo5pTLnlSaOcR/dNP4dTjDwanQFOKYV4="
     ];
