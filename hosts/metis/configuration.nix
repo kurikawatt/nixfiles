@@ -25,6 +25,7 @@
     fuuka.enable = false;
     fuuka.enableHub = true;
     ntfy.enable = true;
+    monitor-storage.enable = true;
   };
 
   hardware.graphics = {

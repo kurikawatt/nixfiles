@@ -74,4 +74,12 @@ in
       description = "ntfy http port";
     };
   };
+
+  options.me.services.monitor-storage = {
+    enable = mkOption {
+      type = types.bool;
+      default = false;
+      description = "";
+    };
+  };
 }
