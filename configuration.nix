@@ -49,7 +49,8 @@ in
   };
 
   environment.systemPackages = with pkgs; [
-    cachix
+    tree
+    fastfetch
     age-plugin-tpm
     age
     inputs.magla.packages.${pkgs.stdenv.hostPlatform.system}.default

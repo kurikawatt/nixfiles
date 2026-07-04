@@ -133,8 +133,6 @@ in
   };
 
   home.packages = with pkgs; [
-    tree
-    fastfetch
     vesktop
     obsidian
     thunderbird
