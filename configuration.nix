@@ -21,8 +21,8 @@ in
   ++ (import-tree ./modules)
   ++ (import-tree ./settings);
 
-  # Linux Kernel LTS
-  boot.kernelPackages = lib.mkDefault pkgs.linuxPackages;
+  # Linux Kernel Latest
+  boot.kernelPackages = pkgs.linuxPackages_latest;
 
   # Firmware updates
   services.fwupd.enable = true;

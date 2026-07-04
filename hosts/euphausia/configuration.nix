@@ -11,10 +11,8 @@
     ./disko.nix
   ];
 
-  boot = {
-    kernelPackages = pkgs.linuxPackages_latest;
-    initrd.systemd.enable = true;
-  };
+  # to auto unlock luks part
+  boot.initrd.systemd.enable = true;
 
   hardware.enableRedistributableFirmware = true;
 
