@@ -33,6 +33,13 @@ in
       description = "Mount Samba share at home";
     };
 
+    # obviously that GPU is for school !
+    thatComputerIsForSchool = mkOption {
+      type = types.bool;
+      default = false;
+      description = "";
+    };
+
     screen = {
       width = mkOption {
         type = types.int;

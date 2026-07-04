@@ -18,6 +18,7 @@
 
   me.host = {
     isLaptop = true;
+    thatComputerIsForSchool = true;
     screen = {
       width = 2560;
       height = 1600;

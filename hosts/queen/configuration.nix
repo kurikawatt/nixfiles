@@ -12,13 +12,7 @@
 
   me.host.bootloader = "systemd-boot";
   me.host.mountMedias = true;
-
-  programs.steam = {
-    enable = true;
-    remotePlay.openFirewall = false;
-    dedicatedServer.openFirewall = false;
-    protontricks.enable = true;
-  };
+  me.host.thatComputerIsForSchool = true;
 
   services.hardware.openrgb = {
     enable = true;
