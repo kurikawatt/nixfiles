@@ -13,6 +13,7 @@
   me.host.bootloader = "systemd-boot";
   me.host.mountMedias = true;
   me.host.thatComputerIsForSchool = true;
+  me.host.gpuType = "nvidia";
 
   services.hardware.openrgb = {
     enable = true;

@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-
+CPU_HWMON=/sys/class/hwmon/hwmon3
 
 total=0
 count=0

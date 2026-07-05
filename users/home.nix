@@ -47,16 +47,6 @@ in
         SCREENSHOTS_DIR = "${me.home}/Screenshots";
       };
     };
-
-    portal = {
-      enable = true;
-      xdgOpenUsePortal = true;
-      extraPortals = with pkgs; [
-        xdg-desktop-portal-gtk
-        xdg-desktop-portal-wlr
-      ];
-      config.common.default = "*";
-    };
   };
 
   # --- Usefull tools ---
@@ -111,23 +101,6 @@ in
         enkia.tokyo-night
         ms-python.python
         jnoortheen.nix-ide
-      ];
-    };
-
-    obs-studio = {
-      enable = true;
-      # Nvidia hardware acceleration
-      package = (
-        pkgs.obs-studio.override {
-          cudaSupport = (if osConfig.networking.hostName == "queen" then true else false);
-        }
-      );
-      plugins = with pkgs.obs-studio-plugins; [
-        wlrobs
-        obs-backgroundremoval
-        obs-pipewire-audio-capture
-        obs-gstreamer
-        obs-vkcapture
       ];
     };
   };

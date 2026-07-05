@@ -40,6 +40,12 @@ in
       description = "";
     };
 
+    gpuType = mkOption {
+      type = types.enum [ "none" "intel" "amg" "nvidia" ];
+      default = "none";
+      description = "GPU Type";
+    };
+
     screen = {
       width = mkOption {
         type = types.int;
