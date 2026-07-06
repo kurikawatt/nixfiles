@@ -21,6 +21,11 @@ in
       default = false;
       description = "Enable Jellyfin Server";
     };
+    port = mkOption {
+      type = types.int;
+      default = 8096;
+      description = "Jellyfin port";
+    };
   };
 
   options.me.services.prowlarr = {
@@ -29,6 +34,37 @@ in
       default = false;
       description = "Enable Prowlarr and usefull programs for gathering content";
     };
+
+    deluge-port = mkOption {
+      type = types.int;
+      default = 8112;
+      description = "Deluge port";
+    };
+
+    prowlarr-port = mkOption {
+      type = types.int;
+      default = 9696;
+      description = "Prowlarr port";
+    };
+
+    sonarr-port = mkOption {
+      type = types.int;
+      default = 8989;
+      description = "Sonarr port";
+    };
+
+    radarr-port = mkOption {
+      type = types.int;
+      default = 7878;
+      description = "Radarr port";
+    };
+
+    bazarr-port = mkOption {
+      type = types.int;
+      default = 6767;
+      description = "Bazarr port";
+    };
+
   };
 
   options.me.services.sync = {
