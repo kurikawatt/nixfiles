@@ -73,6 +73,10 @@ in
           name = "euphausia";
           id = "E5HZE6F-QB5NWAK-4F7OMY5-NICYBXO-EXB3OOT-JRYLQSG-GWCVOV2-PGRHEQH";
         };
+        Kuri = {
+          name = "Kuri";
+          id = "AM7SSRG-GWZ4JEC-SDMCDXL-TGPCBYU-MNEQMZU-YS25JNO-OYZIBHP-Y2LFSAP";
+        };
       };
     };
 
@@ -90,7 +94,7 @@ in
         };
         "Emu" = {
           path = "${config.me.home}/Emu";
-          devices = syncDevices;
+          devices = builtins.filter (device: !(builtins.elem device [ "Kuri" ])) syncDevices;
         };
       };
     };
