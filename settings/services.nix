@@ -73,14 +73,6 @@ in
 
   };
 
-  options.me.services.sync = {
-    enable = mkOption {
-      type = types.bool;
-      default = false;
-      description = "Enable Syncthing";
-    };
-  };
-
   options.me.services.attic-server = {
     enable = mkOption {
       type = types.bool;
