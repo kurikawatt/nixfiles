@@ -17,7 +17,7 @@ lib.mkIf config.me.services.prowlarr.enable {
     group = "prowdl";
   };
 
-  services.nginx.virtualHosts."deluge.${config.networking.hostName}.fuuka" = {
+  services.nginx.virtualHosts."deluge.${config.networking.hostName}.${config.me.services.domain}" = {
     locations."/" = {
       proxyPass = "http://127.0.0.1:${toString config.me.services.prowlarr.deluge-port}";
       proxyWebsockets = true;
@@ -29,7 +29,7 @@ lib.mkIf config.me.services.prowlarr.enable {
     settings.server.port = config.me.services.prowlarr.prowlarr-port;
   };
 
-  services.nginx.virtualHosts."prowlarr.${config.networking.hostName}.fuuka" = {
+  services.nginx.virtualHosts."prowlarr.${config.networking.hostName}.${config.me.services.domain}" = {
     locations."/" = {
       proxyPass = "http://127.0.0.1:${toString config.me.services.prowlarr.prowlarr-port}";
       proxyWebsockets = true;
@@ -42,7 +42,7 @@ lib.mkIf config.me.services.prowlarr.enable {
     settings.server.port = config.me.services.prowlarr.sonarr-port;
   };
 
-  services.nginx.virtualHosts."sonarr.${config.networking.hostName}.fuuka" = {
+  services.nginx.virtualHosts."sonarr.${config.networking.hostName}.${config.me.services.domain}" = {
     locations."/" = {
       proxyPass = "http://127.0.0.1:${toString config.me.services.prowlarr.sonarr-port}";
       proxyWebsockets = true;
@@ -55,7 +55,7 @@ lib.mkIf config.me.services.prowlarr.enable {
     settings.server.port = config.me.services.prowlarr.radarr-port;
   };
 
-  services.nginx.virtualHosts."radarr.${config.networking.hostName}.fuuka" = {
+  services.nginx.virtualHosts."radarr.${config.networking.hostName}.${config.me.services.domain}" = {
     locations."/" = {
       proxyPass = "http://127.0.0.1:${toString config.me.services.prowlarr.radarr-port}";
       proxyWebsockets = true;
@@ -68,7 +68,7 @@ lib.mkIf config.me.services.prowlarr.enable {
     listenPort = config.me.services.prowlarr.bazarr-port;
   };
 
-  services.nginx.virtualHosts."bazarr.${config.networking.hostName}.fuuka" = {
+  services.nginx.virtualHosts."bazarr.${config.networking.hostName}.${config.me.services.domain}" = {
     locations."/" = {
       proxyPass = "http://127.0.0.1:${toString config.me.services.prowlarr.bazarr-port}";
       proxyWebsockets = true;

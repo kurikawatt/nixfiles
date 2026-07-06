@@ -7,6 +7,12 @@ let
   inherit (lib) mkOption types;
 in
 {
+  options.me.services.domain = mkOption {
+    type = types.str;
+    default = "kurikawa.fr";
+    description = "Base domain for services";
+  };
+
   options.me.services.fuuka-dns = {
     enable = mkOption {
       type = types.bool;
