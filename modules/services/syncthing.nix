@@ -6,9 +6,6 @@
 }:
 let
   syncCfg = "${config.me.home}/.config/syncthing";
-  syncServ = "metis";
-  syncDevices = if config.networking.hostName == syncServ then [ "queen" "aigis" "euphausia" ] else [ syncServ ];
-
   inherit (config.me.services) fuuka;
 in
 lib.mkIf config.me.services.sync.enable {
@@ -52,8 +49,7 @@ lib.mkIf config.me.services.sync.enable {
     enable = true;
     openDefaultPorts = false;
 
-    guiAddress = if config.networking.hostName == "metis" then "${fuuka.peers.metis.ipv4}:8384"
-                 else "127.0.0.1:8384";
+    guiAddress = "0.0.0.0:8384";
 
     user = config.me.user;
     dataDir = config.me.home;
