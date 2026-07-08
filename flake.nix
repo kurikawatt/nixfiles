@@ -76,10 +76,10 @@
           "aigis"
           "euphausia"
           "queen"
-          "fuuka"
+          #"fuuka"
           "metis"
-          "chord"
-          "violet"
+          #"chord"
+          #"violet"
         ]
           mkHost)
         // {
