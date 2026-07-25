@@ -20,7 +20,6 @@
   me.services = {
     jellyfin.enable = true;
     attic-server.enable = true;
-    prowlarr.enable = true;
     sync.enable = true;
     fuuka.enable = false;
     fuuka.enableHub = true;
