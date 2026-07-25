@@ -55,5 +55,5 @@
         hevcRExt12bit = false;
       };
     };
-  }
+  };
 }
