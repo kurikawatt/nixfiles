@@ -12,8 +12,11 @@
 
   me.host.bootloader = "systemd-boot";
 
-  me.services = {
+  me.desktop = "none";
+  me.enableHomeManager = false;
 
+  me.services = {
+    fuuka.enable = true;
   };
 
   hardware.graphics.enable = true;

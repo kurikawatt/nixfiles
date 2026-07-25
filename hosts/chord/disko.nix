@@ -3,7 +3,7 @@
     disk = {
       main = {
         type = "disk";
-        device = "/dev/disk/by-id/wwn-0x500a07511a5cb41a";
+        device = "/dev/sda";
         content = {
           type = "gpt";
           partitions = {
@@ -31,7 +31,7 @@
       };
       chiyome = { # Wind's Persona
         type = "disk";
-        device = "/dev/disk/by-id/wwn-0x5000c50051cf1f5b";
+        device = "/dev/sdb";
         content = {
           type = "gpt";
           partitions = {
@@ -48,7 +48,7 @@
       };
       calliope = { # Chord's Persona
         type = "disk";
-        device = "/dev/disk/by-id/wwn-0x5000cca35ed15d2a";
+        device = "/dev/sdc";
         content = {
           type = "gpt";
           partitions = {
@@ -65,7 +65,7 @@
       };
       euterpe = { # Ange's Persona
         type = "disk";
-        device = "/dev/disk/by-id/wwn-0x50014ee20a03b9fb";
+        device = "/dev/sdd";
         content = {
           type = "gpt";
           partitions = {
