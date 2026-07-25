@@ -27,10 +27,17 @@ in
       description = "Enable Plymouth splash";
     };
 
-    mountMedias = mkOption {
-      type = types.bool;
-      default = false;
-      description = "Mount Samba share at home";
+    samba = {
+      mountMonolith = mkOption {
+        type = types.bool;
+        default = false;
+        description = "Mount Samba share Monolith";
+      };
+      mountLaika = mkOption {
+        type = types.bool;
+        default = false;
+        description = "Mount Samba share Laika";
+      };
     };
 
     # obviously that GPU is for school !

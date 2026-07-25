@@ -12,7 +12,7 @@
   ];
 
   me.host.bootloader = "systemd-boot";
-  me.host.mountMedias = true;
+  me.host.samba.mountMonolith = true;
 
   me.desktop = "none";
   me.enableHomeManager = false;
