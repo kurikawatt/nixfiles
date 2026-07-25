@@ -18,7 +18,6 @@
   me.enableHomeManager = false;
 
   me.services = {
-    jellyfin.enable = true;
     attic-server.enable = true;
     sync.enable = true;
     fuuka.enable = false;
