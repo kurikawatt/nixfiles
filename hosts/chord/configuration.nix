@@ -42,10 +42,6 @@
   services.xserver.videoDrivers = [ "nvidia" ];
 
   services.jellyfin = {
-    hardwareAcceleration = {
-      enable = true;
-    };
-
     transcoding = {
       enableHardwareEncoding = true;
       maxConcurrentStreams = 2;
