@@ -41,7 +41,6 @@
   services.jellyfin = {
     hardwareAcceleration = {
       enable = true;
-      device = "/dev/dri/renderD128";
     };
 
     transcoding = {
