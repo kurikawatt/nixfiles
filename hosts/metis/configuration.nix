@@ -18,7 +18,7 @@
   me.enableHomeManager = false;
 
   me.services = {
-    attic-server.enable = true;
+    attic-server.enable = false;
     sync.enable = true;
     fuuka.enable = false;
     fuuka.enableHub = true;
