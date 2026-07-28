@@ -47,6 +47,12 @@ in
       description = "Deluge port";
     };
 
+    deluge-dataDir = mkOption {
+      type = types.str;
+      default = "/var/lib/deluge";
+      description = "Deluge Data Directory";
+    };
+
     prowlarr-port = mkOption {
       type = types.int;
       default = 9696;

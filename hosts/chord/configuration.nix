@@ -20,6 +20,9 @@
   me.services = {
     fuuka.enable = true;
     jellyfin.enable = true;
+    prowlarr = {
+      enable = true;
+    };
   };
 
   hardware.graphics.enable = true;
