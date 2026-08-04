@@ -24,6 +24,11 @@
     fuuka.enableHub = true;
     ntfy.enable = true;
     monitor-storage.enable = true;
+
+    monitoring.prometheus = {
+      server.enable = true;
+      node.enable = true;
+    };
   };
 
   hardware.graphics = {

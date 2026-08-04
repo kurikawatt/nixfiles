@@ -23,6 +23,9 @@
     prowlarr = {
       enable = true;
     };
+    monitoring.prometheus = {
+      node.enable = true;
+    };
   };
 
   hardware.graphics.enable = true;

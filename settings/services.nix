@@ -122,4 +122,43 @@ in
       description = "";
     };
   };
+
+  options.me.services.monitoring = {
+    prometheus = {
+      server = {
+        enable = mkOption {
+          type = types.bool;
+          default = false;
+          description = "";
+        };
+        nodes = mkOption {
+          type = types.listOf types.str;
+          default = [];
+          description = ""; 
+        };
+        port = mkOption {
+          type = types.int;
+          default = 9090;
+          description = "";
+        };
+        grafana-port = mkOption {
+          type = types.int;
+          default = 3000;
+          description = "";
+        };
+      };
+      node = {
+        enable = mkOption {
+          type = types.bool;
+          default = false;
+          description = "";
+        };
+        port = mkOption {
+          type = types.int;
+          default = 9000;
+          description = "";
+        };
+      };
+    };
+  };
 }
