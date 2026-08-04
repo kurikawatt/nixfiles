@@ -14,6 +14,8 @@
   me.host.bootloader = "systemd-boot";
   me.host.samba.mountMonolith = true;
 
+  me.host.autoUpgrade.enable = true;
+
   me.desktop = "none";
   me.enableHomeManager = false;
 

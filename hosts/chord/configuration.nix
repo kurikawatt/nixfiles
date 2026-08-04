@@ -17,6 +17,8 @@
 
   me.host.samba.mountMonolith = true;
 
+  me.host.autoUpgrade.enable = true;
+
   me.services = {
     fuuka.enable = true;
     jellyfin.enable = true;

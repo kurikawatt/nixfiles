@@ -21,6 +21,31 @@ in
       description = "Define which bootloader is used";
     };
 
+    autoUpgrade = {
+      enable = mkOption {
+        type = types.bool;
+        default = false;
+        description = "";
+      };
+      time = mkOption {
+        type = types.str;
+        default = "03:14"; # pi
+        description = "Time for auto update";
+      };
+      rebootWindow = {
+        begin = mkOption {
+          type = types.str;
+          default = "04:00";
+          description = "Reboot window begin time";
+        };
+        end = mkOption {
+          type = types.str;
+          default = "05:00";
+          description = "Reboot window end time";
+        };
+      };
+    };
+
     enablePlymouth = mkOption {
       type = types.bool;
       default = false;
