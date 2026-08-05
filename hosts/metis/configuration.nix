@@ -27,6 +27,8 @@
     ntfy.enable = true;
     monitor-storage.enable = true;
 
+    pihole.enable = true;
+
     monitoring.prometheus = {
       server.enable = true;
       node.enable = true;

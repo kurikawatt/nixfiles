@@ -79,6 +79,12 @@ in
 
   };
 
+  options.me.services.pihole.enable = mkOption {
+    type = types.bool;
+    default = false;
+    description = "";
+  };
+
   options.me.services.attic-server = {
     enable = mkOption {
       type = types.bool;
