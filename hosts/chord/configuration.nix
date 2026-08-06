@@ -13,7 +13,7 @@
   me.host.bootloader = "systemd-boot";
 
   me.desktop = "none";
-  me.enableHomeManager = false;
+  me.enableHomeManager = lib.mkForce false;
 
   me.host.samba.mountMonolith = true;
 

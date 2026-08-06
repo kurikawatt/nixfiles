@@ -17,7 +17,7 @@
   me.host.autoUpgrade.enable = true;
 
   me.desktop = "none";
-  me.enableHomeManager = false;
+  me.enableHomeManager = lib.mkForce false;
 
   me.services = {
     attic-server.enable = false;
