@@ -4,7 +4,7 @@
   ...
 }:
 let
-  inherit (lib) mkOption types;
+  inherit (lib) mkOption mkEnableOption types;
 
   peer = {
     options = {
@@ -25,11 +25,7 @@ in
   options.me.services = {
     fuuka = {
 
-      enable = mkOption {
-        type = types.bool;
-        default = true;
-        description = "Connect to fuuka (my VPN)";
-      };
+      enable = mkEnableOption "Connect to fuuka (my VPN)";
 
       hubListenPort = mkOption {
         type = types.int;

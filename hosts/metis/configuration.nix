@@ -22,7 +22,7 @@
   me.services = {
     attic-server.enable = false;
     sync.enable = true;
-    fuuka.enable = false;
+    fuuka.enable = lib.mkForce false;
     fuuka.enableHub = true;
     ntfy.enable = true;
     monitor-storage.enable = true;

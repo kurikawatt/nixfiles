@@ -34,6 +34,8 @@ in
     enableHomeManager = true;
   };
 
+  me.services.fuuka.enable = true;
+
   # Linux Kernel Latest
   boot.kernelPackages = pkgs.linuxPackages_latest;
 

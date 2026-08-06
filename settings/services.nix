@@ -4,7 +4,7 @@
   ...
 }:
 let
-  inherit (lib) mkOption types;
+  inherit (lib) mkOption mkEnableOption types;
 in
 {
   options.me.services.domain = mkOption {
@@ -14,19 +14,11 @@ in
   };
 
   options.me.services.fuuka-dns = {
-    enable = mkOption {
-      type = types.bool;
-      default = false;
-      description = "Enable DNS for fuuka";
-    };
+    enable = mkEnableOption "Enable DNS for fuuka";
   };
 
   options.me.services.jellyfin = {
-    enable = mkOption {
-      type = types.bool;
-      default = false;
-      description = "Enable Jellyfin Server";
-    };
+    enable = mkEnableOption "Enable Jellyfin Server";
     port = mkOption {
       type = types.int;
       default = 8096;
@@ -35,11 +27,7 @@ in
   };
 
   options.me.services.prowlarr = {
-    enable = mkOption {
-      type = types.bool;
-      default = false;
-      description = "Enable Prowlarr and usefull programs for gathering content";
-    };
+    enable = mkEnableOption "Enable Prowlarr and usefull programs for gathering content";
 
     deluge-port = mkOption {
       type = types.int;
@@ -79,18 +67,10 @@ in
 
   };
 
-  options.me.services.pihole.enable = mkOption {
-    type = types.bool;
-    default = false;
-    description = "";
-  };
+  options.me.services.pihole.enable = mkEnableOption "Enable PiHole";
 
   options.me.services.attic-server = {
-    enable = mkOption {
-      type = types.bool;
-      default = false;
-      description = "Enable Atticd to serve cache";
-    };
+    enable = mkEnableOption "Enable Atticd to serve cache";
     port = mkOption {
       type = types.int;
       default = 8080;
@@ -104,11 +84,7 @@ in
   };
 
   options.me.services.ntfy = {
-    enable = mkOption {
-      type = types.bool;
-      default = false;
-      description = "Enable ntfy";
-    };
+    enable = mkEnableOption "Enable ntfy";
     base-url = mkOption {
       type = types.str;
       default = "ntfy.kurikawa.fr";
@@ -122,21 +98,13 @@ in
   };
 
   options.me.services.monitor-storage = {
-    enable = mkOption {
-      type = types.bool;
-      default = false;
-      description = "";
-    };
+    enable = mkEnableOption "";
   };
 
   options.me.services.monitoring = {
     prometheus = {
       server = {
-        enable = mkOption {
-          type = types.bool;
-          default = false;
-          description = "";
-        };
+        enable = mkEnableOption "Enable Prometheus Server";
         nodes = mkOption {
           type = types.listOf types.str;
           default = [];
@@ -154,11 +122,7 @@ in
         };
       };
       node = {
-        enable = mkOption {
-          type = types.bool;
-          default = false;
-          description = "";
-        };
+        enable = mkEnableOption "Enable Prometheus Probe (Node)";
         port = mkOption {
           type = types.int;
           default = 9000;
