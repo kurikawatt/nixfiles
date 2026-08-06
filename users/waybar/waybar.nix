@@ -14,7 +14,7 @@ let
     in
     builtins.filter (p: !(hasInfix "/_" (toString p))) nixFiles;
 
-  inherit (osConfig.me) colors;
+  inherit (osConfig.me) fonts colors;
 in
 {
 
@@ -50,7 +50,7 @@ in
           border: none;
           border-radius: 0;
           min-height: 0;
-          font-family: Cascadia Code;
+          font-family: ${fonts.name};
           font-size: 16px;
         }
 
