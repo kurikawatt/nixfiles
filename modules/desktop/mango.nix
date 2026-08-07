@@ -8,7 +8,7 @@
 let
   inherit (config.me) fonts colors;
 in
-lib.mkIf (config.me.desktop == "mango") {
+lib.mkIf (config.me.host.desktop == "mango") {
   services.displayManager.ly.enable = true;
 
   security.pam.services.swaylock = { };

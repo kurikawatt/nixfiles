@@ -21,6 +21,12 @@ in
       description = "Define which bootloader is used";
     };
 
+    desktop = mkOption {
+        type = types.enum [ "none" "mango" ];
+        default = "mango";
+        description = "";
+    };
+
     autoUpgrade = {
       enable = mkOption {
         type = types.bool;
