@@ -5,12 +5,55 @@
 }:
 let
   inherit (lib) mkOption mkEnableOption types;
+
+  peer = {
+    options = {
+      ipv4 = mkOption {
+        type = types.str;
+        default = "172.16.195.0";
+        description = "Peer IPv4 on fuuka";
+      };
+      publicKey = mkOption {
+        type = types.str;
+        default = "";
+        description = "WireGuard's Public Key of peer";
+      };
+    };
+  };
 in
 {
-  options.me.services.domain = mkOption {
-    type = types.str;
-    default = "kurikawa.fr";
-    description = "Base domain for services";
+  options.me.services.global = {
+    domain = mkOption {
+      type = types.str;
+      default = "kurikawa.fr";
+      description = "Domain used for all services";
+    };
+  };
+
+  options.me.services.fuuka = {
+    enable = mkEnableOption "Connect to fuuka (my VPN)";
+    
+    hub = {
+      name = mkOption {
+        type = types.str;
+        default = "metis";
+        description = "Define which peer is the hub";
+      };
+     
+      enable = mkEnableOption "Turn this host into a hub";
+
+      port = mkOption {
+        type = types.int;
+        default = 51280;
+        description = "Port to listen on hub";
+      };
+    };
+
+    peers = mkOption {
+      description = "List of all Peers on fuuka";
+      type = types.attrsOf (types.submodule peer);
+      default = { };
+    };
   };
 
   options.me.services.fuuka-dns = {

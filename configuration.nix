@@ -34,7 +34,47 @@ in
     enableHomeManager = true;
   };
 
-  me.services.fuuka.enable = true;
+  me.services.fuuka = {
+    enable = true;
+    hub = {
+      name = "metis";
+      port = 51280;
+    };
+    peers = {
+      chord = {
+        ipv4 = "172.16.195.1";
+        publicKey = "sMoQytVwjqnxSq+MB+7ori5HZr32G866femOjuD17C0=";
+      };
+      metis = {
+        ipv4 = "172.16.195.2";
+        publicKey = "BKVRHb2nR3/0ms8E2vG/vFLbTqY55BJ7mzY704Eyfig=";
+      };
+      violet = {
+        ipv4 = "172.16.195.3";
+        publicKey = "usqFwmI5mKTlUvvuRIdTXOmP5QoX/ozhua53DaslMxs=";
+      };
+      euphausia = {
+        ipv4 = "172.16.195.10";
+        publicKey = "SQEiF7l4LGjNfbqnYa4KRnKalNrdjmV62TRBBlq+2hY=";
+      };
+      Kuri = {
+        ipv4 = "172.16.195.11";
+        publicKey = "QWC/dCLQTfpgZAPuY+gd8Ru1QLTSvPT0YOCWPZd4vxM=";
+      };
+      aigis = {
+        ipv4 = "172.16.195.12";
+        publicKey = "NoMBDUInInr8FOij+5yb81WkVveSulARGKZSZgy/Rl0=";
+      };
+      queen = {
+        ipv4 = "172.16.195.13";
+        publicKey = "OOkD3dCKw7YOO99cCEQOOWoxwTnYLGZ/eebUG9hpuGk=";
+      };
+      mont = {
+        ipv4 = "172.16.195.14";
+        publicKey = "4gp/s2GvxM2DR7GH/BnCaPh2Aexvvqz6Yf8O490QXBQ=";
+      };
+    };
+  };
 
   # Linux Kernel Latest
   boot.kernelPackages = pkgs.linuxPackages_latest;
