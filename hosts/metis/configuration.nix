@@ -23,7 +23,7 @@
     attic-server.enable = false;
     sync.enable = true;
     fuuka.enable = lib.mkForce false;
-    fuuka.enableHub = true;
+    fuuka.hub.enable = true;
     ntfy.enable = true;
     monitor-storage.enable = true;
 
