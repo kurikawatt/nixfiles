@@ -69,6 +69,20 @@ in
     };
   };
 
+  options.me.services.navidrome = {
+    enable = mkEnableOption "Enable Navidrome Server";
+    port = mkOption {
+      type = types.int;
+      default = 4533;
+      description = "Navidrome Port";
+    };
+    data_dir = mkOption {
+      type = types.str;
+      default = "/srv/music";
+      description = "Navidrome Data Dir";
+    };
+  };
+
   options.me.services.prowlarr = {
     enable = mkEnableOption "Enable Prowlarr and usefull programs for gathering content";
 
