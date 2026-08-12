@@ -25,7 +25,9 @@ in
   #  ];
   #};
 
-  environment.systemPackages = with pkgs; [ attic-client ];
+  environment.systemPackages = with pkgs; [
+    #attic-client
+  ];
 
   # Almost identical to ayko's (0x7E on codeberg) service, just
   # changed server & cache names
