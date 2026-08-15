@@ -23,7 +23,7 @@ lib.mkIf config.me.services.jellyfin.enable {
     "prowdl"
   ];
 
-  networking.firewall.interfaces."fuuka0".allowedTCPPorts = [
+  networking.firewall.allowedTCPPorts = [
     config.me.services.jellyfin.port
   ];
 }
