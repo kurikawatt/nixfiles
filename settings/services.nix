@@ -188,4 +188,8 @@ in
       };
     };
   };
+
+  options.me.services.ollama = {
+    enable = mkEnableOption "Enable Ollama + codeqwen 7b model";
+  };
 }

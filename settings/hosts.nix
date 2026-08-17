@@ -79,7 +79,7 @@ in
     };
 
     gpuType = mkOption {
-      type = types.enum [ "none" "intel" "amg" "nvidia" ];
+      type = types.enum [ "none" "intel" "amd" "nvidia" ];
       default = "none";
       description = "GPU Type";
     };
