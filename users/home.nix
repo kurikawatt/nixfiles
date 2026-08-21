@@ -47,6 +47,26 @@ in
         SCREENSHOTS_DIR = "${me.home}/Screenshots";
       };
     };
+  };  
+
+  gtk = {
+    enable = true;
+    theme = {
+      name = "Adwaita-dark";
+      package = pkgs.gnome-themes-extra;
+    };
+  };
+
+  dconf.settings = {
+    "org/gnome/desktop/interface" = {
+      color-scheme = "prefer-dark";
+    };
+  };
+
+  qt = {
+    enable = true;
+    platformTheme.name = "gtk";
+    style.name = "adwaita-dark";
   };
 
   # --- Usefull tools ---
