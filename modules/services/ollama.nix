@@ -17,5 +17,6 @@ lib.mkIf services.ollama.enable {
     loadModels = [
       "codeqwen:latest"
     ];
+    syncModels = true;
   };
 }

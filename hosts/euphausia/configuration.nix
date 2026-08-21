@@ -32,5 +32,8 @@
     };
   };
   
-  me.services.sync.enable = true;
+  me.services = {
+    sync.enable = true;
+    ollama.enable = true;
+  };
 }
