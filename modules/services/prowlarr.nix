@@ -4,7 +4,10 @@
   pkgs,
   ...
 }:
-lib.mkIf config.me.services.prowlarr.enable {
+let 
+  inherit (config.me.services) prowlarr;
+in
+lib.mkIf prowlarr.enable {
 
   users.groups.prowdl = { };
 
@@ -12,26 +15,27 @@ lib.mkIf config.me.services.prowlarr.enable {
     enable = true;
     web = {
       enable = true;
-      port = config.me.services.prowlarr.deluge-port;
+      port = prowlarr.deluge-port;
     };
+    dataDir = prowlarr.deluge-dataDir;
     group = "prowdl";
   };
 
   services.nginx.virtualHosts."deluge.${config.networking.hostName}.${config.me.services.domain}" = {
     locations."/" = {
-      proxyPass = "http://127.0.0.1:${toString config.me.services.prowlarr.deluge-port}";
+      proxyPass = "http://127.0.0.1:${toString prowlarr.deluge-port}";
       proxyWebsockets = true;
     };
   };
 
   services.prowlarr = {
     enable = true;
-    settings.server.port = config.me.services.prowlarr.prowlarr-port;
+    settings.server.port = prowlarr.prowlarr-port;
   };
 
   services.nginx.virtualHosts."prowlarr.${config.networking.hostName}.${config.me.services.domain}" = {
     locations."/" = {
-      proxyPass = "http://127.0.0.1:${toString config.me.services.prowlarr.prowlarr-port}";
+      proxyPass = "http://127.0.0.1:${toString prowlarr.prowlarr-port}";
       proxyWebsockets = true;
     };
   };
@@ -39,12 +43,12 @@ lib.mkIf config.me.services.prowlarr.enable {
   services.sonarr = {
     enable = true;
     group = "prowdl";
-    settings.server.port = config.me.services.prowlarr.sonarr-port;
+    settings.server.port = prowlarr.sonarr-port;
   };
 
   services.nginx.virtualHosts."sonarr.${config.networking.hostName}.${config.me.services.domain}" = {
     locations."/" = {
-      proxyPass = "http://127.0.0.1:${toString config.me.services.prowlarr.sonarr-port}";
+      proxyPass = "http://127.0.0.1:${toString prowlarr.sonarr-port}";
       proxyWebsockets = true;
     };
   };
@@ -52,12 +56,12 @@ lib.mkIf config.me.services.prowlarr.enable {
   services.radarr = {
     enable = true;
     group = "prowdl";
-    settings.server.port = config.me.services.prowlarr.radarr-port;
+    settings.server.port = prowlarr.radarr-port;
   };
 
   services.nginx.virtualHosts."radarr.${config.networking.hostName}.${config.me.services.domain}" = {
     locations."/" = {
-      proxyPass = "http://127.0.0.1:${toString config.me.services.prowlarr.radarr-port}";
+      proxyPass = "http://127.0.0.1:${toString prowlarr.radarr-port}";
       proxyWebsockets = true;
     };
   };
@@ -65,12 +69,12 @@ lib.mkIf config.me.services.prowlarr.enable {
   services.bazarr = {
     enable = true;
     group = "prowdl";
-    listenPort = config.me.services.prowlarr.bazarr-port;
+    listenPort = prowlarr.bazarr-port;
   };
 
   services.nginx.virtualHosts."bazarr.${config.networking.hostName}.${config.me.services.domain}" = {
     locations."/" = {
-      proxyPass = "http://127.0.0.1:${toString config.me.services.prowlarr.bazarr-port}";
+      proxyPass = "http://127.0.0.1:${toString prowlarr.bazarr-port}";
       proxyWebsockets = true;
     };
   };

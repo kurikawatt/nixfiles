@@ -12,20 +12,27 @@
   ];
 
   me.host.bootloader = "systemd-boot";
-  me.host.mountMedias = true;
+  me.host.samba.mountMonolith = true;
 
-  me.desktop = "none";
-  me.enableHomeManager = false;
+  me.host.autoUpgrade.enable = true;
+
+  me.host.desktop = "none";
+  me.enableHomeManager = lib.mkForce false;
 
   me.services = {
-    jellyfin.enable = true;
-    attic-server.enable = true;
-    prowlarr.enable = true;
+    attic-server.enable = false;
     sync.enable = true;
-    fuuka.enable = false;
-    fuuka.enableHub = true;
+    fuuka.enable = lib.mkForce false;
+    fuuka.hub.enable = true;
     ntfy.enable = true;
     monitor-storage.enable = true;
+
+    pihole.enable = true;
+
+    monitoring.prometheus = {
+      server.enable = true;
+      node.enable = true;
+    };
   };
 
   hardware.graphics = {

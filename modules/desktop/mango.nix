@@ -5,7 +5,10 @@
   lib,
   ...
 }:
-lib.mkIf (config.me.desktop == "mango") {
+let
+  inherit (config.me) fonts colors;
+in
+lib.mkIf (config.me.host.desktop == "mango") {
   services.displayManager.ly.enable = true;
 
   security.pam.services.swaylock = { };
@@ -25,7 +28,7 @@ lib.mkIf (config.me.desktop == "mango") {
     enable = true;
     settings = {
       main = {
-        font = "Cascadia Mono:size=16";
+        font = "${fonts.name}:size=16";
         pad = "10x10 center";
         selection-target = "clipboard";
       };

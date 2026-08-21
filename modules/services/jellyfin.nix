@@ -16,12 +16,14 @@ lib.mkIf config.me.services.jellyfin.enable {
   };
  
   # To be able to use Hardware
+  # + prowdl bc it may be usefull
   users.users.jellyfin.extraGroups = [
     "render"
     "video"
+    "prowdl"
   ];
 
-  networking.firewall.interfaces."fuuka0".allowedTCPPorts = [
+  networking.firewall.allowedTCPPorts = [
     config.me.services.jellyfin.port
   ];
 }

@@ -6,7 +6,7 @@
 , ...
 }:
 let
-  inherit (osConfig.me) colors;
+  inherit (osConfig.me) fonts colors;
 in
 {
   programs.fuzzel = {
@@ -14,7 +14,7 @@ in
     settings = {
       main = {
         layout = "overlay";
-        font = "Cascadia Code:size=14";
+        font = "${fonts.name}:size=14";
         terminal = "${pkgs.foot}/bin/foot";
         enable-mouse = false;
         icons-enabled = false;

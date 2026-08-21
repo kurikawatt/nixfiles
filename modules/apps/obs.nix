@@ -1,9 +1,10 @@
 {
   config,
   pkgs,
+  lib,
   ...
 }:
-{
+lib.mkIf (config.me.host.desktop != "none") {
   programs.obs-studio = {
     enable = true;
 

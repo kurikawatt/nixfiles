@@ -116,6 +116,7 @@ in
     nixd
     nixpkgs-fmt
     deezer-enhanced
+    azahar
     inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
   ]
   ++ (

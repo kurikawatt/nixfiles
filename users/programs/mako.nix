@@ -6,7 +6,7 @@
 , ...
 }:
 let
-  inherit (osConfig.me) colors;
+  inherit (osConfig.me) fonts colors;
 in
 {
   services.mako = {
@@ -18,7 +18,7 @@ in
       height = 256;
       margin = 10;
       padding = 24;
-      font = "Cascadia Code 12";
+      font = "${fonts.name} 12";
       text-color = "#${colors.foreground}";
       background-color = "#${colors.background}";
       border-color = "#ec4067";

@@ -19,6 +19,7 @@
   me.host = {
     isLaptop = true;
     thatComputerIsForSchool = true;
+    gpuType = "amd";
     screen = {
       width = 2560;
       height = 1600;

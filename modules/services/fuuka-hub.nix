@@ -6,12 +6,12 @@
 }:
 let
   hostname = config.networking.hostName;
-  fuukaHub = config.me.services.fuuka.hub;
+  fuukaHub = config.me.services.fuuka.hub.name;
 
   fuukaPeers = config.me.services.fuuka.peers;
-  port = config.me.services.fuuka.hubListenPort;
+  port = config.me.services.fuuka.hub.port;
 in
-lib.mkIf config.me.services.fuuka.enableHub {
+lib.mkIf config.me.services.fuuka.hub.enable {
   networking.wireguard.enable = true;
 
   networking.firewall.allowedUDPPorts = [ port ];

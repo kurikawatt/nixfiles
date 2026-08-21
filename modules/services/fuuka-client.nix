@@ -6,7 +6,7 @@
 }:
 let
   hostname = config.networking.hostName;
-  fuukaHub = config.me.services.fuuka.hub;
+  fuukaHub = config.me.services.fuuka.hub.name;
 
   peers = config.me.services.fuuka.peers;
 in

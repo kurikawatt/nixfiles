@@ -8,6 +8,14 @@ let
 in
 {
 
+  options.me.fonts = {
+    name = mkOption {
+      type = types.str;
+      default = "Mononoki";
+      description = "";
+    };
+  };
+
   /* Default values are inspired by Tokyo Night colors palette */
 
   options.me.colors = {

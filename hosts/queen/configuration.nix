@@ -11,7 +11,7 @@
   ];
 
   me.host.bootloader = "systemd-boot";
-  me.host.mountMedias = true;
+  me.host.samba.mountMonolith = true;
   me.host.thatComputerIsForSchool = true;
   me.host.gpuType = "nvidia";
 
@@ -21,4 +21,5 @@
   };
 
   me.services.sync.enable = true;
+  me.services.ollama.enable = true;
 }

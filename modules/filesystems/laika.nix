@@ -4,9 +4,6 @@
   ...
 }:
 let
-
-  mediaMountpoint = "/media";
-
   opts = [ 
     "x-systemd.automount"
     "noauto"
@@ -19,14 +16,9 @@ let
     "gid=100" # my group
   ];
 in
-lib.mkIf config.me.host.mountMedias {
+lib.mkIf config.me.host.samba.mountLaika {
 
   sops.secrets = {
-    "monolith-credentials" = {
-      sopsFile = ../../secrets/smb-Monolith.yaml;
-      path = "/etc/smb-secrets-monolith";
-      mode = "0600";
-    };
     "laika-credentials" = {
     sopsFile = ../../secrets/smb-Laika.yaml;
     path = "/etc/smb-secrets-laika";
@@ -35,13 +27,7 @@ lib.mkIf config.me.host.mountMedias {
   };
 
   fileSystems = {
-    "${mediaMountpoint}/Monolith" = {
-      device = "//192.168.1.13/kurik";
-      fsType = "cifs";
-      options = opts
-      ++ [ "credentials=/etc/smb-secrets-monolith" ];
-    };
-    "${mediaMountpoint}/Laika" = {
+    "/media/Laika" = {
       device = "//192.168.1.16/Medias";
       fsType = "cifs";
       options = opts

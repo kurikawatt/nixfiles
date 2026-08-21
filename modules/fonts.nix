@@ -9,5 +9,6 @@
     noto-fonts-color-emoji
 
     cascadia-code
+    mononoki
   ];
 }
