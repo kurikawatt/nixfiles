@@ -16,6 +16,7 @@ lib.mkIf services.ollama.enable {
       else pkgs.ollama-cpu;
     loadModels = [
       "codeqwen:latest"
+      "mistral:latest"
     ];
     syncModels = true;
   };
