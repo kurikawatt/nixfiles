@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # Looking for the good hwmon
-CPU_HWMON=$(grep -l "coretemp" /sys/class/hwmon/hwmon*/name 2>/dev/null | head -n 1 | xargs dirname)
+CPU_HWMON=$(grep -E -l "coretemp|k10temp" /sys/class/hwmon/hwmon*/name 2>/dev/null | head -n 1 | xargs dirname)
 
 # Have I found it ?
 if [ -z "$CPU_HWMON" ]; then
