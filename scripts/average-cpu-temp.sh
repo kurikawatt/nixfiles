@@ -1,6 +1,13 @@
 #!/usr/bin/env bash
 
-CPU_HWMON=/sys/class/hwmon/hwmon3
+# Looking for the good hwmon
+CPU_HWMON=$(grep -l "coretemp" /sys/class/hwmon/hwmon*/name 2>/dev/null | head -n 1 | xargs dirname)
+
+# Have I found it ?
+if [ -z "$CPU_HWMON" ]; then
+    echo '{"text": "N/A", "class":"critical"}'
+    exit 1
+fi
 
 total=0
 count=0
@@ -26,5 +33,5 @@ if [ $count -gt 0 ]; then
     fi
 
 else
-    echo "{\"text\": \"N/A\"}"
+    echo '{"text": "N/A", "class":"critical"}'
 fi
