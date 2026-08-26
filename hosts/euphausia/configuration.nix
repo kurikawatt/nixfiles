@@ -36,4 +36,26 @@
     sync.enable = true;
     ollama.enable = true;
   };
+
+  # Framework specific things
+  hardware.fw-fanctrl = {
+    enable = true;                         # This is needed to enable the service
+    config = {                             # This option is only needed if you want to add additional strategies
+      defaultStrategy = "base";
+      strategyOnDischarging = "laziest";   # Must not be set
+      strategies = {
+        "base" = {
+          fanSpeedUpdateFrequency = 5;
+          movingAverageInterval = 40;
+          speedCurve = [
+            { temp = 45; speed = 0; }
+            { temp = 65; speed = 15; }
+            { temp = 70; speed = 25; }
+            { temp = 85; speed = 35; }
+          ];
+        };
+      };
+    };
+    disableBatteryTempCheck = false;
+  };
 }
