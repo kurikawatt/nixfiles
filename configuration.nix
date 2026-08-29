@@ -105,7 +105,9 @@ in
 
   environment.systemPackages = with pkgs; [
     tree
+    btop
     fastfetch
+    wiremix #tui mixer for pipewire
     age-plugin-tpm
     age
     inputs.magla.packages.${pkgs.stdenv.hostPlatform.system}.default
