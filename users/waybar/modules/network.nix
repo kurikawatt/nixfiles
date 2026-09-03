@@ -9,7 +9,7 @@
   programs.waybar = {
     settings.main = {
       network = {
-        format-wifi = "{essid}";
+        format-wifi = "net: {essid}";
         format-ethernet = "Wired";
         format-disconnected = "No Network";
         format-disabled = "Airplane Mode";

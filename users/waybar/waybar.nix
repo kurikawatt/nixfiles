@@ -30,19 +30,19 @@ in
         height = 0;
         reload_style_on_change = true;
         modules-left = [
-          "clock"
+          "custom/hostname"
         ];
         modules-center = [
-
+          "clock"
         ];
         modules-right = [
-          "tray"
+          "battery"
           "network"
         ] 
-        ++ (if osConfig.me.services.fuuka.enable then [ "network#fuuka" ] else [])
+        #++ (if osConfig.me.services.fuuka.enable then [ "network#fuuka" ] else [])
         ++ [
           "wireplumber"
-          "custom/hostname"
+          "tray"
         ];
 
         "custom/hostname" = {
