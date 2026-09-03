@@ -29,9 +29,22 @@ in
         spacing = 0;
         height = 0;
         reload_style_on_change = true;
-        modules-left = [ "custom/hostname" ];
-        modules-center = [ "clock" ];
-        modules-right = [ "wireplumber" ];
+        modules-left = [
+          "clock"
+        ];
+        modules-center = [
+
+        ];
+        modules-right = [
+          "tray"
+          "network"
+        ] 
+        ++ (if osConfig.me.services.fuuka.enable then [ "network#fuuka" ] else [])
+        ++ [
+          "wireplumber"
+          "custom/hostname"
+        ];
+
         "custom/hostname" = {
           format = "{}";
           exec = "cat /etc/hostname";

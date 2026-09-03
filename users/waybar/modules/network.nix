@@ -8,8 +8,6 @@
 {
   programs.waybar = {
     settings.main = {
-      modules-right = [ "network" ]
-      ++ (if osConfig.me.services.fuuka.enable then [ "network#fuuka" ] else []);
       network = {
         format-wifi = "{essid}";
         format-ethernet = "Wired";
