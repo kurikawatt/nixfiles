@@ -13,19 +13,32 @@
       modules-left = [ "mpris" ];
 
       mpris = {
-        format = "{player_icon} {title} - {artist}";
+        format = "{title} - {artist}";
         format-pause = "{title} - {artist}";
         format-stopped = "";
 
-        player-icons = {
-          default = "♫";
-        };
+        tooltip-format = ''
+          Title: {title}
+          Artist: {artist}
+          Album: {album}'';
+
+        ignored-players = [
+          "firefox"
+        ];
 
       };
 
     };
     style = ''
-      
+      #mpris {
+        color: #${osConfig.me.colors.foreground};
+        margin: 5px;
+        padding: 6px 12px;
+      }
+
+      #mpris.paused {
+        color: #99a1c4;
+      }
     '';
   };
 }
