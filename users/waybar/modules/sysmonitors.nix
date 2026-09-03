@@ -5,7 +5,7 @@
 , inputs
 , ...
 }:
-{
+lib.mkIf false {
   programs.waybar = {
     
     settings.main = {
