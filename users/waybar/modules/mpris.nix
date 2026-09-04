@@ -17,6 +17,8 @@
         format-pause = "{title} - {artist}";
         format-stopped = "";
 
+        max-length = 50;
+
         tooltip-format = ''
           Title: {title}
           Artist: {artist}
