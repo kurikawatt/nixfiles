@@ -39,12 +39,11 @@ in
     userDirs = {
       enable = true;
       createDirectories = true;
-      setSessionVariables = true;
       documents = "${me.home}/Documents";
       pictures = "${me.home}/Pictures";
       download = "${me.home}/Downloads";
       extraConfig = {
-        SCREENSHOTS_DIR = "${me.home}/Screenshots";
+        SCREENSHOTS = "${me.home}/Screenshots";
       };
     };
   };  
