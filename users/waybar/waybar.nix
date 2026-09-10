@@ -21,7 +21,7 @@ in
   imports = (import-tree ./modules);
 
   programs.waybar = {
-    enable = true;
+    enable = (osConfig.me.host.desktop == "mango");
     settings = {
       main = {
         layer = "bottom";
