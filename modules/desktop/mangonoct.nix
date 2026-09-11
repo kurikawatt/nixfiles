@@ -9,7 +9,19 @@ let
   inherit (config.me) fonts colors;
 in
 lib.mkIf (config.me.host.desktop == "mangonoct") {
-  services.displayManager.ly.enable = true;
+  
+  programs.noctalia-greeter = {
+    enable = true;
+    settings = {
+      cursor = {
+        theme = "Adwaita";
+        size = 16;
+      };
+      keyboard = {
+        layout = "fr";
+      };
+    };
+  };
 
   security.pam.services.swaylock = { };
 

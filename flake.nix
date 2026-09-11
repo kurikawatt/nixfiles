@@ -48,6 +48,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    noctalia-greeter = {
+      url = "github:noctalia-dev/noctalia-greeter";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
   };
 
   outputs = { self, sops-nix, disko, mangowm, nixos-hardware, ... }@inputs:
@@ -62,6 +67,7 @@
             sops-nix.nixosModules.sops
             disko.nixosModules.disko
             mangowm.nixosModules.mango
+            inputs.noctalia-greeter.nixosModules.default
             inputs.home-manager.nixosModules.home-manager
             ./hosts/${name}/configuration.nix
             ./configuration.nix
