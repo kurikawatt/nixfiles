@@ -16,6 +16,24 @@ order = [ "topbar" ]
 [battery]
 warning_threshold = 20
 
+[[control_center.shortcuts]]
+type = "wifi"
+
+[[control_center.shortcuts]]
+type = "bluetooth"
+
+[[control_center.shortcuts]]
+type = "nightlight"
+
+[[control_center.shortcuts]]
+type = "notification"
+
+[[control_center.shortcuts]]
+type = "power_profile"
+
+[[control_center.shortcuts]]
+type = "dark_mode"
+
 [desktop_widgets]
 enabled = false
 schema_version = 2
@@ -125,7 +143,7 @@ polkit_agent = true
 [theme]
 builtin = "Tokyo-Night"
 community_palette = "Oxocarbon"
-mode = "auto"
+mode = "dark"
 shell_mode = "dark"
 source = "builtin"
 wallpaper_scheme = "m3-content"
@@ -145,3 +163,6 @@ path = "/home/kurik/Pictures/wallpapers/Abso/eupha_night.jpg"
 
 [widget.brightness]
 enabled = false
+
+[widget.workspaces]
+show_labels = false
