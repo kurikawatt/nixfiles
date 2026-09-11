@@ -8,7 +8,7 @@
 let
   inherit (osConfig.me) fonts colors;
 in
-{
+lib.mkIf (osConfig.me.host.desktop == "mango") {
   programs.fuzzel = {
     enable = true;
     settings = {

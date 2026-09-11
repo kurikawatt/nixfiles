@@ -8,7 +8,7 @@
 let
   inherit (osConfig.me.host) screen;
 in
-{
+lib.mkIf (osConfig.me.host.desktop == "mango") {
   programs.swaylock = {
     enable = true;
     package = pkgs.swaylock-effects;
