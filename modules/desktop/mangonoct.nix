@@ -100,7 +100,6 @@ lib.mkIf (config.me.host.desktop == "mangonoct") {
     wl-clipboard
     wl-clip-persist
 
-    inputs.awww.packages.${pkgs.stdenv.hostPlatform.system}.awww
     inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default
   ];
 }
