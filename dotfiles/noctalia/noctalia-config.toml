@@ -1,0 +1,147 @@
+[bar]
+order = [ "topbar" ]
+
+    [bar.topbar]
+    center = [ "clipboard", "clock", "notifications" ]
+    end = [ "tray", "network", "bluetooth", "volume", "battery", "control-center", "session" ]
+    layer = "overlay"
+    margin_ends = 0
+    radius = 0
+    reserve_space = false
+    shadow = false
+    smart_auto_hide = true
+    start = [ "workspaces", "media" ]
+    thickness = 42
+
+[battery]
+warning_threshold = 20
+
+[desktop_widgets]
+enabled = false
+schema_version = 2
+widget_order = []
+
+    [desktop_widgets.grid]
+    cell_size = 16
+    major_interval = 4
+    visible = true
+
+    [desktop_widgets.widget]
+
+[location]
+address = "Caen, France"
+
+[lockscreen]
+blur_intensity = 0.0
+
+[lockscreen_widgets]
+enabled = false
+schema_version = 2
+widget_order = [ "lockscreen-login-box@eDP-2" ]
+
+    [lockscreen_widgets.grid]
+    cell_size = 16
+    major_interval = 4
+    visible = true
+
+    [lockscreen_widgets.widget."lockscreen-login-box@eDP-2"]
+    box_height = 196.0
+    box_width = 810.0
+    cx = 854.0
+    cy = 885.0
+    output = "eDP-2"
+    placement_height = 1067.0
+    placement_width = 1707.0
+    rotation = 0.0
+    type = "login_box"
+
+        [lockscreen_widgets.widget."lockscreen-login-box@eDP-2".settings]
+        background_color = "surface_variant"
+        background_opacity = 0.88
+        background_radius = 12.0
+        center_password_text = false
+        input_opacity = 1.0
+        input_radius = 6.0
+        layout = "regular"
+        show_caps_lock = true
+        show_keyboard_layout = true
+        show_login_button = true
+        show_media = true
+        show_session_buttons = true
+        show_unlock_hint = true
+        show_weather = true
+
+[nightlight]
+enabled = true
+
+[notification]
+history_retention_hours = 48
+
+[shell]
+avatar_path = "/home/kurik/Pictures/pp/am_eupha.png"
+font_family = "mononoki"
+lang = "en"
+polkit_agent = true
+
+    [shell.screenshot]
+    annotate = true
+    directory = "/home/kurik/Screenshots"
+
+    [[shell.session.actions]]
+    action = "lock"
+    countdown_seconds = 0.0
+    enabled = true
+    shortcut = "1"
+    variant = "default"
+
+    [[shell.session.actions]]
+    action = "logout"
+    countdown_seconds = 0.0
+    enabled = true
+    shortcut = "2"
+    variant = "default"
+
+    [[shell.session.actions]]
+    action = "lock_and_suspend"
+    countdown_seconds = 0.0
+    enabled = false
+    shortcut = "3"
+    variant = "default"
+
+    [[shell.session.actions]]
+    action = "reboot"
+    countdown_seconds = 0.0
+    enabled = true
+    shortcut = "4"
+    variant = "default"
+
+    [[shell.session.actions]]
+    action = "shutdown"
+    countdown_seconds = 0.0
+    enabled = true
+    shortcut = "5"
+    variant = "destructive"
+
+[theme]
+builtin = "Tokyo-Night"
+community_palette = "Oxocarbon"
+mode = "auto"
+shell_mode = "dark"
+source = "builtin"
+wallpaper_scheme = "m3-content"
+
+    [theme.templates]
+    enable_builtin_templates = false
+    enable_community_templates = false
+
+[wallpaper.default]
+path = "/home/kurik/Pictures/wallpapers/Abso/eupha_night.jpg"
+
+[wallpaper.last]
+path = "/home/kurik/Pictures/wallpapers/Abso/eupha_night.jpg"
+
+[wallpaper.monitors.eDP-2]
+path = "/home/kurik/Pictures/wallpapers/Abso/eupha_night.jpg"
+
+[widget.brightness]
+enabled = false

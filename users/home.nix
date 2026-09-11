@@ -34,6 +34,7 @@ in
       "swayosd".source = ../dotfiles/swayosd;
       "yazi".source = ../dotfiles/yazi;
       "mango".source = ../dotfiles/mango;
+      "noctalia".source = ../dotfiles/noctalia;
     };
 
     userDirs = {
