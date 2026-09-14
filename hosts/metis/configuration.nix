@@ -26,6 +26,7 @@
     fuuka.hub.enable = true;
     ntfy.enable = true;
     monitor-storage.enable = true;
+    restic.enable = true;
 
     pihole.enable = true;
 

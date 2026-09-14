@@ -192,4 +192,8 @@ in
   options.me.services.ollama = {
     enable = mkEnableOption "Enable Ollama + codeqwen 7b model";
   };
+
+  options.me.services.restic = {
+    enable = mkEnableOption "Enable Restic backup";
+  };
 }

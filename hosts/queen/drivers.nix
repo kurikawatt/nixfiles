@@ -3,7 +3,11 @@
   lib,
   pkgs,
   ...
-}: 
+}:
+let
+  inherit (config.boot.kernelPackages) nvidiaPackages;
+  branch = "production";
+in 
 {
   hardware.graphics = {
     enable = true;
@@ -16,6 +20,8 @@
     powerManagement.enable = false;
     powerManagement.finegrained = false;
     open = true;
+    branch = branch;
+    package = nvidiaPackages.${config.hardware.nvidia.branch};
     nvidiaSettings = true; # nvidia-settings
   };
 }
