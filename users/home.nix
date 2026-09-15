@@ -138,6 +138,7 @@ in
     deezer-enhanced
     azahar
     inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
+    mpv
   ]
   ++ (
     if osConfig.networking.hostName == "queen" 
