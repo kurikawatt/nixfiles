@@ -152,8 +152,6 @@ in
 
   programs.dconf.enable = true;
 
-  virtualisation.docker.enable = true;
-
   virtualisation.vmVariant = {
 
     virtualisation.memorySize = 8192; # 8 Gb of RAM.

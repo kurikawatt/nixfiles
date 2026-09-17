@@ -36,6 +36,7 @@
   me.services = {
     sync.enable = true;
     ollama.enable = true;
+    podman.enable = true;
   };
 
   # Framework specific things

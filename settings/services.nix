@@ -196,4 +196,8 @@ in
   options.me.services.restic = {
     enable = mkEnableOption "Enable Restic backup";
   };
+
+  options.me.services.podman = {
+    enable = mkEnableOption "Enable Podman + Docker compat.";
+  };
 }
