@@ -119,8 +119,6 @@ in
   # udisk2
   services.udisks2.enable = true;
 
-  users.mutableUsers = false;
-
   # Keymaps, Languages & Timezone
   time.timeZone = "Europe/Paris";
   i18n.defaultLocale = "en_US.UTF-8";
