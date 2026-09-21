@@ -90,7 +90,12 @@ in
       "nix-command"
       "flakes"
     ];
-    trusted-users = [ "kurik" "@wheel" ];
+    substituters = [
+      "https://cache.nixos.org/"
+    ];
+    trusted-users = [
+      "@wheel"
+    ];
     auto-optimise-store = true;
   };
   programs.nh = {
