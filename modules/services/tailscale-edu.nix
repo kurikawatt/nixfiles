@@ -31,6 +31,8 @@ lib.mkIf (config.me.services.tailscale-edu.enable) {
     ];
   };
 
+  services.openssh.settings.AllowUsers = [ "beepboop" ];
+
   security.sudo.execWheelOnly = true;
   security.pam.services.su.requireWheel = true;
 
