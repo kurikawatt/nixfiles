@@ -21,7 +21,7 @@ lib.mkIf (config.me.services.tailscale-edu.enable) {
     isNormalUser = true;
     home = "/home/beepboop";
     hashedPassword = "$y$j9T$TtdSG8ZfEoJrT0VBGBg0H1$MkBFuodCjO0BVGmitn8iySjnkSfP2JIlp2ejGsKeRM8";
-    openssh.authorizedKeys.keys = [
+    openssh.authorizedKeys.keys = config.me.authorizedSSHKeys ++ [
       # ayko's keys
       "sk-ssh-ed25519@openssh.com AAAAGnNrLXNzaC1lZDI1NTE5QG9wZW5zc2guY29tAAAAIKtQ/n+Lg+BZdaGKAkJNykyf93bjvr++lCnEeHQuV6oTAAAABHNzaDo="
       "sk-ssh-ed25519@openssh.com AAAAGnNrLXNzaC1lZDI1NTE5QG9wZW5zc2guY29tAAAAIGTDz1++tiT0SytsEP3XzTshTI6Edd+o6nMTVl/iLxzSAAAABHNzaDo="
