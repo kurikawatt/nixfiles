@@ -56,6 +56,10 @@ in
     };
   };
 
+  options.me.services.tailscale = {
+    enable = mkEnableOption "Enable Tailscale";
+  };
+
   options.me.services.fuuka-dns = {
     enable = mkEnableOption "Enable DNS for fuuka";
   };
@@ -199,5 +203,9 @@ in
 
   options.me.services.podman = {
     enable = mkEnableOption "Enable Podman + Docker compat.";
+  };
+
+  options.me.services.tailscale-edu = {
+    enable = mkEnableOption "";
   };
 }
