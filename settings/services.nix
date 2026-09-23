@@ -200,4 +200,8 @@ in
   options.me.services.podman = {
     enable = mkEnableOption "Enable Podman + Docker compat.";
   };
+
+  options.me.services.tailscale-edu = {
+    enable = mkEnableOption "";
+  };
 }
