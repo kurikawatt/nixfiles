@@ -8,6 +8,8 @@ lib.mkIf (config.me.host.desktop != "none") {
   programs.obs-studio = {
     enable = true;
 
+    enableVirtualCamera = true;
+
     package = (
       pkgs.obs-studio.override {
         cudaSupport = (config.me.host.gpuType == "nvidia");

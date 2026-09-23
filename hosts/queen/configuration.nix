@@ -25,4 +25,5 @@
 
   me.services.sync.enable = true;
   me.services.ollama.enable = true;
+  me.services.podman.enable = true;
 }
