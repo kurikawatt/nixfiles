@@ -56,6 +56,10 @@ in
     };
   };
 
+  options.me.services.tailscale = {
+    enable = mkEnableOption "Enable Tailscale";
+  };
+
   options.me.services.fuuka-dns = {
     enable = mkEnableOption "Enable DNS for fuuka";
   };
