@@ -1,6 +1,7 @@
 {
   config,
   lib,
+  pkgs,
   ...
 }:
 let
@@ -32,6 +33,11 @@ lib.mkIf services.podman.enable {
       flags = [ "--all" ];
     };
   };
+
+  # Podman Compose
+  environment.systemPackages = with pkgs; [
+    podman-compose
+  ];
 
   # Just to be sure that Docker is not installed
   virtualisation.docker.enable = lib.mkForce false;
