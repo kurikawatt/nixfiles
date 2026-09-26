@@ -208,4 +208,6 @@ in
   options.me.services.tailscale-edu = {
     enable = mkEnableOption "";
   };
+
+  options.me.services.factorio-server.enable = mkEnableOption "";
 }

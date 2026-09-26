@@ -32,6 +32,7 @@
     monitoring.prometheus = {
       node.enable = true;
     };
+    factorio-server.enable = true;
   };
 
   hardware.graphics.enable = true;

@@ -89,7 +89,7 @@
           "queen"
           #"fuuka"
           "metis"
-          #"chord"
+          "chord"
           #"violet"
         ]
           mkHost)
