@@ -9,6 +9,8 @@
   imports = [
     ./disko.nix
   ];
+  
+  boot.kernelPackages = lib.mkForce pkgs.linuxPackages;
 
   me.host.bootloader = "systemd-boot";
 
