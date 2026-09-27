@@ -9,12 +9,11 @@
   imports = [
     ./disko.nix
   ];
-  
-  boot.kernelPackages = lib.mkForce pkgs.linuxPackages;
 
   me.host.bootloader = "systemd-boot";
 
   me.host.desktop = "none";
+  me.host.gpuType = "nvidia";
   me.enableHomeManager = lib.mkForce false;
 
   me.host.samba.mountMonolith = true;

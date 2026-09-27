@@ -13,6 +13,8 @@ let
       nixFiles = fileset.toList (fileset.fileFilter (f: f.hasExt "nix") path);
     in
     builtins.filter (p: !(hasInfix "/_" (toString p))) nixFiles;
+
+    inherit (config.me) host;
 in
 {
   imports = [
@@ -76,8 +78,10 @@ in
     };
   };
 
-  # Linux Kernel Latest
-  boot.kernelPackages = pkgs.linuxPackages_latest;
+  # Kernel
+  # Hosts with NVIDIA GPU must not use latest
+  boot.kernelPackages = if host.gpuType == "nvidia" then pkgs.linuxPackages
+                        else pkgs.linuxPackages_latest;
 
   # Firmware updates
   services.fwupd.enable = true;

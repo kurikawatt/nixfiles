@@ -10,8 +10,6 @@
     ./drivers.nix
   ];
 
-  boot.kernelPackages = lib.mkForce pkgs.linuxPackages;
-
   me.host.bootloader = "systemd-boot";
   me.host.samba.mountMonolith = true;
   me.host.thatComputerIsForSchool = true;
