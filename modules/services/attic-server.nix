@@ -8,7 +8,7 @@ let
 in
 lib.mkIf attic-server.enable {
   services.atticd = {
-    enable = false;
+    enable = true;
 
     environmentFile = "/etc/atticd.env";
 

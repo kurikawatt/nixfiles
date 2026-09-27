@@ -119,6 +119,7 @@ in
     wiremix #tui mixer for pipewire
     age-plugin-tpm
     age
+    attic-client
     inputs.magla.packages.${pkgs.stdenv.hostPlatform.system}.default
   ];  
 

@@ -20,7 +20,7 @@
   me.enableHomeManager = lib.mkForce false;
 
   me.services = {
-    attic-server.enable = false;
+    attic-server.enable = true;
     sync.enable = true;
     fuuka.enable = lib.mkForce false;
     fuuka.hub.enable = true;
