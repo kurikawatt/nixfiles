@@ -24,7 +24,6 @@
     sync.enable = true;
     fuuka.enable = lib.mkForce false;
     fuuka.hub.enable = true;
-    ntfy.enable = true;
     restic.enable = true;
 
     pihole.enable = true;

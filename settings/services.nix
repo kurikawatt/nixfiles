@@ -144,20 +144,6 @@ in
     };
   };
 
-  options.me.services.ntfy = {
-    enable = mkEnableOption "Enable ntfy";
-    base-url = mkOption {
-      type = types.str;
-      default = "ntfy.kurikawa.fr";
-      description = "ntfy base url";
-    };
-    http-port = mkOption {
-      type = types.int;
-      default = 8181;
-      description = "ntfy http port";
-    };
-  };
-
   options.me.services.ollama = {
     enable = mkEnableOption "Enable Ollama + codeqwen 7b model";
   };
