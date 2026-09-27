@@ -26,8 +26,6 @@
     fuuka.hub.enable = true;
     restic.enable = true;
 
-    pihole.enable = true;
-
     tailscale-edu.enable = true;
     podman.enable = true;
   };

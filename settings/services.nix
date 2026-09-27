@@ -128,8 +128,6 @@ in
 
   };
 
-  options.me.services.pihole.enable = mkEnableOption "Enable PiHole";
-
   options.me.services.attic-server = {
     enable = mkEnableOption "Enable Atticd to serve cache";
     port = mkOption {
