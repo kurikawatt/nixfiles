@@ -9,6 +9,8 @@
   imports = [
     ./disko.nix
   ];
+  
+  boot.kernelPackages = lib.mkForce pkgs.linuxPackages;
 
   me.host.bootloader = "systemd-boot";
 
@@ -32,6 +34,7 @@
     monitoring.prometheus = {
       node.enable = true;
     };
+    factorio-server.enable = true;
   };
 
   hardware.graphics.enable = true;
