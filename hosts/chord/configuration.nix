@@ -24,10 +24,6 @@
   me.services = {
     fuuka.enable = true;
     jellyfin.enable = true;
-    navidrome = {
-      enable = true;
-      data_dir = "/media/calliope/navidrome_data";
-    };
     prowlarr = {
       enable = true;
     };
