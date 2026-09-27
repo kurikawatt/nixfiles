@@ -25,15 +25,9 @@
     fuuka.enable = lib.mkForce false;
     fuuka.hub.enable = true;
     ntfy.enable = true;
-    monitor-storage.enable = true;
     restic.enable = true;
 
     pihole.enable = true;
-
-    monitoring.prometheus = {
-      server.enable = true;
-      node.enable = true;
-    };
 
     tailscale-edu.enable = true;
     podman.enable = true;

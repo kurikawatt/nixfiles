@@ -31,9 +31,6 @@
     prowlarr = {
       enable = true;
     };
-    monitoring.prometheus = {
-      node.enable = true;
-    };
     factorio-server.enable = true;
   };
 

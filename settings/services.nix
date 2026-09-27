@@ -158,41 +158,6 @@ in
     };
   };
 
-  options.me.services.monitor-storage = {
-    enable = mkEnableOption "";
-  };
-
-  options.me.services.monitoring = {
-    prometheus = {
-      server = {
-        enable = mkEnableOption "Enable Prometheus Server";
-        nodes = mkOption {
-          type = types.listOf types.str;
-          default = [];
-          description = ""; 
-        };
-        port = mkOption {
-          type = types.int;
-          default = 9090;
-          description = "";
-        };
-        grafana-port = mkOption {
-          type = types.int;
-          default = 3000;
-          description = "";
-        };
-      };
-      node = {
-        enable = mkEnableOption "Enable Prometheus Probe (Node)";
-        port = mkOption {
-          type = types.int;
-          default = 9000;
-          description = "";
-        };
-      };
-    };
-  };
-
   options.me.services.ollama = {
     enable = mkEnableOption "Enable Ollama + codeqwen 7b model";
   };
