@@ -28,6 +28,8 @@ lib.mkIf (config.me.services.tailscale-edu.enable) {
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIIle7s0n8fPV/x6NzpMFbhuVsJgrsO94zW/Pd2QkF1CT"
       "ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBDIZOAfbe03pFpRXeB5ll3wNv+rZNgZg4rtCoiNELf3JJ7m54ze7QUrsy8LgIVk08r+Q8tuwA16yA+oDpK9fuys="
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDmLPpxET8notgJ1mE3CzMv5yjZYfHhovcV+FzEGQek+"
+      # barb's key
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOE7MM9bDdGwbTB0TxzVgSMAjuWfoxt/925bEo2e87wA"
     ];
   };
 
