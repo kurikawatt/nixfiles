@@ -27,6 +27,7 @@
       enable = true;
     };
     factorio-server.enable = true;
+    incus.enable = true;
   };
 
   hardware.graphics.enable = true;
