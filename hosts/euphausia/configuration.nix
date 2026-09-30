@@ -37,6 +37,7 @@
     sync.enable = true;
     ollama.enable = true;
     podman.enable = true;
+    tailscale.enable = true;
   };
 
   # Framework specific things

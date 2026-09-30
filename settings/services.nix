@@ -73,20 +73,6 @@ in
     };
   };
 
-  options.me.services.navidrome = {
-    enable = mkEnableOption "Enable Navidrome Server";
-    port = mkOption {
-      type = types.int;
-      default = 4533;
-      description = "Navidrome Port";
-    };
-    data_dir = mkOption {
-      type = types.str;
-      default = "/srv/music";
-      description = "Navidrome Data Dir";
-    };
-  };
-
   options.me.services.prowlarr = {
     enable = mkEnableOption "Enable Prowlarr and usefull programs for gathering content";
 
@@ -128,8 +114,6 @@ in
 
   };
 
-  options.me.services.pihole.enable = mkEnableOption "Enable PiHole";
-
   options.me.services.attic-server = {
     enable = mkEnableOption "Enable Atticd to serve cache";
     port = mkOption {
@@ -141,55 +125,6 @@ in
       type = types.str;
       default = "/srv/attic";
       description = "Attic cache location";
-    };
-  };
-
-  options.me.services.ntfy = {
-    enable = mkEnableOption "Enable ntfy";
-    base-url = mkOption {
-      type = types.str;
-      default = "ntfy.kurikawa.fr";
-      description = "ntfy base url";
-    };
-    http-port = mkOption {
-      type = types.int;
-      default = 8181;
-      description = "ntfy http port";
-    };
-  };
-
-  options.me.services.monitor-storage = {
-    enable = mkEnableOption "";
-  };
-
-  options.me.services.monitoring = {
-    prometheus = {
-      server = {
-        enable = mkEnableOption "Enable Prometheus Server";
-        nodes = mkOption {
-          type = types.listOf types.str;
-          default = [];
-          description = ""; 
-        };
-        port = mkOption {
-          type = types.int;
-          default = 9090;
-          description = "";
-        };
-        grafana-port = mkOption {
-          type = types.int;
-          default = 3000;
-          description = "";
-        };
-      };
-      node = {
-        enable = mkEnableOption "Enable Prometheus Probe (Node)";
-        port = mkOption {
-          type = types.int;
-          default = 9000;
-          description = "";
-        };
-      };
     };
   };
 

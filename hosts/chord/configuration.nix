@@ -9,12 +9,11 @@
   imports = [
     ./disko.nix
   ];
-  
-  boot.kernelPackages = lib.mkForce pkgs.linuxPackages;
 
   me.host.bootloader = "systemd-boot";
 
   me.host.desktop = "none";
+  me.host.gpuType = "nvidia";
   me.enableHomeManager = lib.mkForce false;
 
   me.host.samba.mountMonolith = true;
@@ -24,15 +23,8 @@
   me.services = {
     fuuka.enable = true;
     jellyfin.enable = true;
-    navidrome = {
-      enable = true;
-      data_dir = "/media/calliope/navidrome_data";
-    };
     prowlarr = {
       enable = true;
-    };
-    monitoring.prometheus = {
-      node.enable = true;
     };
     factorio-server.enable = true;
   };
