@@ -34,8 +34,7 @@
       server.enable = true;
       node.enable = true;
     };
-
-    tailscale-edu.enable = true;
+    
     podman.enable = true;
   };
 
