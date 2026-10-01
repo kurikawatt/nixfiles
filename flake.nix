@@ -80,6 +80,16 @@
             }
           ];
         };
+
+      mkContainer =
+        name: inputs.nixpkgs.lib.nixosSystem rec {
+          specialArgs = { inherit inputs; };
+          modules = [
+            "${inputs.nixpkgs}/nixos/modules/virtualisation/lxc-container.nix"
+            ./containers/container.nix
+            ./containers/${name}/configuration.nix
+          ];
+        };
     in
     {
       nixosConfigurations =
@@ -93,6 +103,10 @@
           #"violet"
         ]
           mkHost)
+        //
+        (inputs.nixpkgs.lib.genAttrs [
+          "base"
+        ] mkContainer )
         // {
           iso = inputs.nixpkgs.lib.nixosSystem {
             specialArgs = {
