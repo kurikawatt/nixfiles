@@ -109,8 +109,6 @@ in
     enable = mkEnableOption "Enable Podman + Docker compat.";
   };
 
-  options.me.services.factorio-server.enable = mkEnableOption "";
-
   options.me.services.incus = {
     enable = mkEnableOption "Enable Incus";
   };
