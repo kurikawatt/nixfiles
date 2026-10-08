@@ -45,42 +45,11 @@ in
   options.me.services.prowlarr = {
     enable = mkEnableOption "Enable Prowlarr and usefull programs for gathering content";
 
-    deluge-port = mkOption {
-      type = types.int;
-      default = 8112;
-      description = "Deluge port";
-    };
-
     deluge-dataDir = mkOption {
       type = types.str;
       default = "/var/lib/deluge";
       description = "Deluge Data Directory";
     };
-
-    prowlarr-port = mkOption {
-      type = types.int;
-      default = 9696;
-      description = "Prowlarr port";
-    };
-
-    sonarr-port = mkOption {
-      type = types.int;
-      default = 8989;
-      description = "Sonarr port";
-    };
-
-    radarr-port = mkOption {
-      type = types.int;
-      default = 7878;
-      description = "Radarr port";
-    };
-
-    bazarr-port = mkOption {
-      type = types.int;
-      default = 6767;
-      description = "Bazarr port";
-    };
-
   };
 
   options.me.services.attic-server = {

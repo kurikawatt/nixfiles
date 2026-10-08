@@ -25,7 +25,6 @@
     prowlarr = {
       enable = true;
     };
-    factorio-server.enable = true;
     incus.enable = true;
   };
 

@@ -15,7 +15,6 @@ lib.mkIf prowlarr.enable {
     enable = true;
     web = {
       enable = true;
-      port = prowlarr.deluge-port;
     };
     dataDir = prowlarr.deluge-dataDir;
     group = "prowdl";
@@ -23,32 +22,49 @@ lib.mkIf prowlarr.enable {
 
   services.prowlarr = {
     enable = true;
-    settings.server.port = prowlarr.prowlarr-port;
+    settings.server.port = 9696;
   };
 
   services.sonarr = {
     enable = true;
     group = "prowdl";
-    settings.server.port = prowlarr.sonarr-port;
+    settings.server.port = 8989;
   };
 
   services.radarr = {
     enable = true;
     group = "prowdl";
-    settings.server.port = prowlarr.radarr-port;
+    settings.server.port = 7878;
   };
 
-  services.bazarr = {
-    enable = true;
-    group = "prowdl";
-    listenPort = prowlarr.bazarr-port;
+  services.tailscale.serve.services = {
+    "deluge" = {
+      endpoints = {
+        "tcp:8112" = "http://127.0.0.1:8112";
+      };
+      advertised = true;
+    };
+    "prowlarr" = {
+      endpoints = {
+        "tcp:9696" = "http://127.0.0.1:9696";
+      };
+      advertised = true;
+    };
+    "sonarr" = {
+      endpoints = {
+        "tcp:8989" = "http://127.0.0.1:8989";
+      };
+      advertised = true;
+    };
+    "radarr" = {
+      endpoints = {
+        "tcp:7878" = "http://127.0.0.1:7878";
+      };
+      advertised = true;
+    };
   };
 
   networking.firewall.interfaces."ts0".allowedTCPPorts = [
-    config.me.services.prowlarr.deluge-port
-    config.me.services.prowlarr.prowlarr-port
-    config.me.services.prowlarr.sonarr-port
-    config.me.services.prowlarr.radarr-port
-    config.me.services.prowlarr.bazarr-port
+    8112 9696 8989 7878
   ];
 }
