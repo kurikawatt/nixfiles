@@ -21,23 +21,9 @@ lib.mkIf prowlarr.enable {
     group = "prowdl";
   };
 
-  services.nginx.virtualHosts."deluge.${config.networking.hostName}.${config.me.services.domain}" = {
-    locations."/" = {
-      proxyPass = "http://127.0.0.1:${toString prowlarr.deluge-port}";
-      proxyWebsockets = true;
-    };
-  };
-
   services.prowlarr = {
     enable = true;
     settings.server.port = prowlarr.prowlarr-port;
-  };
-
-  services.nginx.virtualHosts."prowlarr.${config.networking.hostName}.${config.me.services.domain}" = {
-    locations."/" = {
-      proxyPass = "http://127.0.0.1:${toString prowlarr.prowlarr-port}";
-      proxyWebsockets = true;
-    };
   };
 
   services.sonarr = {
@@ -46,37 +32,16 @@ lib.mkIf prowlarr.enable {
     settings.server.port = prowlarr.sonarr-port;
   };
 
-  services.nginx.virtualHosts."sonarr.${config.networking.hostName}.${config.me.services.domain}" = {
-    locations."/" = {
-      proxyPass = "http://127.0.0.1:${toString prowlarr.sonarr-port}";
-      proxyWebsockets = true;
-    };
-  };
-
   services.radarr = {
     enable = true;
     group = "prowdl";
     settings.server.port = prowlarr.radarr-port;
   };
 
-  services.nginx.virtualHosts."radarr.${config.networking.hostName}.${config.me.services.domain}" = {
-    locations."/" = {
-      proxyPass = "http://127.0.0.1:${toString prowlarr.radarr-port}";
-      proxyWebsockets = true;
-    };
-  };
-
   services.bazarr = {
     enable = true;
     group = "prowdl";
     listenPort = prowlarr.bazarr-port;
-  };
-
-  services.nginx.virtualHosts."bazarr.${config.networking.hostName}.${config.me.services.domain}" = {
-    locations."/" = {
-      proxyPass = "http://127.0.0.1:${toString prowlarr.bazarr-port}";
-      proxyWebsockets = true;
-    };
   };
 
   networking.firewall.interfaces."ts0".allowedTCPPorts = [
