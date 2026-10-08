@@ -16,7 +16,6 @@ let
 
     inherit (osConfig) me;
     inherit (osConfig.me) colors;
-    inherit (osConfig.me.services.fuuka) peers;
 in
 {
   imports = [ ./waybar/waybar.nix ]
@@ -73,13 +72,6 @@ in
   programs = {
     ssh = {
       enable = true;
-      settings = lib.mapAttrs
-      (name: peerInfo: {
-        HostName = peerInfo.ipv4;
-        User = osConfig.me.user;
-        Port = 22;
-      })
-      peers;
     };
 
     gpg.enable = true;

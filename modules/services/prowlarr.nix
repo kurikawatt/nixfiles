@@ -79,7 +79,7 @@ lib.mkIf prowlarr.enable {
     };
   };
 
-  networking.firewall.interfaces."fuuka0".allowedTCPPorts = [
+  networking.firewall.interfaces."ts0".allowedTCPPorts = [
     config.me.services.prowlarr.deluge-port
     config.me.services.prowlarr.prowlarr-port
     config.me.services.prowlarr.sonarr-port

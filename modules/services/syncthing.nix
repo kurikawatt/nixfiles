@@ -76,6 +76,6 @@ lib.mkIf config.me.services.sync.enable {
 
   };
 
-  networking.firewall.interfaces."fuuka0".allowedTCPPorts = [ 8384 22000 ];
-  networking.firewall.interfaces."fuuka0".allowedUDPPorts = [ 22000 21027 ];
+  networking.firewall.interfaces."ts0".allowedTCPPorts = [ 8384 22000 ];
+  networking.firewall.interfaces."ts0".allowedUDPPorts = [ 22000 21027 ];
 }
