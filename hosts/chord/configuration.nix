@@ -21,7 +21,6 @@
   me.host.autoUpgrade.enable = true;
 
   me.services = {
-    fuuka.enable = true;
     jellyfin.enable = true;
     prowlarr = {
       enable = true;
@@ -45,6 +44,8 @@
   };
 
   services.xserver.videoDrivers = [ "nvidia" ];
+
+  services.tailscale.serve.enable = true;
 
   services.jellyfin = {
     transcoding = {

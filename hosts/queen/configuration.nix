@@ -21,7 +21,9 @@
     motherboard = "intel";
   };
 
-  me.services.sync.enable = true;
-  me.services.ollama.enable = true;
-  me.services.podman.enable = true;
+  me.services = {
+    sync.enable = true;
+    ollama.enable = true;
+    podman.enable = true;
+  };
 }

@@ -36,8 +36,10 @@ in
     enableHomeManager = true;
   };
 
+  me.services.tailscale.enable = true;
+
   me.services.fuuka = {
-    enable = true;
+    enable = false;
     hub = {
       name = "metis";
       port = 51280;

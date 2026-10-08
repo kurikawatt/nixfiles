@@ -4,17 +4,12 @@
   pkgs,
   ...
 }:
-lib.mkIf config.me.services.jellyfin.enable {
+let
+  inherit (config.me.services) jellyfin;
+in
+lib.mkIf jellyfin.enable {
   
   services.jellyfin.enable = true;
-  services.jellyfin.openFirewall = true;
-  
-  services.nginx.virtualHosts."jellyfin.${config.networking.hostName}.${config.me.services.domain}" = {
-    locations."/" = {
-      proxyPass = "http://127.0.0.1:${toString config.me.services.jellyfin.port}";
-      proxyWebsockets = true;
-    };
-  };
  
   # To be able to use Hardware
   # + prowdl bc it may be usefull
@@ -25,6 +20,13 @@ lib.mkIf config.me.services.jellyfin.enable {
   ];
 
   networking.firewall.allowedTCPPorts = [
-    config.me.services.jellyfin.port
+    8096 # http
   ];
+
+  services.tailscale.serve.services."jellyfin" = {
+    endpoints = {
+      "tcp:8096" = "http://127.0.0.1:8096";
+    };
+    advertised = true;
+  };
 }

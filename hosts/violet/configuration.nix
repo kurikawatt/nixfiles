@@ -32,6 +32,4 @@
   };
 
   me.enableHomeManager = false;
-  me.services.fuuka.enable = false;
-  me.services.fuuka.enableHub = true;
 }

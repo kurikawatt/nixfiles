@@ -22,10 +22,10 @@
   me.services = {
     attic-server.enable = true;
     sync.enable = true;
-    fuuka.enable = lib.mkForce false;
-    fuuka.hub.enable = true;
     restic.enable = true;
 
     podman.enable = true;
   };
+
+  services.tailscale.serve.enable = true;
 }

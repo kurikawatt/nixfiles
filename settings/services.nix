@@ -58,6 +58,16 @@ in
 
   options.me.services.tailscale = {
     enable = mkEnableOption "Enable Tailscale";
+    interfaceName = mkOption {
+      description = "Interface name for tailscale";
+      type = types.str;
+      default = "ts0";
+    };
+    tailnetDomain = mkOption {
+      description = "Tailnet pretty URL ";
+      type = types.str;
+      default = "marten-matrix.ts.net";
+    }
   };
 
   options.me.services.fuuka-dns = {
