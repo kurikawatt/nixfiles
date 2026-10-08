@@ -40,25 +40,25 @@ lib.mkIf prowlarr.enable {
   services.tailscale.serve.services = {
     "deluge" = {
       endpoints = {
-        "tcp:8112" = "http://127.0.0.1:8112";
+        "tcp:80" = "http://127.0.0.1:8112";
       };
       advertised = true;
     };
     "prowlarr" = {
       endpoints = {
-        "tcp:9696" = "http://127.0.0.1:9696";
+        "tcp:80" = "http://127.0.0.1:9696";
       };
       advertised = true;
     };
     "sonarr" = {
       endpoints = {
-        "tcp:8989" = "http://127.0.0.1:8989";
+        "tcp:80" = "http://127.0.0.1:8989";
       };
       advertised = true;
     };
     "radarr" = {
       endpoints = {
-        "tcp:7878" = "http://127.0.0.1:7878";
+        "tcp:80" = "http://127.0.0.1:7878";
       };
       advertised = true;
     };

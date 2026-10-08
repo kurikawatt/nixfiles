@@ -25,7 +25,7 @@ lib.mkIf jellyfin.enable {
 
   services.tailscale.serve.services."jellyfin" = {
     endpoints = {
-      "tcp:8096" = "http://127.0.0.1:8096";
+      "tcp:80" = "http://127.0.0.1:8096";
     };
     advertised = true;
   };
