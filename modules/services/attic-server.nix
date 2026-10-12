@@ -30,4 +30,13 @@ lib.mkIf attic-server.enable {
       };
     };
   };
+
+  services.tailscale.serve.services = {
+    "attic" = {
+      endpoints = {
+        "tcp:80" = "http://localhost:8080";
+      };
+      advertised = true;
+    };
+  };
 }
