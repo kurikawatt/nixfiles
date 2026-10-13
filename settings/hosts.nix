@@ -23,7 +23,7 @@ in
 
     desktop = mkOption {
         type = types.enum [ "none" "mango" "mangonoct" ];
-        default = "mango";
+        default = "mangonoct";
         description = "";
     };
 
