@@ -52,20 +52,6 @@ in
     };
   };
 
-  options.me.services.attic-server = {
-    enable = mkEnableOption "Enable Atticd to serve cache";
-    port = mkOption {
-      type = types.int;
-      default = 8080;
-      description = "Atticd port";
-    };
-    cacheLocation = mkOption {
-      type = types.str;
-      default = "/srv/attic";
-      description = "Attic cache location";
-    };
-  };
-
   options.me.services.ollama = {
     enable = mkEnableOption "Enable Ollama + codeqwen 7b model";
   };

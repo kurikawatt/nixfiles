@@ -7,7 +7,6 @@
 }:
 {
   imports = [
-    inputs.attic.nixosModules.atticd
     ./disko.nix
   ];
 
@@ -20,7 +19,6 @@
   me.enableHomeManager = lib.mkForce false;
 
   me.services = {
-    attic-server.enable = true;
     sync.enable = true;
     restic.enable = true;
 
