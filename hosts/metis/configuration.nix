@@ -25,5 +25,5 @@
     podman.enable = true;
   };
 
-  services.tailscale.serve.enable = true;
+  #services.tailscale.serve.enable = true;
 }
