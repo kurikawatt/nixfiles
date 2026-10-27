@@ -37,6 +37,12 @@ lib.mkIf prowlarr.enable {
     settings.server.port = 7878;
   };
 
+  services.lidarr = {
+    enable = true;
+    group = "prowdl";
+    settings.server.port = 8686;
+  };
+
   services.tailscale.serve.services = {
     "deluge" = {
       endpoints = {
@@ -62,9 +68,15 @@ lib.mkIf prowlarr.enable {
       };
       advertised = true;
     };
+    "lidarr" = {
+      endpoints = {
+        "tcp:80" = "http://127.0.0.1:8686";
+      };
+      advertised = true;
+    };
   };
 
   networking.firewall.interfaces."ts0".allowedTCPPorts = [
-    8112 9696 8989 7878
+    8112 9696 8989 7878 8686
   ];
 }
