@@ -27,8 +27,14 @@
       options = [ "fmask=0022" "dmask=0022" ];
     };
 
-  fileSystems."/games" = {
-    device = "/dev/disk/by-uuid/07a6ea2f-dd9c-44a3-aa1e-e509b0c35f99";
+  fileSystems."/media/Anat" = {
+    device = "/dev/disk/by-label/Anat";
+    fsType = "ext4";
+    options = [ "auto" "nofail" ];
+  };
+
+  fileSystems."/media/Johanna" = {
+    device = "/dev/disk/by-label/Johanna";
     fsType = "ext4";
     options = [ "auto" "nofail" ];
   };
@@ -47,6 +53,8 @@
   };
 
   systemd.tmpfiles.rules = [
+    "d /media/Anat 0775 ${config.me.user} users - -"
+    "d /media/Johanna 0775 ${config.me.user} users - -"
     "d /media/Eht 0775 ${config.me.user} users - -"
     "d /media/Drakodios 0775 ${config.me.user} users - -"
   ];
