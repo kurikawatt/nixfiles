@@ -102,4 +102,8 @@ in
     };
     
   };
+
+  services.resolved.enable = true;
+  services.mullvad-vpn.enable = true;
+
 }
