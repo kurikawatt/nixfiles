@@ -29,7 +29,7 @@
     security = {
       secureboot = true;
       tpm2 = true;
-      fingerprint = false;
+      fingerprint = true;
     };
   };
   

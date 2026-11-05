@@ -131,6 +131,7 @@ in
     azahar
     inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
     mpv
+    ppsspp
   ]
   ++ (
     if osConfig.networking.hostName == "queen" 
