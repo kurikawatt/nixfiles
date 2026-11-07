@@ -8,24 +8,23 @@
 let
   inherit (config.me) fonts colors;
 in
-lib.mkIf (config.me.host.desktop == "mango") {
-  services.displayManager.ly.enable = true;
-
-  security.pam.services.swaylock = { };
-
-  programs.mango.enable = true;
+{
+  programs.noctalia-greeter = {
+    enable = true;
+    settings = {
+      cursor = {
+        theme = "Adwaita";
+        size = 16;
+      };
+      keyboard = {
+        layout = "fr";
+      };
+    };
+  };
 
   xdg.portal = {
     enable = true;
-    wlr = {
-      enable = true;
-      settings = {
-        screencast = {
-          chooser_type = "simple";
-          chooser_cmd = "${pkgs.slurp}/bin/slurp -f %o -or";
-        };
-      };
-    };
+    wlr.enable = true;
     extraPortals = with pkgs; [
       xdg-desktop-portal-wlr
       xdg-desktop-portal-gtk
@@ -79,7 +78,7 @@ lib.mkIf (config.me.host.desktop == "mango") {
       };
     };
   };
-
+  
   environment.systemPackages = with pkgs; [
     # file explorer
     yazi
@@ -96,6 +95,6 @@ lib.mkIf (config.me.host.desktop == "mango") {
     wl-clipboard
     wl-clip-persist
 
-    inputs.awww.packages.${pkgs.stdenv.hostPlatform.system}.awww
+    inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default
   ];
 }

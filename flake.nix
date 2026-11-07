@@ -64,16 +64,26 @@
           modules = [
             sops-nix.nixosModules.sops
             disko.nixosModules.disko
-            mangowm.nixosModules.mango
             inputs.noctalia-greeter.nixosModules.default
             inputs.home-manager.nixosModules.home-manager
             ./hosts/${name}/configuration.nix
             ./configuration.nix
             {
               networking.hostName = name;
-              home-manager.extraSpecialArgs = specialArgs;
-              home-manager.useGlobalPkgs = true;
-              home-manager.useUserPackages = true;
+
+              home-manager = {
+                
+                extraSpecialArgs = specialArgs;
+                useGlobalPkgs = true;
+                useUserPackages = true;
+
+                users.kurik = {
+                  imports = [
+                    mangowm.hmModules.mango
+                  ];
+                };
+              };
+
               nixpkgs.config.allowUnfree = true;
             }
           ];
