@@ -6,21 +6,10 @@
 , ...
 }:
 let
-  import-tree =
-    path:
-    let
-      inherit (inputs.nixpkgs.lib) fileset hasInfix;
-      nixFiles = fileset.toList (fileset.fileFilter (f: f.hasExt "nix") path);
-    in
-    builtins.filter (p: !(hasInfix "/_" (toString p))) nixFiles;
-
-    inherit (osConfig) me;
-    inherit (osConfig.me) fonts colors;
+  inherit (osConfig) me;
+  inherit (osConfig.me) fonts colors;
 in
 {
-  imports = [ ./waybar/waybar.nix ]
-  ++ (import-tree ./programs);
-
   home.stateVersion = "26.05";
 
   home.file = {
