@@ -65,6 +65,7 @@
             sops-nix.nixosModules.sops
             disko.nixosModules.disko
             inputs.noctalia-greeter.nixosModules.default
+            inputs.mangowm.nixosModules.mango
             inputs.home-manager.nixosModules.home-manager
             ./hosts/${name}/configuration.nix
             ./configuration.nix

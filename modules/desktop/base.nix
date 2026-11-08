@@ -9,6 +9,11 @@ let
   inherit (config.me) fonts colors;
 in
 {
+  programs.mango = {
+    enable = true;
+    addLoginEntry = true;
+  };
+
   programs.noctalia-greeter = {
     enable = true;
     settings = {
