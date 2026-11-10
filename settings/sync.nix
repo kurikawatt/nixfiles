@@ -100,6 +100,10 @@ in
           path = "${config.me.home}/Emu";
           devices = builtins.filter (device: !(builtins.elem device [ "Kuri" "wind" ])) syncDevices;
         };
+        "git" = {
+          path = "${config.me.home}/git";
+          devices = [ "queen" "metis" "euphausia" "aigis" ];
+        };
       };
     };
   };
