@@ -98,10 +98,6 @@ in
   services.xserver.xkb.layout = "fr";
   services.xserver.xkb.options = "eurosign:e,caps:escape";
 
-  # Home manager 
-  home-manager.useGlobalPkgs = true;
-  home-manager.useUserPackages = true;
-
   services.openssh = {
     enable = true;
     settings = {

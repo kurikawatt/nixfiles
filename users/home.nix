@@ -10,6 +10,10 @@ let
   inherit (osConfig.me) fonts colors;
 in
 {
+  imports = [
+    inputs.mangowm.hmModules.mango
+  ];
+
   home.stateVersion = "26.05";
 
   home.file = {

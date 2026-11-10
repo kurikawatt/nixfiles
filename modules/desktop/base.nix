@@ -8,7 +8,7 @@
 let
   inherit (config.me) fonts colors;
 in
-{
+lib.mkIf config.me.enableHomeManager {
   programs.mango = {
     enable = true;
     addLoginEntry = true;

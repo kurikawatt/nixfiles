@@ -77,6 +77,10 @@ in
           name = "Kuri";
           id = "AM7SSRG-GWZ4JEC-SDMCDXL-TGPCBYU-MNEQMZU-YS25JNO-OYZIBHP-Y2LFSAP";
         };
+        wind = {
+          name = "wind";
+          id = "N7JRRWT-XMBAVQ7-KAFR3QX-4NT6AQA-LSQFKID-AEPLDRV-JT3YAUR-HTQCUQN";
+        };
       };
     };
 
@@ -90,11 +94,11 @@ in
         };
         "Pictures" = {
           path = "${config.me.home}/Pictures";
-          devices = syncDevices;
+          devices = builtins.filter (device: !(builtins.elem device [ "wind" ])) syncDevices;
         };
         "Emu" = {
           path = "${config.me.home}/Emu";
-          devices = builtins.filter (device: !(builtins.elem device [ "Kuri" ])) syncDevices;
+          devices = builtins.filter (device: !(builtins.elem device [ "Kuri" "wind" ])) syncDevices;
         };
       };
     };

@@ -73,16 +73,7 @@
               networking.hostName = name;
 
               home-manager = {
-                
                 extraSpecialArgs = specialArgs;
-                useGlobalPkgs = true;
-                useUserPackages = true;
-
-                users.kurik = {
-                  imports = [
-                    mangowm.hmModules.mango
-                  ];
-                };
               };
 
               nixpkgs.config.allowUnfree = true;

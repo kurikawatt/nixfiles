@@ -1,7 +1,8 @@
-{ pkgs
-, config
-, lib
-, ...
+{ pkgs, 
+  config,
+  lib, 
+  inputs,
+  ...
 }:
 {
   config = lib.mkMerge [
@@ -26,7 +27,12 @@
     }
 
     (lib.mkIf config.me.enableHomeManager {
-      home-manager.users."${config.me.user}" = ./home.nix;
+        # Home manager 
+        home-manager = {
+          useGlobalPkgs = true;
+          useUserPackages = true;
+          users."${config.me.user}" = ./home.nix;
+        };
     })
   ];
 }
