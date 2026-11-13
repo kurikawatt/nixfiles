@@ -78,6 +78,10 @@ lib.mkIf config.me.host.isDesktop {
       };
     };
   };
+
+  nixpkgs.config.permittedInsecurePackages = [
+    "deezer-enhanced-1.5.1"
+  ];
   
   environment.systemPackages = with pkgs; [
     yazi
