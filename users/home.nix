@@ -104,7 +104,7 @@ in
     '';
     settings = {
       # Mess
-      sync_obj_enable = if osConfig.me.host.gpuType == "nvidia" then 1 else 0;
+      sync_obj_enable = 1; # if osConfig.me.host.gpuType == "nvidia" then 1 else 0
       
       # Keyboard
       xkb_rules_layout = "fr";
