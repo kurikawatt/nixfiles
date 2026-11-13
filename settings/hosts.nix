@@ -124,5 +124,11 @@ in
 
     };
 
+    specificPackages = mkOption {
+      type = types.listOf types.package;
+      default = [ ];
+      description = "Host specific packages";
+    };
+
   };
 }

@@ -104,31 +104,4 @@ in
       ];
     };
   };
-
-  home.packages = with pkgs; [
-    vesktop
-    obsidian
-    thunderbird
-    sops
-    jellyfin-desktop
-    gh
-    bluetuith
-    nixd
-    nixpkgs-fmt
-    deezer-enhanced
-    azahar
-    inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
-    mpv
-    ppsspp
-  ]
-  ++ (
-    if osConfig.networking.hostName == "queen" 
-    then [
-      deluge
-      gimp
-      archipelago
-      poptracker
-      prismlauncher
-    ] else []
-  );
 }

@@ -26,4 +26,13 @@
     ollama.enable = true;
     podman.enable = true;
   };
+
+  me.host.specificPackages = [
+    azahar
+    deluge
+    gimp
+    archipelago
+    poptracker
+    prismlauncher
+  ];
 }

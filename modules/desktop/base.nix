@@ -8,12 +8,7 @@
 let
   inherit (config.me) fonts colors;
 in
-lib.mkIf config.me.enableHomeManager {
-  programs.mango = {
-    enable = true;
-    addLoginEntry = true;
-  };
-
+lib.mkIf config.me.host.isDesktop {
   programs.noctalia-greeter = {
     enable = true;
     settings = {
@@ -85,21 +80,26 @@ lib.mkIf config.me.enableHomeManager {
   };
   
   environment.systemPackages = with pkgs; [
-    # file explorer
     yazi
-    # screenshots
     grim
     slurp
-    # for gsettings
     glib
     gsettings-desktop-schemas
-
     brightnessctl
     playerctl
-
     wl-clipboard
     wl-clip-persist
 
+    deezer-enhanced
+    mpv
+    ppsspp
+    vesktop
+    obsidian
+    thunderbird
+    sops
+    gh
+
     inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default
+    inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
   ];
 }
