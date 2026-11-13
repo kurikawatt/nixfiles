@@ -21,9 +21,9 @@ in
       description = "Define which bootloader is used";
     };
 
-    desktop = mkOption {
-        type = types.enum [ "none" "mango" "mangonoct" ];
-        default = "mangonoct";
+    isDesktop = mkOption {
+        type = types.bool;
+        default = false;
         description = "";
     };
 

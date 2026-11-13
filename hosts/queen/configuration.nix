@@ -14,7 +14,7 @@
   me.host.samba.mountMonolith = true;
   me.host.thatComputerIsForSchool = true;
   me.host.gpuType = "nvidia";
-  me.host.desktop = "mangonoct";
+  me.host.isDesktop = true;
 
   services.hardware.openrgb = {
     enable = true;

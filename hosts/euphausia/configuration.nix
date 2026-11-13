@@ -25,7 +25,7 @@
       height = 1600;
       scale = 1.5;
     };
-    desktop = "mangonoct";
+    isDesktop = true;
     security = {
       secureboot = true;
       tpm2 = true;

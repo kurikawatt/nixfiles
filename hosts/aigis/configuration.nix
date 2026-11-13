@@ -9,6 +9,7 @@
 
   me.host = {
     isLaptop = true;
+    isDesktop = true;
     security = {
       secureboot = true;
       tpm2 = true;
