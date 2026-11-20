@@ -40,6 +40,10 @@
     tailscale.enable = true;
   };
 
+  me.apps = {
+    retro.retroarch.enable = true;
+  };
+
   # Framework specific things
   hardware.fw-fanctrl = {
     enable = true;                         # This is needed to enable the service

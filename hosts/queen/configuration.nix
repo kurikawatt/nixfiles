@@ -23,16 +23,21 @@
 
   me.services = {
     sync.enable = true;
-    ollama.enable = true;
     podman.enable = true;
   };
 
   me.host.specificPackages = [
-    azahar
-    deluge
-    gimp
-    archipelago
-    poptracker
-    prismlauncher
+    pkgs.azahar
+    pkgs.deluge
+    pkgs.gimp
+    pkgs.archipelago
+    pkgs.poptracker
+    pkgs.prismlauncher
   ];
+
+  me.apps = {
+    retro = {
+      retroarch.enable = true;
+    };
+  };
 }
