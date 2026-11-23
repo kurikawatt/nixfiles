@@ -11,6 +11,7 @@ lib.mkIf config.me.apps.retro.retroarch.enable {
       cores.mgba # GBA
       cores.melonds # DS
       cores.pcsx2 # PS2
+      cores.dolphin # Wii & GameCube
     ]))
   ];
 
