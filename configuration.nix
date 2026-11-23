@@ -79,6 +79,7 @@ in
     wiremix #tui mixer for pipewire
     age-plugin-tpm
     age
+    neovim
     inputs.magla.packages.${pkgs.stdenv.hostPlatform.system}.default
   ];  
 
