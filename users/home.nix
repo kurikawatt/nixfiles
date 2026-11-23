@@ -90,18 +90,4 @@ in
 
   # --- Services --
   services.udiskie.enable = true;
-
-  # --- Apps ---
-  programs = {
-    neovim.enable = true;
-    
-    vscodium = {
-      enable = true;
-      profiles.default.extensions = with pkgs.vscode-extensions; [
-        enkia.tokyo-night
-        ms-python.python
-        jnoortheen.nix-ide
-      ];
-    };
-  };
 }
