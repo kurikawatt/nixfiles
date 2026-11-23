@@ -15,7 +15,6 @@
 
   me.host.autoUpgrade.enable = true;
 
-  me.host.desktop = "none";
   me.enableHomeManager = lib.mkForce false;
 
   me.services = {

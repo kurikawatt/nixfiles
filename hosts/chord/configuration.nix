@@ -12,7 +12,6 @@
 
   me.host.bootloader = "systemd-boot";
 
-  me.host.desktop = "none";
   me.host.gpuType = "nvidia";
   me.enableHomeManager = lib.mkForce false;
 
